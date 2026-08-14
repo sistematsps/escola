@@ -1,0 +1,2241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Histórico Escolar</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f1f5f9;
+    color:#1e293b;
+}
+
+header{
+    background:#0f172a;
+    color:white;
+    padding:15px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+
+.header-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.header-title span{
+    font-size:30px;
+}
+
+.header-title h1{
+    font-size:20px;
+}
+
+.btn{
+    border:none;
+    padding:11px 16px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:14px;
+}
+
+.btn-primary{
+    background:#2563eb;
+    color:white;
+}
+
+.btn-primary:hover{
+    background:#1d4ed8;
+}
+
+.btn-success{
+    background:#16a34a;
+    color:white;
+}
+
+.btn-danger{
+    background:#dc2626;
+    color:white;
+}
+
+.btn-warning{
+    background:#d97706;
+    color:white;
+}
+
+.btn-secondary{
+    background:#64748b;
+    color:white;
+}
+
+main{
+    max-width:1400px;
+    margin:auto;
+    padding:25px;
+}
+
+.school-info{
+    background:white;
+    padding:18px 20px;
+    border-radius:12px;
+    margin-bottom:20px;
+    border-left:5px solid #2563eb;
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
+}
+
+.school-info strong{
+    display:block;
+    font-size:18px;
+    margin-bottom:5px;
+}
+
+.school-info span{
+    color:#64748b;
+}
+
+.top-area{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.top-area h2{
+    font-size:25px;
+}
+
+.search{
+    margin-bottom:20px;
+}
+
+.search input{
+    width:100%;
+    padding:13px;
+    border:1px solid #cbd5e1;
+    border-radius:9px;
+    font-size:15px;
+    outline:none;
+}
+
+.search input:focus{
+    border-color:#2563eb;
+}
+
+.form-box{
+    display:none;
+    background:white;
+    padding:25px;
+    border-radius:14px;
+    margin-bottom:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+.form-box h3{
+    margin-bottom:20px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:bold;
+    font-size:14px;
+}
+
+.form-group input,
+.form-group select{
+    width:100%;
+    padding:12px;
+    border:1px solid #cbd5e1;
+    border-radius:8px;
+    outline:none;
+    font-size:14px;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+    border-color:#2563eb;
+}
+
+.full{
+    grid-column:1/-1;
+}
+
+.disciplinas-box{
+    margin-top:25px;
+}
+
+.disciplinas-box h4{
+    margin-bottom:12px;
+}
+
+.disciplina-row{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr auto;
+    gap:10px;
+    margin-bottom:10px;
+    align-items:center;
+}
+
+.disciplina-row input,
+.disciplina-row select{
+    width:100%;
+    padding:10px;
+    border:1px solid #cbd5e1;
+    border-radius:7px;
+}
+
+.remove-disciplina{
+    border:none;
+    background:#dc2626;
+    color:white;
+    padding:9px 11px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.form-buttons{
+    margin-top:20px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.table-box{
+    background:white;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+.table-container{
+    width:100%;
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:1000px;
+}
+
+th{
+    background:#e2e8f0;
+    padding:13px;
+    text-align:left;
+    font-size:13px;
+}
+
+td{
+    padding:12px;
+    border-top:1px solid #e2e8f0;
+    font-size:14px;
+}
+
+.actions{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+}
+
+.actions .btn{
+    padding:7px 9px;
+    font-size:12px;
+}
+
+.empty{
+    text-align:center;
+    padding:35px;
+    color:#64748b;
+}
+
+.message{
+    display:none;
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:20px;
+}
+
+.message.success{
+    display:block;
+    background:#dcfce7;
+    color:#166534;
+}
+
+.message.error{
+    display:block;
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+.badge{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.badge-success{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.badge-danger{
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+.badge-warning{
+    background:#fef3c7;
+    color:#92400e;
+}
+
+@media(max-width:800px){
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .full{
+        grid-column:auto;
+    }
+
+    .disciplina-row{
+        grid-template-columns:1fr;
+    }
+
+    header{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .top-area{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="header-title">
+
+        <span>📚</span>
+
+        <h1>
+            Histórico Escolar
+        </h1>
+
+    </div>
+
+    <button
+        class="btn btn-secondary"
+        onclick="voltarPainel()">
+
+        ← Painel
+
+    </button>
+
+</header>
+
+
+<main>
+
+<div id="message"
+     class="message">
+</div>
+
+
+<div class="school-info">
+
+    <strong id="nomeEscola">
+        Carregando escola...
+    </strong>
+
+    <span id="usuarioInfo">
+        Carregando usuário...
+    </span>
+
+</div>
+
+
+<div class="top-area">
+
+    <h2>
+        Históricos cadastrados
+    </h2>
+
+    <button
+        id="btnNovo"
+        class="btn btn-primary">
+
+        + Novo Histórico
+
+    </button>
+
+</div>
+
+
+<div class="search">
+
+    <input
+        type="text"
+        id="pesquisa"
+        placeholder="Pesquisar por aluno, matrícula ou ano letivo...">
+
+</div>
+
+
+<section
+    id="formBox"
+    class="form-box">
+
+    <h3 id="formTitle">
+        Novo Histórico Escolar
+    </h3>
+
+
+    <form id="historicoForm">
+
+
+        <div class="form-grid">
+
+
+            <div class="form-group full">
+
+                <label>
+                    Aluno *
+                </label>
+
+                <select
+                    id="aluno"
+                    required>
+
+                    <option value="">
+                        Carregando alunos...
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Ano Letivo *
+                </label>
+
+                <input
+                    type="number"
+                    id="anoLetivo"
+                    min="1900"
+                    max="2100"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Série / Ano *
+                </label>
+
+                <input
+                    type="text"
+                    id="serie"
+                    placeholder="Ex.: 5º Ano"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Turma
+                </label>
+
+                <input
+                    type="text"
+                    id="turma"
+                    placeholder="Ex.: A">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Turno
+                </label>
+
+                <select id="turno">
+
+                    <option value="">
+                        Selecione
+                    </option>
+
+                    <option value="Matutino">
+                        Matutino
+                    </option>
+
+                    <option value="Vespertino">
+                        Vespertino
+                    </option>
+
+                    <option value="Noturno">
+                        Noturno
+                    </option>
+
+                    <option value="Integral">
+                        Integral
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Carga Horária Total
+                </label>
+
+                <input
+                    type="number"
+                    id="cargaHoraria"
+                    placeholder="Ex.: 800">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Resultado Final
+                </label>
+
+                <select id="resultado">
+
+                    <option value="Aprovado">
+                        Aprovado
+                    </option>
+
+                    <option value="Reprovado">
+                        Reprovado
+                    </option>
+
+                    <option value="Transferido">
+                        Transferido
+                    </option>
+
+                    <option value="Desistente">
+                        Desistente
+                    </option>
+
+                    <option value="Cursando">
+                        Cursando
+                    </option>
+
+                </select>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="disciplinas-box">
+
+            <h4>
+                📖 Disciplinas
+            </h4>
+
+            <div id="disciplinas">
+
+            </div>
+
+            <button
+                type="button"
+                id="btnAdicionarDisciplina"
+                class="btn btn-primary">
+
+                + Adicionar Disciplina
+
+            </button>
+
+        </div>
+
+
+        <div class="form-buttons">
+
+            <button
+                type="submit"
+                class="btn btn-success">
+
+                💾 Salvar Histórico
+
+            </button>
+
+
+            <button
+                type="button"
+                id="btnCancelar"
+                class="btn btn-secondary">
+
+                Cancelar
+
+            </button>
+
+        </div>
+
+
+    </form>
+
+</section>
+
+
+<section class="table-box">
+
+<div class="table-container">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Aluno</th>
+
+<th>Ano</th>
+
+<th>Série</th>
+
+<th>Turma</th>
+
+<th>Turno</th>
+
+<th>Resultado</th>
+
+<th>Ações</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="listaHistoricos">
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+</main>
+
+
+<script type="module">
+
+
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+
+import {
+    getAuth,
+    onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+
+import {
+    getFirestore,
+    collection,
+    getDocs,
+    addDoc,
+    updateDoc,
+    deleteDoc,
+    doc,
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+/* =========================
+   FIREBASE
+========================= */
+
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyAdwrOqN4-VQsiBByk4FVG-cDvfrR8ZYac",
+
+    authDomain:
+        "dasorte-66ec5.firebaseapp.com",
+
+    projectId:
+        "dasorte-66ec5",
+
+    storageBucket:
+        "dasorte-66ec5.firebasestorage.app",
+
+    messagingSenderId:
+        "606389335961",
+
+    appId:
+        "1:606389335961:web:feac4e89f8b4fa74684508"
+
+};
+
+
+const app =
+    initializeApp(firebaseConfig);
+
+
+const auth =
+    getAuth(app);
+
+
+const db =
+    getFirestore(app);
+
+
+/* =========================
+   ELEMENTOS
+========================= */
+
+
+const form =
+    document.getElementById(
+        "historicoForm"
+    );
+
+
+const formBox =
+    document.getElementById(
+        "formBox"
+    );
+
+
+const lista =
+    document.getElementById(
+        "listaHistoricos"
+    );
+
+
+const pesquisa =
+    document.getElementById(
+        "pesquisa"
+    );
+
+
+const disciplinasBox =
+    document.getElementById(
+        "disciplinas"
+    );
+
+
+const message =
+    document.getElementById(
+        "message"
+    );
+
+
+/* =========================
+   VARIÁVEIS
+========================= */
+
+
+let usuarioAtual = null;
+
+let escolaAtual = null;
+
+let alunos = [];
+
+let historicos = [];
+
+let historicoEditando = null;
+
+
+/* =========================
+   MENSAGEM
+========================= */
+
+
+function mostrarMensagem(
+    texto,
+    tipo = "success"
+){
+
+    message.textContent =
+        texto;
+
+    message.className =
+        "message " + tipo;
+
+
+    setTimeout(() => {
+
+        message.className =
+            "message";
+
+    },4000);
+
+}
+
+
+/* =========================
+   ESCAPAR
+========================= */
+
+
+function escapar(valor){
+
+    return String(valor || "")
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+
+}
+
+
+/* =========================
+   CARREGAR ALUNOS
+========================= */
+
+
+async function carregarAlunos(){
+
+    alunos = [];
+
+    try{
+
+        const snapshot =
+            await getDocs(
+                collection(
+                    db,
+                    "alunos"
+                )
+            );
+
+
+        snapshot.forEach(
+            item => {
+
+                const data =
+                    item.data();
+
+
+                /*
+                 * IMPORTANTE:
+                 * somente alunos da escola
+                 * do usuário serão carregados.
+                 */
+
+                if(
+                    data.escolaId ===
+                    usuarioAtual.escolaId
+                ){
+
+                    alunos.push({
+
+                        id:item.id,
+
+                        ...data
+
+                    });
+
+                }
+
+            }
+        );
+
+
+        preencherAlunos();
+
+
+    }catch(error){
+
+        console.error(error);
+
+        mostrarMensagem(
+            "Erro ao carregar alunos.",
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =========================
+   PREENCHER ALUNOS
+========================= */
+
+
+function preencherAlunos(){
+
+    const select =
+        document.getElementById(
+            "aluno"
+        );
+
+
+    select.innerHTML = `
+        <option value="">
+            Selecione o aluno
+        </option>
+    `;
+
+
+    alunos
+        .sort(
+            (a,b) =>
+                (a.nome || "")
+                .localeCompare(
+                    b.nome || ""
+                )
+        )
+        .forEach(
+            aluno => {
+
+                const option =
+                    document.createElement(
+                        "option"
+                    );
+
+
+                option.value =
+                    aluno.id;
+
+
+                option.textContent =
+                    aluno.nome +
+                    (
+                        aluno.matricula
+                        ? " - Matrícula: " +
+                          aluno.matricula
+                        : ""
+                    );
+
+
+                select.appendChild(
+                    option
+                );
+
+            }
+        );
+
+}
+
+
+/* =========================
+   ADICIONAR DISCIPLINA
+========================= */
+
+
+function adicionarDisciplina(
+    dados = null
+){
+
+    const row =
+        document.createElement(
+            "div"
+        );
+
+
+    row.className =
+        "disciplina-row";
+
+
+    row.innerHTML = `
+
+        <input
+            type="text"
+            class="disciplina-nome"
+            placeholder="Disciplina"
+            value="${escapar(
+                dados?.nome || ""
+            )}">
+
+        <input
+            type="number"
+            step="0.01"
+            class="disciplina-nota"
+            placeholder="Nota"
+            value="${dados?.nota ?? ""}">
+
+        <input
+            type="number"
+            class="disciplina-faltas"
+            placeholder="Faltas"
+            value="${dados?.faltas ?? ""}">
+
+        <input
+            type="number"
+            class="disciplina-carga"
+            placeholder="Carga horária"
+            value="${dados?.cargaHoraria ?? ""}">
+
+        <button
+            type="button"
+            class="remove-disciplina">
+
+            X
+
+        </button>
+
+    `;
+
+
+    row
+        .querySelector(
+            ".remove-disciplina"
+        )
+        .addEventListener(
+            "click",
+            () => {
+
+                row.remove();
+
+            }
+        );
+
+
+    disciplinasBox.appendChild(
+        row
+    );
+
+}
+
+
+/* =========================
+   PEGAR DISCIPLINAS
+========================= */
+
+
+function pegarDisciplinas(){
+
+    const rows =
+        disciplinasBox.querySelectorAll(
+            ".disciplina-row"
+        );
+
+
+    const resultado = [];
+
+
+    rows.forEach(
+        row => {
+
+            const nome =
+                row
+                    .querySelector(
+                        ".disciplina-nome"
+                    )
+                    .value
+                    .trim();
+
+
+            const nota =
+                row
+                    .querySelector(
+                        ".disciplina-nota"
+                    )
+                    .value;
+
+
+            const faltas =
+                row
+                    .querySelector(
+                        ".disciplina-faltas"
+                    )
+                    .value;
+
+
+            const cargaHoraria =
+                row
+                    .querySelector(
+                        ".disciplina-carga"
+                    )
+                    .value;
+
+
+            if(nome){
+
+                resultado.push({
+
+                    nome,
+
+                    nota:
+                        nota === ""
+                        ? null
+                        : Number(nota),
+
+                    faltas:
+                        faltas === ""
+                        ? 0
+                        : Number(faltas),
+
+                    cargaHoraria:
+                        cargaHoraria === ""
+                        ? 0
+                        : Number(
+                            cargaHoraria
+                        )
+
+                });
+
+            }
+
+        }
+    );
+
+
+    return resultado;
+
+}
+
+
+/* =========================
+   LIMPAR FORMULÁRIO
+========================= */
+
+
+function limparFormulario(){
+
+    form.reset();
+
+    disciplinasBox.innerHTML = "";
+
+    adicionarDisciplina();
+
+    historicoEditando = null;
+
+    document
+        .getElementById(
+            "formTitle"
+        )
+        .textContent =
+        "Novo Histórico Escolar";
+
+}
+
+
+/* =========================
+   PEGAR DADOS
+========================= */
+
+
+function pegarDados(){
+
+    const alunoId =
+        document
+            .getElementById(
+                "aluno"
+            )
+            .value;
+
+
+    const aluno =
+        alunos.find(
+            item =>
+                item.id === alunoId
+        );
+
+
+    return {
+
+        escolaId:
+            usuarioAtual.escolaId,
+
+        alunoId,
+
+        alunoNome:
+            aluno?.nome || "",
+
+        anoLetivo:
+            Number(
+                document
+                    .getElementById(
+                        "anoLetivo"
+                    )
+                    .value
+            ),
+
+        serie:
+            document
+                .getElementById(
+                    "serie"
+                )
+                .value
+                .trim(),
+
+        turma:
+            document
+                .getElementById(
+                    "turma"
+                )
+                .value
+                .trim(),
+
+        turno:
+            document
+                .getElementById(
+                    "turno"
+                )
+                .value,
+
+        cargaHoraria:
+            Number(
+                document
+                    .getElementById(
+                        "cargaHoraria"
+                    )
+                    .value || 0
+            ),
+
+        resultado:
+            document
+                .getElementById(
+                    "resultado"
+                )
+                .value,
+
+        disciplinas:
+            pegarDisciplinas(),
+
+        atualizadoEm:
+            serverTimestamp()
+
+    };
+
+}
+
+
+/* =========================
+   CARREGAR HISTÓRICOS
+========================= */
+
+
+async function carregarHistoricos(){
+
+    historicos = [];
+
+
+    try{
+
+        const snapshot =
+            await getDocs(
+                collection(
+                    db,
+                    "historicos"
+                )
+            );
+
+
+        snapshot.forEach(
+            item => {
+
+                const data =
+                    item.data();
+
+
+                /*
+                 * SEGURANÇA:
+                 * só entra o histórico
+                 * da escola atual.
+                 */
+
+                if(
+                    data.escolaId ===
+                    usuarioAtual.escolaId
+                ){
+
+                    historicos.push({
+
+                        id:item.id,
+
+                        ...data
+
+                    });
+
+                }
+
+            }
+        );
+
+
+        renderizar();
+
+
+    }catch(error){
+
+        console.error(error);
+
+        mostrarMensagem(
+            "Erro ao carregar históricos.",
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =========================
+   RENDERIZAR
+========================= */
+
+
+function renderizar(){
+
+    const termo =
+        pesquisa.value
+            .toLowerCase()
+            .trim();
+
+
+    const filtrados =
+        historicos.filter(
+            historico => {
+
+                const texto = (
+
+                    historico.alunoNome ||
+                    ""
+
+                ) + " " + (
+
+                    historico.anoLetivo ||
+                    ""
+
+                ) + " " + (
+
+                    historico.serie ||
+                    ""
+
+                ) + " " + (
+
+                    historico.turma ||
+                    ""
+
+                );
+
+
+                return texto
+                    .toLowerCase()
+                    .includes(
+                        termo
+                    );
+
+            }
+        );
+
+
+    lista.innerHTML = "";
+
+
+    if(!filtrados.length){
+
+        lista.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="7"
+                    class="empty">
+
+                    Nenhum histórico encontrado.
+
+                </td>
+
+            </tr>
+
+        `;
+
+        return;
+
+    }
+
+
+    filtrados
+        .sort(
+            (a,b) =>
+                Number(
+                    b.anoLetivo || 0
+                ) -
+                Number(
+                    a.anoLetivo || 0
+                )
+        )
+        .forEach(
+            historico => {
+
+                const tr =
+                    document.createElement(
+                        "tr"
+                    );
+
+
+                let classe =
+                    "badge-success";
+
+
+                if(
+                    historico.resultado ===
+                    "Reprovado"
+                ){
+
+                    classe =
+                        "badge-danger";
+
+                }
+
+
+                if(
+                    historico.resultado ===
+                    "Cursando"
+                ){
+
+                    classe =
+                        "badge-warning";
+
+                }
+
+
+                tr.innerHTML = `
+
+                    <td>
+                        <strong>
+                            ${escapar(
+                                historico.alunoNome
+                            )}
+                        </strong>
+                    </td>
+
+                    <td>
+                        ${escapar(
+                            historico.anoLetivo
+                        )}
+                    </td>
+
+                    <td>
+                        ${escapar(
+                            historico.serie
+                        )}
+                    </td>
+
+                    <td>
+                        ${escapar(
+                            historico.turma || "-"
+                        )}
+                    </td>
+
+                    <td>
+                        ${escapar(
+                            historico.turno || "-"
+                        )}
+                    </td>
+
+                    <td>
+
+                        <span
+                            class="badge ${classe}">
+
+                            ${escapar(
+                                historico.resultado
+                            )}
+
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <div class="actions">
+
+                            <button
+                                class="btn btn-primary"
+                                data-action="editar"
+                                data-id="${historico.id}">
+
+                                Editar
+
+                            </button>
+
+
+                            <button
+                                class="btn btn-danger"
+                                data-action="excluir"
+                                data-id="${historico.id}">
+
+                                Excluir
+
+                            </button>
+
+                        </div>
+
+                    </td>
+
+                `;
+
+
+                lista.appendChild(
+                    tr
+                );
+
+            }
+        );
+
+}
+
+
+/* =========================
+   EDITAR
+========================= */
+
+
+function editarHistorico(
+    historico
+){
+
+    historicoEditando =
+        historico.id;
+
+
+    document
+        .getElementById(
+            "aluno"
+        )
+        .value =
+        historico.alunoId || "";
+
+
+    document
+        .getElementById(
+            "anoLetivo"
+        )
+        .value =
+        historico.anoLetivo || "";
+
+
+    document
+        .getElementById(
+            "serie"
+        )
+        .value =
+        historico.serie || "";
+
+
+    document
+        .getElementById(
+            "turma"
+        )
+        .value =
+        historico.turma || "";
+
+
+    document
+        .getElementById(
+            "turno"
+        )
+        .value =
+        historico.turno || "";
+
+
+    document
+        .getElementById(
+            "cargaHoraria"
+        )
+        .value =
+        historico.cargaHoraria || "";
+
+
+    document
+        .getElementById(
+            "resultado"
+        )
+        .value =
+        historico.resultado || "Aprovado";
+
+
+    disciplinasBox.innerHTML = "";
+
+
+    if(
+        Array.isArray(
+            historico.disciplinas
+        ) &&
+        historico.disciplinas.length
+    ){
+
+        historico.disciplinas.forEach(
+            disciplina => {
+
+                adicionarDisciplina(
+                    disciplina
+                );
+
+            }
+        );
+
+    }else{
+
+        adicionarDisciplina();
+
+    }
+
+
+    document
+        .getElementById(
+            "formTitle"
+        )
+        .textContent =
+        "Editar Histórico Escolar";
+
+
+    formBox.style.display =
+        "block";
+
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+
+/* =========================
+   SALVAR
+========================= */
+
+
+form.addEventListener(
+    "submit",
+    async event => {
+
+        event.preventDefault();
+
+
+        if(
+            !usuarioAtual ||
+            !usuarioAtual.escolaId
+        ){
+
+            mostrarMensagem(
+                "Usuário não está vinculado a uma escola.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        const dados =
+            pegarDados();
+
+
+        if(!dados.alunoId){
+
+            mostrarMensagem(
+                "Selecione o aluno.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if(!dados.anoLetivo){
+
+            mostrarMensagem(
+                "Informe o ano letivo.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if(!dados.serie){
+
+            mostrarMensagem(
+                "Informe a série/ano.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        try{
+
+
+            if(historicoEditando){
+
+                await updateDoc(
+
+                    doc(
+                        db,
+                        "historicos",
+                        historicoEditando
+                    ),
+
+                    dados
+
+                );
+
+
+                mostrarMensagem(
+                    "Histórico atualizado com sucesso."
+                );
+
+
+            }else{
+
+                await addDoc(
+
+                    collection(
+                        db,
+                        "historicos"
+                    ),
+
+                    {
+
+                        ...dados,
+
+                        criadoEm:
+                            serverTimestamp()
+
+                    }
+
+                );
+
+
+                mostrarMensagem(
+                    "Histórico cadastrado com sucesso."
+                );
+
+            }
+
+
+            limparFormulario();
+
+
+            formBox.style.display =
+                "none";
+
+
+            await carregarHistoricos();
+
+
+        }catch(error){
+
+            console.error(error);
+
+            mostrarMensagem(
+                "Erro ao salvar histórico.",
+                "error"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================
+   NOVO
+========================= */
+
+
+document
+    .getElementById(
+        "btnNovo"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            limparFormulario();
+
+            formBox.style.display =
+                "block";
+
+            window.scrollTo({
+
+                top:0,
+
+                behavior:"smooth"
+
+            });
+
+        }
+    );
+
+
+/* =========================
+   CANCELAR
+========================= */
+
+
+document
+    .getElementById(
+        "btnCancelar"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            limparFormulario();
+
+            formBox.style.display =
+                "none";
+
+        }
+    );
+
+
+/* =========================
+   NOVA DISCIPLINA
+========================= */
+
+
+document
+    .getElementById(
+        "btnAdicionarDisciplina"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            adicionarDisciplina();
+
+        }
+    );
+
+
+/* =========================
+   PESQUISA
+========================= */
+
+
+pesquisa.addEventListener(
+    "input",
+    renderizar
+);
+
+
+/* =========================
+   AÇÕES
+========================= */
+
+
+lista.addEventListener(
+    "click",
+    async event => {
+
+        const botao =
+            event.target.closest(
+                "button"
+            );
+
+
+        if(!botao)
+            return;
+
+
+        const id =
+            botao.dataset.id;
+
+
+        const action =
+            botao.dataset.action;
+
+
+        const historico =
+            historicos.find(
+                item =>
+                    item.id === id
+            );
+
+
+        if(!historico)
+            return;
+
+
+        if(
+            action === "editar"
+        ){
+
+            editarHistorico(
+                historico
+            );
+
+            return;
+
+        }
+
+
+        if(
+            action === "excluir"
+        ){
+
+            const confirmar =
+                confirm(
+                    "Deseja realmente excluir este histórico escolar?"
+                );
+
+
+            if(!confirmar)
+                return;
+
+
+            try{
+
+                await deleteDoc(
+
+                    doc(
+                        db,
+                        "historicos",
+                        id
+                    )
+
+                );
+
+
+                mostrarMensagem(
+                    "Histórico excluído."
+                );
+
+
+                await carregarHistoricos();
+
+
+            }catch(error){
+
+                console.error(error);
+
+                mostrarMensagem(
+                    "Erro ao excluir histórico.",
+                    "error"
+                );
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =========================
+   AUTENTICAÇÃO
+========================= */
+
+
+onAuthStateChanged(
+    auth,
+    async user => {
+
+        if(!user){
+
+            alert(
+                "Você precisa estar logado para acessar este módulo."
+            );
+
+
+            window.location.href =
+                "index.html";
+
+
+            return;
+
+        }
+
+
+        try{
+
+            /*
+             * Busca o usuário logado
+             */
+
+            const usuarioSnap =
+                await getDocs(
+                    collection(
+                        db,
+                        "usuarios"
+                    )
+                );
+
+
+            let encontrado = null;
+
+
+            usuarioSnap.forEach(
+                item => {
+
+                    const data =
+                        item.data();
+
+
+                    if(
+                        data.uid ===
+                        user.uid
+                    ){
+
+                        encontrado = {
+
+                            id:item.id,
+
+                            ...data
+
+                        };
+
+                    }
+
+                }
+            );
+
+
+            if(!encontrado){
+
+                alert(
+                    "Usuário não encontrado no Firestore."
+                );
+
+
+                window.location.href =
+                    "index.html";
+
+
+                return;
+
+            }
+
+
+            usuarioAtual =
+                encontrado;
+
+
+            /*
+             * Usuário precisa ter escola.
+             */
+
+            if(
+                !usuarioAtual.escolaId
+            ){
+
+                document
+                    .getElementById(
+                        "nomeEscola"
+                    )
+                    .textContent =
+                    "Nenhuma escola vinculada";
+
+
+                document
+                    .getElementById(
+                        "usuarioInfo"
+                    )
+                    .textContent =
+                    usuarioAtual.nome ||
+                    user.email;
+
+
+                mostrarMensagem(
+                    "Este usuário ainda não está vinculado a uma escola.",
+                    "error"
+                );
+
+
+                return;
+
+            }
+
+
+            /*
+             * Mostra informações do usuário.
+             */
+
+            document
+                .getElementById(
+                    "usuarioInfo"
+                )
+                .textContent =
+                (
+                    usuarioAtual.nome ||
+                    user.email
+                ) +
+                " — " +
+                (
+                    usuarioAtual.perfil ||
+                    "Usuário"
+                );
+
+
+            /*
+             * Busca a escola.
+             */
+
+            const escolasSnapshot =
+                await getDocs(
+                    collection(
+                        db,
+                        "escolas"
+                    )
+                );
+
+
+            let escolaEncontrada =
+                null;
+
+
+            escolasSnapshot.forEach(
+                item => {
+
+                    if(
+                        item.id ===
+                        usuarioAtual.escolaId
+                    ){
+
+                        escolaEncontrada = {
+
+                            id:item.id,
+
+                            ...item.data()
+
+                        };
+
+                    }
+
+                }
+            );
+
+
+            escolaAtual =
+                escolaEncontrada;
+
+
+            if(escolaAtual){
+
+                document
+                    .getElementById(
+                        "nomeEscola"
+                    )
+                    .textContent =
+                    escolaAtual.nome ||
+                    "Escola";
+
+            }else{
+
+                document
+                    .getElementById(
+                        "nomeEscola"
+                    )
+                    .textContent =
+                    "Escola não encontrada";
+
+            }
+
+
+            /*
+             * Carrega somente dados
+             * da escola atual.
+             */
+
+            await carregarAlunos();
+
+            await carregarHistoricos();
+
+
+        }catch(error){
+
+            console.error(error);
+
+            mostrarMensagem(
+                "Erro ao carregar os dados do usuário.",
+                "error"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================
+   PAINEL
+========================= */
+
+
+window.voltarPainel =
+    function(){
+
+        window.location.href =
+            "index.html";
+
+    };
+
+
+/* =========================
+   INÍCIO
+========================= */
+
+
+adicionarDisciplina();
+
+
+</script>
+
+</body>
+
+</html>
