@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Usuários — Sistema Escolar</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+header {
+    background: #0f172a;
+    color: white;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-title span {
+    font-size: 30px;
+}
+
+.header-title h1 {
+    font-size: 20px;
+}
+
+main {
+    max-width: 1400px;
+    margin: auto;
+    padding: 25px;
+}
+
+.btn {
+    border: none;
+    padding: 11px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background: #2563eb;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+}
+
+.btn-secondary {
+    background: #64748b;
+    color: white;
+}
+
+.btn-success {
+    background: #16a34a;
+    color: white;
+}
+
+.btn-danger {
+    background: #dc2626;
+    color: white;
+}
+
+.btn-warning {
+    background: #d97706;
+    color: white;
+}
+
+.top-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.top-area h2 {
+    font-size: 25px;
+}
+
+.message {
+    display: none;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.message.success {
+    display: block;
+    background: #dcfce7;
+    color: #166534;
+}
+
+.message.error {
+    display: block;
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.form-box {
+    display: none;
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.06);
+}
+
+.form-box h3 {
+    margin-bottom: 20px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #2563eb;
+}
+
+.full {
+    grid-column: 1 / -1;
+}
+
+.form-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.table-box {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,.06);
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+}
+
+th {
+    background: #e2e8f0;
+    padding: 13px;
+    text-align: left;
+    font-size: 13px;
+}
+
+td {
+    padding: 12px;
+    border-top: 1px solid #e2e8f0;
+    font-size: 14px;
+}
+
+.status {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status.active {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.status.inactive {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.actions {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.actions .btn {
+    padding: 7px 9px;
+    font-size: 12px;
+}
+
+.empty {
+    text-align: center;
+    padding: 35px;
+    color: #64748b;
+}
+
+.password-info {
+    background: #fff7ed;
+    color: #9a3412;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+@media(max-width: 700px) {
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    .top-area {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full {
+        grid-column: auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="header-title">
+        <span>👥</span>
+        <h1>Usuários</h1>
+    </div>
+
+    <button
+        class="btn btn-secondary"
+        onclick="voltarPainel()"
+    >
+        ← Painel
+    </button>
+
+</header>
+
+
+<main>
+
+    <div id="message" class="message"></div>
+
+
+    <div class="top-area">
+
+        <h2>Administradores das escolas</h2>
+
+        <button
+            id="btnNovo"
+            class="btn btn-primary"
+        >
+            + Novo Administrador
+        </button>
+
+    </div>
+
+
+    <!-- FORMULÁRIO -->
+
+    <section
+        id="formBox"
+        class="form-box"
+    >
+
+        <h3>
+            Criar Administrador
+        </h3>
+
+
+        <form id="usuarioForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>
+                        Nome completo *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nome"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        E-mail *
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Escola *
+                    </label>
+
+                    <select
+                        id="escolaId"
+                        required
+                    >
+
+                        <option value="">
+                            Selecione a escola
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Senha inicial *
+                    </label>
+
+                    <input
+                        type="password"
+                        id="senha"
+                        minlength="6"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="password-info">
+
+                A senha inicial será entregue ao administrador.
+                Depois podemos criar a função de alteração de senha
+                no próprio sistema.
+
+            </div>
+
+
+            <div class="form-buttons">
+
+                <button
+                    type="submit"
+                    class="btn btn-success"
+                >
+                    💾 Criar Administrador
+                </button>
+
+                <button
+                    type="button"
+                    id="btnCancelar"
+                    class="btn btn-secondary"
+                >
+                    Cancelar
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+
+    <!-- PESQUISA -->
+
+    <div style="margin-bottom:20px;">
+
+        <input
+            type="text"
+            id="pesquisa"
+            placeholder="Pesquisar usuário ou escola..."
+            style="
+                width:100%;
+                padding:13px;
+                border:1px solid #cbd5e1;
+                border-radius:9px;
+                font-size:15px;
+                outline:none;
+            "
+        >
+
+    </div>
+
+
+    <!-- TABELA -->
+
+    <section class="table-box">
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Nome</th>
+                        <th>E-mail</th>
+                        <th>Escola</th>
+                        <th>Perfil</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="listaUsuarios">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script type="module">
+
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+import {
+    getAuth,
+    onAuthStateChanged,
+    createUserWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+import {
+    getFirestore,
+    collection,
+    getDocs,
+    doc,
+    setDoc,
+    updateDoc
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+/* =====================================================
+   FIREBASE
+===================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyAdwrOqN4-VQsiBByk4FVG-cDvfrR8ZYac",
+
+    authDomain:
+        "dasorte-66ec5.firebaseapp.com",
+
+    projectId:
+        "dasorte-66ec5",
+
+    storageBucket:
+        "dasorte-66ec5.firebasestorage.app",
+
+    messagingSenderId:
+        "606389335961",
+
+    appId:
+        "1:606389335961:web:feac4e89f8b4fa74684508"
+
+};
+
+
+/* Aplicação principal */
+
+const app =
+    initializeApp(firebaseConfig);
+
+
+/* Authentication principal */
+
+const auth =
+    getAuth(app);
+
+
+/* Firestore */
+
+const db =
+    getFirestore(app);
+
+
+/*
+ * Segunda aplicação Firebase.
+ *
+ * Ela será usada somente para criar
+ * novos usuários sem retirar o Master
+ * da sessão atual.
+ */
+
+const secondaryApp =
+    initializeApp(
+        firebaseConfig,
+        "SecondaryApp"
+    );
+
+
+const secondaryAuth =
+    getAuth(
+        secondaryApp
+    );
+
+
+/* =====================================================
+   VARIÁVEIS
+===================================================== */
+
+let escolas = [];
+
+let usuarios = [];
+
+
+/* =====================================================
+   ELEMENTOS
+===================================================== */
+
+const formBox =
+    document.getElementById("formBox");
+
+const form =
+    document.getElementById("usuarioForm");
+
+const lista =
+    document.getElementById("listaUsuarios");
+
+const escolaSelect =
+    document.getElementById("escolaId");
+
+const pesquisa =
+    document.getElementById("pesquisa");
+
+const message =
+    document.getElementById("message");
+
+
+/* =====================================================
+   MENSAGEM
+===================================================== */
+
+function mostrarMensagem(
+    texto,
+    tipo = "success"
+) {
+
+    message.textContent =
+        texto;
+
+    message.className =
+        "message " + tipo;
+
+
+    setTimeout(() => {
+
+        message.className =
+            "message";
+
+    }, 5000);
+
+}
+
+
+/* =====================================================
+   ESCAPAR HTML
+===================================================== */
+
+function escapar(valor) {
+
+    return String(valor || "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+
+}
+
+
+/* =====================================================
+   CARREGAR ESCOLAS
+===================================================== */
+
+async function carregarEscolas() {
+
+    escolaSelect.innerHTML = `
+
+        <option value="">
+            Selecione a escola
+        </option>
+
+    `;
+
+
+    const snapshot =
+        await getDocs(
+            collection(
+                db,
+                "escolas"
+            )
+        );
+
+
+    escolas = [];
+
+
+    snapshot.forEach(
+        item => {
+
+            const escola = {
+
+                id: item.id,
+
+                ...item.data()
+
+            };
+
+
+            escolas.push(escola);
+
+
+            /*
+             * Somente escolas ativas
+             * podem receber novos
+             * administradores.
+             */
+
+            if (
+                escola.ativa !== false
+            ) {
+
+                const option =
+                    document.createElement(
+                        "option"
+                    );
+
+                option.value =
+                    escola.id;
+
+                option.textContent =
+                    escola.nome;
+
+                escolaSelect.appendChild(
+                    option
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   CARREGAR USUÁRIOS
+===================================================== */
+
+async function carregarUsuarios() {
+
+    const snapshot =
+        await getDocs(
+            collection(
+                db,
+                "usuarios"
+            )
+        );
+
+
+    usuarios = [];
+
+
+    snapshot.forEach(
+        item => {
+
+            const usuario = {
+
+                id: item.id,
+
+                ...item.data()
+
+            };
+
+
+            /*
+             * Nesta tela mostramos
+             * somente administradores.
+             */
+
+            if (
+                usuario.perfil ===
+                "administrador"
+            ) {
+
+                usuarios.push(
+                    usuario
+                );
+
+            }
+
+        }
+    );
+
+
+    renderizarUsuarios();
+
+}
+
+
+/* =====================================================
+   NOME DA ESCOLA
+===================================================== */
+
+function nomeDaEscola(
+    escolaId
+) {
+
+    const escola =
+        escolas.find(
+            item =>
+                item.id === escolaId
+        );
+
+
+    return escola
+        ? escola.nome
+        : "Escola não encontrada";
+
+}
+
+
+/* =====================================================
+   RENDERIZAR
+===================================================== */
+
+function renderizarUsuarios() {
+
+    const termo =
+        pesquisa.value
+            .toLowerCase()
+            .trim();
+
+
+    const filtrados =
+        usuarios.filter(
+            usuario => {
+
+                const texto = (
+
+                    (usuario.nome || "") +
+                    " " +
+                    (usuario.email || "") +
+                    " " +
+                    nomeDaEscola(
+                        usuario.escolaId
+                    )
+
+                ).toLowerCase();
+
+
+                return texto.includes(
+                    termo
+                );
+
+            }
+        );
+
+
+    lista.innerHTML = "";
+
+
+    if (!filtrados.length) {
+
+        lista.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="6"
+                    class="empty"
+                >
+                    Nenhum administrador encontrado.
+                </td>
+
+            </tr>
+
+        `;
+
+        return;
+
+    }
+
+
+    filtrados.forEach(
+        usuario => {
+
+            const tr =
+                document.createElement(
+                    "tr"
+                );
+
+
+            const ativo =
+                usuario.ativo !== false;
+
+
+            tr.innerHTML = `
+
+                <td>
+                    <strong>
+                        ${escapar(
+                            usuario.nome
+                        )}
+                    </strong>
+                </td>
+
+                <td>
+                    ${escapar(
+                        usuario.email
+                    )}
+                </td>
+
+                <td>
+                    ${escapar(
+                        nomeDaEscola(
+                            usuario.escolaId
+                        )
+                    )}
+                </td>
+
+                <td>
+                    Administrador
+                </td>
+
+                <td>
+
+                    <span class="
+                        status
+                        ${
+                            ativo
+                            ? "active"
+                            : "inactive"
+                        }
+                    ">
+
+                        ${
+                            ativo
+                            ? "Ativo"
+                            : "Inativo"
+                        }
+
+                    </span>
+
+                </td>
+
+                <td>
+
+                    <div class="actions">
+
+                        <button
+                            class="btn btn-warning"
+                            data-action="status"
+                            data-id="${usuario.id}"
+                        >
+
+                            ${
+                                ativo
+                                ? "Desativar"
+                                : "Ativar"
+                            }
+
+                        </button>
+
+                    </div>
+
+                </td>
+
+            `;
+
+
+            lista.appendChild(
+                tr
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   NOVO USUÁRIO
+===================================================== */
+
+document
+    .getElementById("btnNovo")
+    .addEventListener(
+        "click",
+        async () => {
+
+            form.reset();
+
+            await carregarEscolas();
+
+            formBox.style.display =
+                "block";
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+    );
+
+
+/* =====================================================
+   CANCELAR
+===================================================== */
+
+document
+    .getElementById("btnCancelar")
+    .addEventListener(
+        "click",
+        () => {
+
+            form.reset();
+
+            formBox.style.display =
+                "none";
+
+        }
+    );
+
+
+/* =====================================================
+   CRIAR ADMINISTRADOR
+===================================================== */
+
+form.addEventListener(
+    "submit",
+    async event => {
+
+        event.preventDefault();
+
+
+        const nome =
+            document
+                .getElementById("nome")
+                .value
+                .trim();
+
+
+        const email =
+            document
+                .getElementById("email")
+                .value
+                .trim();
+
+
+        const escolaId =
+            document
+                .getElementById("escolaId")
+                .value;
+
+
+        const senha =
+            document
+                .getElementById("senha")
+                .value;
+
+
+        if (
+            !nome ||
+            !email ||
+            !escolaId ||
+            !senha
+        ) {
+
+            mostrarMensagem(
+                "Preencha todos os campos obrigatórios.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if (senha.length < 6) {
+
+            mostrarMensagem(
+                "A senha precisa ter pelo menos 6 caracteres.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        try {
+
+            /*
+             * Cria o usuário na
+             * instância secundária.
+             */
+
+            const credential =
+                await createUserWithEmailAndPassword(
+                    secondaryAuth,
+                    email,
+                    senha
+                );
+
+
+            const novoUid =
+                credential.user.uid;
+
+
+            /*
+             * Cria o cadastro do usuário
+             * no Firestore.
+             */
+
+            await setDoc(
+                doc(
+                    db,
+                    "usuarios",
+                    novoUid
+                ),
+                {
+
+                    uid:
+                        novoUid,
+
+                    nome:
+                        nome,
+
+                    email:
+                        email,
+
+                    perfil:
+                        "administrador",
+
+                    escolaId:
+                        escolaId,
+
+                    ativo:
+                        true,
+
+                    criadoEm:
+                        new Date()
+
+                }
+            );
+
+
+            /*
+             * Faz logout da instância
+             * secundária.
+             */
+
+            await secondaryAuth.signOut();
+
+
+            mostrarMensagem(
+                "Administrador criado com sucesso."
+            );
+
+
+            form.reset();
+
+            formBox.style.display =
+                "none";
+
+
+            await carregarUsuarios();
+
+
+        } catch (error) {
+
+            console.error(error);
+
+
+            let texto =
+                "Não foi possível criar o administrador.";
+
+
+            if (
+                error.code ===
+                "auth/email-already-in-use"
+            ) {
+
+                texto =
+                    "Este e-mail já está cadastrado no Firebase Authentication.";
+
+            }
+
+
+            if (
+                error.code ===
+                "auth/invalid-email"
+            ) {
+
+                texto =
+                    "O e-mail informado é inválido.";
+
+            }
+
+
+            if (
+                error.code ===
+                "auth/weak-password"
+            ) {
+
+                texto =
+                    "A senha precisa ter pelo menos 6 caracteres.";
+
+            }
+
+
+            mostrarMensagem(
+                texto,
+                "error"
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   PESQUISA
+===================================================== */
+
+pesquisa.addEventListener(
+    "input",
+    renderizarUsuarios
+);
+
+
+/* =====================================================
+   ATIVAR / DESATIVAR
+===================================================== */
+
+lista.addEventListener(
+    "click",
+    async event => {
+
+        const botao =
+            event.target.closest(
+                "button"
+            );
+
+
+        if (!botao)
+            return;
+
+
+        const id =
+            botao.dataset.id;
+
+
+        const action =
+            botao.dataset.action;
+
+
+        if (
+            action !== "status"
+        )
+            return;
+
+
+        const usuario =
+            usuarios.find(
+                item =>
+                    item.id === id
+            );
+
+
+        if (!usuario)
+            return;
+
+
+        const novoStatus =
+            usuario.ativo === false;
+
+
+        const confirmar =
+            confirm(
+                novoStatus
+                ? "Deseja ativar este administrador?"
+                : "Deseja desativar este administrador?"
+            );
+
+
+        if (!confirmar)
+            return;
+
+
+        try {
+
+            await updateDoc(
+
+                doc(
+                    db,
+                    "usuarios",
+                    id
+                ),
+
+                {
+                    ativo:
+                        novoStatus
+                }
+
+            );
+
+
+            mostrarMensagem(
+                novoStatus
+                ? "Administrador ativado."
+                : "Administrador desativado."
+            );
+
+
+            await carregarUsuarios();
+
+
+        } catch (error) {
+
+            console.error(error);
+
+            mostrarMensagem(
+                "Erro ao alterar o usuário.",
+                "error"
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   AUTENTICAÇÃO
+===================================================== */
+
+onAuthStateChanged(
+    auth,
+    async user => {
+
+        if (!user) {
+
+            alert(
+                "Você precisa estar logado."
+            );
+
+            window.location.href =
+                "index.html";
+
+            return;
+
+        }
+
+
+        try {
+
+            /*
+             * Nesta primeira versão,
+             * a proteção definitiva de
+             * perfil será feita nas
+             * Security Rules.
+             */
+
+            await carregarEscolas();
+
+            await carregarUsuarios();
+
+
+        } catch (error) {
+
+            console.error(error);
+
+            mostrarMensagem(
+                "Erro ao carregar os dados.",
+                "error"
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   VOLTAR
+===================================================== */
+
+window.voltarPainel =
+    function() {
+
+        window.location.href =
+            "index.html";
+
+    };
+
+</script>
+
+</body>
+</html>
