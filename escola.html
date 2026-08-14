@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cadastro de Escolas</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+header {
+    background: #0f172a;
+    color: white;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-title span {
+    font-size: 30px;
+}
+
+.header-title h1 {
+    font-size: 20px;
+}
+
+.btn {
+    border: none;
+    padding: 11px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background: #2563eb;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+}
+
+.btn-secondary {
+    background: #64748b;
+    color: white;
+}
+
+.btn-success {
+    background: #16a34a;
+    color: white;
+}
+
+.btn-danger {
+    background: #dc2626;
+    color: white;
+}
+
+.btn-warning {
+    background: #d97706;
+    color: white;
+}
+
+main {
+    max-width: 1400px;
+    margin: auto;
+    padding: 25px;
+}
+
+.top-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.top-area h2 {
+    font-size: 25px;
+}
+
+.search {
+    margin-bottom: 20px;
+}
+
+.search input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    font-size: 15px;
+    outline: none;
+}
+
+.search input:focus {
+    border-color: #2563eb;
+}
+
+.form-box {
+    display: none;
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.06);
+}
+
+.form-box h3 {
+    margin-bottom: 20px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #2563eb;
+}
+
+.full {
+    grid-column: 1 / -1;
+}
+
+.form-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.table-box {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,.06);
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+}
+
+th {
+    background: #e2e8f0;
+    padding: 13px;
+    text-align: left;
+    font-size: 13px;
+}
+
+td {
+    padding: 12px;
+    border-top: 1px solid #e2e8f0;
+    font-size: 14px;
+}
+
+.status {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status.active {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.status.inactive {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.actions {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.actions .btn {
+    padding: 7px 9px;
+    font-size: 12px;
+}
+
+.empty {
+    text-align: center;
+    padding: 35px;
+    color: #64748b;
+}
+
+.message {
+    display: none;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.message.success {
+    display: block;
+    background: #dcfce7;
+    color: #166534;
+}
+
+.message.error {
+    display: block;
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+@media(max-width: 700px) {
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    .top-area {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full {
+        grid-column: auto;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="header-title">
+        <span>🏫</span>
+        <h1>Cadastro de Escolas</h1>
+    </div>
+
+    <button
+        class="btn btn-secondary"
+        onclick="voltarPainel()"
+    >
+        ← Painel
+    </button>
+
+</header>
+
+
+<main>
+
+    <div id="message" class="message"></div>
+
+
+    <div class="top-area">
+
+        <h2>Escolas cadastradas</h2>
+
+        <button
+            id="btnNova"
+            class="btn btn-primary"
+        >
+            + Nova Escola
+        </button>
+
+    </div>
+
+
+    <!-- PESQUISA -->
+
+    <div class="search">
+
+        <input
+            type="text"
+            id="pesquisa"
+            placeholder="Pesquisar por nome, CNPJ ou cidade..."
+        >
+
+    </div>
+
+
+    <!-- FORMULÁRIO -->
+
+    <section
+        id="formBox"
+        class="form-box"
+    >
+
+        <h3 id="formTitle">
+            Nova Escola
+        </h3>
+
+        <form id="escolaForm">
+
+            <div class="form-grid">
+
+                <div class="form-group full">
+
+                    <label>
+                        Nome da Escola *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nome"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Nome Fantasia
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nomeFantasia"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        CNPJ
+                    </label>
+
+                    <input
+                        type="text"
+                        id="cnpj"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Código INEP
+                    </label>
+
+                    <input
+                        type="text"
+                        id="inep"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Telefone
+                    </label>
+
+                    <input
+                        type="text"
+                        id="telefone"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        E-mail
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                    >
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label>
+                        Endereço
+                    </label>
+
+                    <input
+                        type="text"
+                        id="endereco"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Número
+                    </label>
+
+                    <input
+                        type="text"
+                        id="numero"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Bairro
+                    </label>
+
+                    <input
+                        type="text"
+                        id="bairro"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Cidade
+                    </label>
+
+                    <input
+                        type="text"
+                        id="cidade"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Estado
+                    </label>
+
+                    <select id="estado">
+
+                        <option value="">
+                            Selecione
+                        </option>
+
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        CEP
+                    </label>
+
+                    <input
+                        type="text"
+                        id="cep"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Diretor
+                    </label>
+
+                    <input
+                        type="text"
+                        id="diretor"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Secretário(a)
+                    </label>
+
+                    <input
+                        type="text"
+                        id="secretario"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-buttons">
+
+                <button
+                    type="submit"
+                    class="btn btn-success"
+                >
+                    💾 Salvar Escola
+                </button>
+
+                <button
+                    type="button"
+                    id="btnCancelar"
+                    class="btn btn-secondary"
+                >
+                    Cancelar
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+
+    <!-- TABELA -->
+
+    <section class="table-box">
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Escola</th>
+                        <th>CNPJ</th>
+                        <th>INEP</th>
+                        <th>Cidade</th>
+                        <th>Estado</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="listaEscolas">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script type="module">
+
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+import {
+    getAuth,
+    onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+import {
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    doc,
+    updateDoc,
+    deleteDoc,
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+/* =========================
+   FIREBASE
+========================= */
+
+const firebaseConfig = {
+
+    apiKey: "AIzaSyAdwrOqN4-VQsiBByk4FVG-cDvfrR8ZYac",
+
+    authDomain:
+        "dasorte-66ec5.firebaseapp.com",
+
+    projectId:
+        "dasorte-66ec5",
+
+    storageBucket:
+        "dasorte-66ec5.firebasestorage.app",
+
+    messagingSenderId:
+        "606389335961",
+
+    appId:
+        "1:606389335961:web:feac4e89f8b4fa74684508"
+
+};
+
+
+const app =
+    initializeApp(firebaseConfig);
+
+const auth =
+    getAuth(app);
+
+const db =
+    getFirestore(app);
+
+
+/* =========================
+   ELEMENTOS
+========================= */
+
+const form =
+    document.getElementById("escolaForm");
+
+const formBox =
+    document.getElementById("formBox");
+
+const lista =
+    document.getElementById("listaEscolas");
+
+const pesquisa =
+    document.getElementById("pesquisa");
+
+const message =
+    document.getElementById("message");
+
+let escolas = [];
+
+let escolaEditando = null;
+
+
+/* =========================
+   MENSAGEM
+========================= */
+
+function mostrarMensagem(
+    texto,
+    tipo = "success"
+) {
+
+    message.textContent = texto;
+
+    message.className =
+        "message " + tipo;
+
+    setTimeout(() => {
+
+        message.className =
+            "message";
+
+    }, 4000);
+
+}
+
+
+/* =========================
+   CAMPOS
+========================= */
+
+function pegarDados() {
+
+    return {
+
+        nome:
+            document
+                .getElementById("nome")
+                .value
+                .trim(),
+
+        nomeFantasia:
+            document
+                .getElementById("nomeFantasia")
+                .value
+                .trim(),
+
+        cnpj:
+            document
+                .getElementById("cnpj")
+                .value
+                .trim(),
+
+        inep:
+            document
+                .getElementById("inep")
+                .value
+                .trim(),
+
+        telefone:
+            document
+                .getElementById("telefone")
+                .value
+                .trim(),
+
+        email:
+            document
+                .getElementById("email")
+                .value
+                .trim(),
+
+        endereco:
+            document
+                .getElementById("endereco")
+                .value
+                .trim(),
+
+        numero:
+            document
+                .getElementById("numero")
+                .value
+                .trim(),
+
+        bairro:
+            document
+                .getElementById("bairro")
+                .value
+                .trim(),
+
+        cidade:
+            document
+                .getElementById("cidade")
+                .value
+                .trim(),
+
+        estado:
+            document
+                .getElementById("estado")
+                .value,
+
+        cep:
+            document
+                .getElementById("cep")
+                .value
+                .trim(),
+
+        diretor:
+            document
+                .getElementById("diretor")
+                .value
+                .trim(),
+
+        secretario:
+            document
+                .getElementById("secretario")
+                .value
+                .trim()
+
+    };
+
+}
+
+
+/* =========================
+   PREENCHER FORMULÁRIO
+========================= */
+
+function preencherFormulario(
+    escola
+) {
+
+    document.getElementById("nome").value =
+        escola.nome || "";
+
+    document.getElementById("nomeFantasia").value =
+        escola.nomeFantasia || "";
+
+    document.getElementById("cnpj").value =
+        escola.cnpj || "";
+
+    document.getElementById("inep").value =
+        escola.inep || "";
+
+    document.getElementById("telefone").value =
+        escola.telefone || "";
+
+    document.getElementById("email").value =
+        escola.email || "";
+
+    document.getElementById("endereco").value =
+        escola.endereco || "";
+
+    document.getElementById("numero").value =
+        escola.numero || "";
+
+    document.getElementById("bairro").value =
+        escola.bairro || "";
+
+    document.getElementById("cidade").value =
+        escola.cidade || "";
+
+    document.getElementById("estado").value =
+        escola.estado || "";
+
+    document.getElementById("cep").value =
+        escola.cep || "";
+
+    document.getElementById("diretor").value =
+        escola.diretor || "";
+
+    document.getElementById("secretario").value =
+        escola.secretario || "";
+
+}
+
+
+/* =========================
+   LIMPAR
+========================= */
+
+function limparFormulario() {
+
+    form.reset();
+
+    escolaEditando = null;
+
+    document.getElementById("formTitle")
+        .textContent =
+        "Nova Escola";
+
+}
+
+
+/* =========================
+   CARREGAR ESCOLAS
+========================= */
+
+async function carregarEscolas() {
+
+    try {
+
+        const snapshot =
+            await getDocs(
+                collection(db, "escolas")
+            );
+
+        escolas = [];
+
+        snapshot.forEach(
+            item => {
+
+                escolas.push({
+
+                    id: item.id,
+
+                    ...item.data()
+
+                });
+
+            }
+        );
+
+
+        renderizar();
+
+    } catch (error) {
+
+        console.error(error);
+
+        mostrarMensagem(
+            "Erro ao carregar escolas.",
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =========================
+   RENDERIZAR
+========================= */
+
+function renderizar() {
+
+    const termo =
+        pesquisa.value
+            .toLowerCase()
+            .trim();
+
+
+    const filtradas =
+        escolas.filter(escola => {
+
+            const texto = (
+
+                (escola.nome || "") +
+                " " +
+                (escola.cnpj || "") +
+                " " +
+                (escola.cidade || "")
+
+            ).toLowerCase();
+
+            return texto.includes(termo);
+
+        });
+
+
+    lista.innerHTML = "";
+
+
+    if (!filtradas.length) {
+
+        lista.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="7"
+                    class="empty"
+                >
+                    Nenhuma escola encontrada.
+                </td>
+
+            </tr>
+
+        `;
+
+        return;
+
+    }
+
+
+    filtradas.forEach(escola => {
+
+        const tr =
+            document.createElement("tr");
+
+
+        const status =
+            escola.ativa !== false;
+
+
+        tr.innerHTML = `
+
+            <td>
+                <strong>
+                    ${escapar(escola.nome || "")}
+                </strong>
+            </td>
+
+            <td>
+                ${escapar(escola.cnpj || "-")}
+            </td>
+
+            <td>
+                ${escapar(escola.inep || "-")}
+            </td>
+
+            <td>
+                ${escapar(escola.cidade || "-")}
+            </td>
+
+            <td>
+                ${escapar(escola.estado || "-")}
+            </td>
+
+            <td>
+
+                <span class="
+                    status
+                    ${status ? "active" : "inactive"}
+                ">
+
+                    ${status ? "Ativa" : "Inativa"}
+
+                </span>
+
+            </td>
+
+            <td>
+
+                <div class="actions">
+
+                    <button
+                        class="btn btn-primary"
+                        data-action="editar"
+                        data-id="${escola.id}"
+                    >
+                        Editar
+                    </button>
+
+                    <button
+                        class="btn btn-warning"
+                        data-action="status"
+                        data-id="${escola.id}"
+                    >
+                        ${status ? "Desativar" : "Ativar"}
+                    </button>
+
+                    <button
+                        class="btn btn-danger"
+                        data-action="excluir"
+                        data-id="${escola.id}"
+                    >
+                        Excluir
+                    </button>
+
+                </div>
+
+            </td>
+
+        `;
+
+
+        lista.appendChild(tr);
+
+    });
+
+}
+
+
+/* =========================
+   ESCAPAR HTML
+========================= */
+
+function escapar(valor) {
+
+    return String(valor)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+
+}
+
+
+/* =========================
+   SALVAR
+========================= */
+
+form.addEventListener(
+    "submit",
+    async event => {
+
+        event.preventDefault();
+
+
+        const dados =
+            pegarDados();
+
+
+        if (!dados.nome) {
+
+            mostrarMensagem(
+                "Digite o nome da escola.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        try {
+
+            if (escolaEditando) {
+
+                await updateDoc(
+
+                    doc(
+                        db,
+                        "escolas",
+                        escolaEditando
+                    ),
+
+                    dados
+
+                );
+
+
+                mostrarMensagem(
+                    "Escola atualizada com sucesso."
+                );
+
+
+            } else {
+
+                await addDoc(
+
+                    collection(
+                        db,
+                        "escolas"
+                    ),
+
+                    {
+
+                        ...dados,
+
+                        ativa: true,
+
+                        criadoEm:
+                            serverTimestamp()
+
+                    }
+
+                );
+
+
+                mostrarMensagem(
+                    "Escola cadastrada com sucesso."
+                );
+
+            }
+
+
+            limparFormulario();
+
+            formBox.style.display =
+                "none";
+
+            await carregarEscolas();
+
+
+        } catch (error) {
+
+            console.error(error);
+
+            mostrarMensagem(
+                "Erro ao salvar escola.",
+                "error"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================
+   BOTÃO NOVA
+========================= */
+
+document
+    .getElementById("btnNova")
+    .addEventListener(
+        "click",
+        () => {
+
+            limparFormulario();
+
+            formBox.style.display =
+                "block";
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+    );
+
+
+/* =========================
+   CANCELAR
+========================= */
+
+document
+    .getElementById("btnCancelar")
+    .addEventListener(
+        "click",
+        () => {
+
+            limparFormulario();
+
+            formBox.style.display =
+                "none";
+
+        }
+    );
+
+
+/* =========================
+   PESQUISA
+========================= */
+
+pesquisa.addEventListener(
+    "input",
+    renderizar
+);
+
+
+/* =========================
+   AÇÕES DA TABELA
+========================= */
+
+lista.addEventListener(
+    "click",
+    async event => {
+
+        const botao =
+            event.target.closest("button");
+
+        if (!botao) return;
+
+
+        const id =
+            botao.dataset.id;
+
+        const action =
+            botao.dataset.action;
+
+
+        const escola =
+            escolas.find(
+                item => item.id === id
+            );
+
+        if (!escola) return;
+
+
+        /* EDITAR */
+
+        if (action === "editar") {
+
+            escolaEditando =
+                id;
+
+            preencherFormulario(
+                escola
+            );
+
+            document
+                .getElementById("formTitle")
+                .textContent =
+                "Editar Escola";
+
+            formBox.style.display =
+                "block";
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+        /* STATUS */
+
+        if (action === "status") {
+
+            const novoStatus =
+                escola.ativa === false;
+
+            const confirmacao =
+                confirm(
+                    novoStatus
+                    ? "Deseja ativar esta escola?"
+                    : "Deseja desativar esta escola?"
+                );
+
+            if (!confirmacao)
+                return;
+
+
+            try {
+
+                await updateDoc(
+
+                    doc(
+                        db,
+                        "escolas",
+                        id
+                    ),
+
+                    {
+                        ativa:
+                            novoStatus
+                    }
+
+                );
+
+
+                mostrarMensagem(
+                    novoStatus
+                    ? "Escola ativada."
+                    : "Escola desativada."
+                );
+
+
+                await carregarEscolas();
+
+
+            } catch (error) {
+
+                console.error(error);
+
+                mostrarMensagem(
+                    "Erro ao alterar status.",
+                    "error"
+                );
+
+            }
+
+        }
+
+
+        /* EXCLUIR */
+
+        if (action === "excluir") {
+
+            const confirmacao =
+                confirm(
+                    "ATENÇÃO!\n\n" +
+                    "A exclusão da escola é uma operação permanente.\n\n" +
+                    "Deseja realmente excluir esta escola?"
+                );
+
+
+            if (!confirmacao)
+                return;
+
+
+            try {
+
+                await deleteDoc(
+
+                    doc(
+                        db,
+                        "escolas",
+                        id
+                    )
+
+                );
+
+
+                mostrarMensagem(
+                    "Escola excluída."
+                );
+
+
+                await carregarEscolas();
+
+
+            } catch (error) {
+
+                console.error(error);
+
+                mostrarMensagem(
+                    "Erro ao excluir escola.",
+                    "error"
+                );
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =========================
+   AUTENTICAÇÃO
+========================= */
+
+onAuthStateChanged(
+    auth,
+    user => {
+
+        if (!user) {
+
+            alert(
+                "Você precisa estar logado para acessar este módulo."
+            );
+
+            window.location.href =
+                "index.html";
+
+            return;
+
+        }
+
+        carregarEscolas();
+
+    }
+);
+
+
+/* =========================
+   PAINEL
+========================= */
+
+window.voltarPainel =
+    function() {
+
+        window.location.href =
+            "index.html";
+
+    };
+
+</script>
+
+</body>
+      </html>
