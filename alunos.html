@@ -12,408 +12,625 @@
 
 <title>Cadastro de Alunos</title>
 
+
 <style>
 
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+/* =========================
+   RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#f1f5f9;
-    color:#1e293b;
+
+/* =========================
+   BODY
+========================= */
+
+body {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #f1f5f9;
+
+    color: #1e293b;
+
 }
 
-header{
-    background:#0f172a;
-    color:white;
-    padding:15px 25px;
 
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+/* =========================
+   HEADER
+========================= */
 
-    gap:15px;
+header {
+
+    background: #0f172a;
+
+    color: white;
+
+    padding: 15px 25px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
 }
 
-.header-title{
-    display:flex;
-    align-items:center;
-    gap:10px;
+
+.header-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
 }
 
-.header-title span{
-    font-size:30px;
+
+.header-title span {
+
+    font-size: 30px;
+
 }
 
-.header-title h1{
-    font-size:20px;
+
+.header-title h1 {
+
+    font-size: 20px;
+
 }
 
-.btn{
-    border:none;
-    padding:11px 16px;
-    border-radius:8px;
 
-    cursor:pointer;
+/* =========================
+   BOTÕES
+========================= */
 
-    font-weight:bold;
-    font-size:14px;
+.btn {
+
+    border: none;
+
+    padding: 11px 16px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
 }
 
-.btn-primary{
-    background:#2563eb;
-    color:white;
+
+.btn-primary {
+
+    background: #2563eb;
+
+    color: white;
+
 }
 
-.btn-secondary{
-    background:#64748b;
-    color:white;
+
+.btn-primary:hover {
+
+    background: #1d4ed8;
+
 }
 
-.btn-success{
-    background:#16a34a;
-    color:white;
+
+.btn-secondary {
+
+    background: #64748b;
+
+    color: white;
+
 }
 
-.btn-danger{
-    background:#dc2626;
-    color:white;
+
+.btn-success {
+
+    background: #16a34a;
+
+    color: white;
+
 }
 
-.btn-warning{
-    background:#d97706;
-    color:white;
+
+.btn-danger {
+
+    background: #dc2626;
+
+    color: white;
+
 }
 
-main{
-    max-width:1500px;
-    margin:auto;
-    padding:25px;
+
+.btn-warning {
+
+    background: #d97706;
+
+    color: white;
+
 }
 
-.top-area{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
 
-    gap:15px;
+.btn-info {
 
-    margin-bottom:20px;
+    background: #0891b2;
+
+    color: white;
+
 }
 
-.top-area h2{
-    font-size:25px;
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+
+    max-width: 1500px;
+
+    margin: auto;
+
+    padding: 25px;
+
 }
 
-.info{
-    background:#dbeafe;
-    color:#1e40af;
 
-    padding:14px;
+/* =========================
+   MENSAGEM
+========================= */
 
-    border-radius:10px;
+.message {
 
-    margin-bottom:20px;
+    display: none;
 
-    font-weight:bold;
+    padding: 12px;
+
+    border-radius: 8px;
+
+    margin-bottom: 20px;
+
+    font-weight: bold;
+
 }
 
-.message{
-    display:none;
 
-    padding:12px;
+.message.success {
 
-    border-radius:8px;
+    display: block;
 
-    margin-bottom:20px;
+    background: #dcfce7;
+
+    color: #166534;
+
 }
 
-.message.success{
-    display:block;
 
-    background:#dcfce7;
-    color:#166534;
+.message.error {
+
+    display: block;
+
+    background: #fee2e2;
+
+    color: #991b1b;
+
 }
 
-.message.error{
-    display:block;
 
-    background:#fee2e2;
-    color:#991b1b;
+/* =========================
+   ESCOLA ATUAL
+========================= */
+
+.school-box {
+
+    background: white;
+
+    padding: 18px 20px;
+
+    border-radius: 12px;
+
+    margin-bottom: 20px;
+
+    border-left: 5px solid #2563eb;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.05);
+
 }
 
-.form-box{
-    display:none;
 
-    background:white;
+.school-box h3 {
 
-    padding:25px;
+    margin-bottom: 6px;
 
-    border-radius:14px;
+}
 
-    margin-bottom:25px;
+
+.school-box p {
+
+    color: #64748b;
+
+}
+
+
+.master-info {
+
+    color: #7c3aed !important;
+
+    font-weight: bold;
+
+}
+
+
+/* =========================
+   TOPO
+========================= */
+
+.top-area {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.top-area h2 {
+
+    font-size: 25px;
+
+}
+
+
+/* =========================
+   PESQUISA
+========================= */
+
+.search {
+
+    margin-bottom: 20px;
+
+}
+
+
+.search input {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 9px;
+
+    font-size: 15px;
+
+    outline: none;
+
+}
+
+
+.search input:focus {
+
+    border-color: #2563eb;
+
+}
+
+
+/* =========================
+   FORMULÁRIO
+========================= */
+
+.form-box {
+
+    display: none;
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 14px;
+
+    margin-bottom: 25px;
 
     box-shadow:
         0 5px 20px rgba(0,0,0,.06);
+
 }
 
-.form-box h3{
-    margin-bottom:20px;
+
+.form-box h3 {
+
+    margin-bottom: 20px;
+
 }
 
-.section-title{
-    font-size:18px;
-    font-weight:bold;
 
-    margin-top:25px;
-    margin-bottom:15px;
+.form-grid {
 
-    padding-bottom:8px;
-
-    border-bottom:
-        2px solid #e2e8f0;
-}
-
-.form-grid{
-    display:grid;
+    display: grid;
 
     grid-template-columns:
-        repeat(3,1fr);
+        repeat(2, 1fr);
 
-    gap:15px;
+    gap: 15px;
+
 }
 
-.form-group label{
-    display:block;
 
-    margin-bottom:6px;
+.form-group label {
 
-    font-weight:bold;
+    display: block;
 
-    font-size:14px;
+    margin-bottom: 6px;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
 }
+
 
 .form-group input,
-.form-group select,
-.form-group textarea{
+.form-group select {
 
-    width:100%;
+    width: 100%;
 
-    padding:12px;
+    padding: 12px;
 
-    border:
-        1px solid #cbd5e1;
+    border: 1px solid #cbd5e1;
 
-    border-radius:8px;
+    border-radius: 8px;
 
-    outline:none;
+    outline: none;
 
-    font-size:14px;
+    font-size: 14px;
+
 }
 
-.form-group textarea{
-    min-height:100px;
-
-    resize:vertical;
-}
 
 .form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus{
+.form-group select:focus {
 
-    border-color:#2563eb;
+    border-color: #2563eb;
 
 }
 
-.full{
-    grid-column:1/-1;
+
+.full {
+
+    grid-column: 1 / -1;
+
 }
 
-.form-buttons{
-    margin-top:25px;
 
-    display:flex;
+.form-buttons {
 
-    gap:10px;
+    margin-top: 20px;
 
-    flex-wrap:wrap;
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
 }
 
-.search{
-    margin-bottom:20px;
-}
 
-.search input{
+/* =========================
+   TABELA
+========================= */
 
-    width:100%;
+.table-box {
 
-    padding:13px;
+    background: white;
 
-    border:
-        1px solid #cbd5e1;
+    border-radius: 14px;
 
-    border-radius:9px;
-
-    font-size:15px;
-
-    outline:none;
-}
-
-.table-box{
-
-    background:white;
-
-    border-radius:14px;
-
-    overflow:hidden;
+    overflow: hidden;
 
     box-shadow:
         0 5px 20px rgba(0,0,0,.06);
+
 }
 
-.table-container{
 
-    width:100%;
+.table-container {
 
-    overflow-x:auto;
+    width: 100%;
+
+    overflow-x: auto;
+
 }
 
-table{
 
-    width:100%;
+table {
 
-    border-collapse:collapse;
+    width: 100%;
 
-    min-width:1100px;
+    border-collapse: collapse;
+
+    min-width: 1100px;
+
 }
 
-th{
 
-    background:#e2e8f0;
+th {
 
-    padding:13px;
+    background: #e2e8f0;
 
-    text-align:left;
+    padding: 13px;
 
-    font-size:13px;
+    text-align: left;
+
+    font-size: 13px;
+
 }
 
-td{
 
-    padding:12px;
+td {
+
+    padding: 12px;
 
     border-top:
         1px solid #e2e8f0;
 
-    font-size:14px;
+    font-size: 14px;
+
 }
 
-.status{
 
-    display:inline-block;
+/* =========================
+   STATUS
+========================= */
 
-    padding:5px 9px;
+.status {
 
-    border-radius:20px;
+    display: inline-block;
 
-    font-size:12px;
+    padding: 5px 9px;
 
-    font-weight:bold;
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
 }
 
-.status.active{
 
-    background:#dcfce7;
+.status.active {
 
-    color:#166534;
+    background: #dcfce7;
+
+    color: #166534;
+
 }
 
-.status.inactive{
 
-    background:#fee2e2;
+.status.inactive {
 
-    color:#991b1b;
+    background: #fee2e2;
+
+    color: #991b1b;
+
 }
 
-.actions{
 
-    display:flex;
+/* =========================
+   AÇÕES
+========================= */
 
-    gap:6px;
+.actions {
 
-    flex-wrap:wrap;
+    display: flex;
+
+    gap: 6px;
+
+    flex-wrap: wrap;
+
 }
 
-.actions .btn{
 
-    padding:7px 9px;
+.actions .btn {
 
-    font-size:12px;
+    padding: 7px 9px;
+
+    font-size: 12px;
+
 }
 
-.empty{
 
-    text-align:center;
+/* =========================
+   VAZIO
+========================= */
 
-    padding:35px;
+.empty {
 
-    color:#64748b;
+    text-align: center;
+
+    padding: 35px;
+
+    color: #64748b;
+
 }
 
-.loading{
 
-    text-align:center;
+/* =========================
+   CONTADOR
+========================= */
 
-    padding:30px;
+.counter {
 
-    color:#64748b;
+    margin-bottom: 15px;
+
+    color: #64748b;
+
+    font-size: 14px;
+
 }
 
-@media(max-width:900px){
 
-    .form-grid{
-        grid-template-columns:
-            repeat(2,1fr);
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width: 700px) {
+
+    header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
     }
 
-}
 
-@media(max-width:650px){
+    main {
 
-    header{
-
-        flex-direction:column;
-
-        align-items:flex-start;
+        padding: 15px;
 
     }
 
-    main{
 
-        padding:15px;
+    .top-area {
 
-    }
+        flex-direction: column;
 
-    .top-area{
-
-        flex-direction:column;
-
-        align-items:flex-start;
+        align-items: flex-start;
 
     }
 
-    .form-grid{
 
-        grid-template-columns:1fr;
+    .form-grid {
+
+        grid-template-columns: 1fr;
 
     }
 
-    .full{
 
-        grid-column:auto;
+    .full {
+
+        grid-column: auto;
 
     }
 
@@ -427,1989 +644,2373 @@ td{
 <body>
 
 
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
 
-<div class="header-title">
+    <div class="header-title">
 
-<span>👨‍🎓</span>
+        <span>👨‍🎓</span>
 
-<h1>
-Cadastro de Alunos
-</h1>
+        <h1>
+            Cadastro de Alunos
+        </h1>
 
-</div>
+    </div>
 
 
-<button
-    class="btn btn-secondary"
-    id="btnPainel"
->
-← Painel
-</button>
+    <button
+        class="btn btn-secondary"
+        onclick="voltarPainel()"
+    >
+        ← Painel
+    </button>
 
 </header>
 
 
+
+<!-- =========================
+     CONTEÚDO
+========================= -->
+
 <main>
 
 
-<div
-    id="message"
-    class="message"
-></div>
+    <!-- MENSAGEM -->
 
+    <div
+        id="message"
+        class="message"
+    ></div>
 
-<div
-    id="info"
-    class="info"
->
-Verificando usuário...
-</div>
 
 
-<div class="top-area">
+    <!-- ESCOLA -->
 
-<h2>
-Alunos
-</h2>
+    <div class="school-box">
 
+        <h3>
+            🏫 Escola atual
+        </h3>
 
-<button
-    id="btnNovo"
-    class="btn btn-primary"
->
-+ Novo Aluno
-</button>
+        <p id="schoolInfo">
+            Verificando escola...
+        </p>
 
-</div>
+    </div>
 
 
-<!-- FORMULÁRIO -->
 
-<section
-    id="formBox"
-    class="form-box"
->
+    <!-- TOPO -->
 
-<h3 id="formTitle">
-Novo Aluno
-</h3>
+    <div class="top-area">
 
+        <h2>
+            Alunos cadastrados
+        </h2>
 
-<form id="alunoForm">
 
+        <button
+            id="btnNovo"
+            class="btn btn-primary"
+        >
+            + Novo Aluno
+        </button>
 
-<!-- ESCOLA -->
+    </div>
 
-<div class="section-title">
-Escola
-</div>
 
 
-<div class="form-grid">
+    <!-- PESQUISA -->
 
+    <div class="search">
 
-<div
-    class="form-group full"
->
+        <input
+            type="text"
+            id="pesquisa"
+            placeholder="Pesquisar por nome, CPF, matrícula ou cidade..."
+        >
 
-<label>
-Escola *
-</label>
+    </div>
 
 
-<select
-    id="escolaId"
-    required
->
 
-<option value="">
-Carregando escolas...
-</option>
+    <!-- CONTADOR -->
 
-</select>
+    <div
+        id="contador"
+        class="counter"
+    >
+        Carregando alunos...
+    </div>
 
-</div>
 
-</div>
 
+    <!-- =========================
+         FORMULÁRIO
+    ========================= -->
 
-<!-- DADOS PESSOAIS -->
+    <section
+        id="formBox"
+        class="form-box"
+    >
 
-<div class="section-title">
-Dados pessoais
-</div>
+        <h3 id="formTitle">
+            Novo Aluno
+        </h3>
 
 
-<div class="form-grid">
+        <form id="alunoForm">
 
 
-<div class="form-group">
+            <div class="form-grid">
 
-<label>
-Matrícula *
-</label>
 
-<input
-    type="text"
-    id="matricula"
-    required
->
+                <!-- NOME -->
 
-</div>
+                <div class="form-group full">
 
+                    <label>
+                        Nome completo *
+                    </label>
 
-<div
-    class="form-group full"
->
+                    <input
+                        type="text"
+                        id="nome"
+                        required
+                    >
 
-<label>
-Nome completo *
-</label>
+                </div>
 
-<input
-    type="text"
-    id="nome"
-    required
->
 
-</div>
 
+                <!-- DATA NASCIMENTO -->
 
-<div class="form-group">
+                <div class="form-group">
 
-<label>
-Data de nascimento
-</label>
+                    <label>
+                        Data de nascimento *
+                    </label>
 
-<input
-    type="date"
-    id="dataNascimento"
->
+                    <input
+                        type="date"
+                        id="dataNascimento"
+                        required
+                    >
 
-</div>
+                </div>
 
 
-<div class="form-group">
 
-<label>
-Sexo
-</label>
+                <!-- SEXO -->
 
-<select id="sexo">
+                <div class="form-group">
 
-<option value="">
-Selecione
-</option>
+                    <label>
+                        Sexo
+                    </label>
 
-<option value="Masculino">
-Masculino
-</option>
+                    <select id="sexo">
 
-<option value="Feminino">
-Feminino
-</option>
+                        <option value="">
+                            Selecione
+                        </option>
 
-</select>
+                        <option value="Masculino">
+                            Masculino
+                        </option>
 
-</div>
+                        <option value="Feminino">
+                            Feminino
+                        </option>
 
+                        <option value="Outro">
+                            Outro
+                        </option>
 
-<div class="form-group">
+                    </select>
 
-<label>
-CPF
-</label>
+                </div>
 
-<input
-    type="text"
-    id="cpf"
->
 
-</div>
 
+                <!-- CPF -->
 
-<div class="form-group">
+                <div class="form-group">
 
-<label>
-RG
-</label>
+                    <label>
+                        CPF
+                    </label>
 
-<input
-    type="text"
-    id="rg"
->
+                    <input
+                        type="text"
+                        id="cpf"
+                        placeholder="000.000.000-00"
+                    >
 
-</div>
+                </div>
 
 
-<div class="form-group">
 
-<label>
-Naturalidade
-</label>
+                <!-- RG -->
 
-<input
-    type="text"
-    id="naturalidade"
->
+                <div class="form-group">
 
-</div>
+                    <label>
+                        RG
+                    </label>
 
+                    <input
+                        type="text"
+                        id="rg"
+                    >
 
-<div class="form-group">
+                </div>
 
-<label>
-Nacionalidade
-</label>
 
-<input
-    type="text"
-    id="nacionalidade"
-    value="Brasileira"
->
 
-</div>
+                <!-- MATRÍCULA -->
 
-</div>
+                <div class="form-group">
 
+                    <label>
+                        Matrícula
+                    </label>
 
-<!-- FILIAÇÃO -->
+                    <input
+                        type="text"
+                        id="matricula"
+                    >
 
-<div class="section-title">
-Filiação
-</div>
+                </div>
 
 
-<div class="form-grid">
 
+                <!-- NIS -->
 
-<div
-    class="form-group full"
->
+                <div class="form-group">
 
-<label>
-Nome da mãe
-</label>
+                    <label>
+                        NIS
+                    </label>
 
-<input
-    type="text"
-    id="nomeMae"
->
+                    <input
+                        type="text"
+                        id="nis"
+                    >
 
-</div>
+                </div>
 
 
-<div
-    class="form-group full"
->
 
-<label>
-Nome do pai
-</label>
+                <!-- MÃE -->
 
-<input
-    type="text"
-    id="nomePai"
->
+                <div class="form-group full">
 
-</div>
+                    <label>
+                        Nome da mãe
+                    </label>
 
+                    <input
+                        type="text"
+                        id="mae"
+                    >
 
-<div class="form-group">
+                </div>
 
-<label>
-Responsável
-</label>
 
-<input
-    type="text"
-    id="responsavel"
->
 
-</div>
+                <!-- PAI -->
 
+                <div class="form-group full">
 
-<div class="form-group">
+                    <label>
+                        Nome do pai
+                    </label>
 
-<label>
-Telefone do responsável
-</label>
+                    <input
+                        type="text"
+                        id="pai"
+                    >
 
-<input
-    type="text"
-    id="telefoneResponsavel"
->
+                </div>
 
-</div>
 
-</div>
 
+                <!-- RESPONSÁVEL -->
 
-<!-- ENDEREÇO -->
+                <div class="form-group full">
 
-<div class="section-title">
-Endereço
-</div>
+                    <label>
+                        Responsável
+                    </label>
 
+                    <input
+                        type="text"
+                        id="responsavel"
+                    >
 
-<div class="form-grid">
+                </div>
 
 
-<div
-    class="form-group full"
->
 
-<label>
-Endereço
-</label>
+                <!-- TELEFONE -->
 
-<input
-    type="text"
-    id="endereco"
->
+                <div class="form-group">
 
-</div>
+                    <label>
+                        Telefone
+                    </label>
 
+                    <input
+                        type="text"
+                        id="telefone"
+                    >
 
-<div class="form-group">
+                </div>
 
-<label>
-Número
-</label>
 
-<input
-    type="text"
-    id="numero"
->
 
-</div>
+                <!-- EMAIL -->
 
+                <div class="form-group">
 
-<div class="form-group">
+                    <label>
+                        E-mail
+                    </label>
 
-<label>
-Bairro
-</label>
+                    <input
+                        type="email"
+                        id="email"
+                    >
 
-<input
-    type="text"
-    id="bairro"
->
+                </div>
 
-</div>
 
 
-<div class="form-group">
+                <!-- ENDEREÇO -->
 
-<label>
-Cidade
-</label>
+                <div class="form-group full">
 
-<input
-    type="text"
-    id="cidade"
->
+                    <label>
+                        Endereço
+                    </label>
 
-</div>
+                    <input
+                        type="text"
+                        id="endereco"
+                    >
 
+                </div>
 
-<div class="form-group">
 
-<label>
-Estado
-</label>
 
-<select id="estado">
+                <!-- NÚMERO -->
 
-<option value="">
-Selecione
-</option>
+                <div class="form-group">
 
-<option>AC</option>
-<option>AL</option>
-<option>AP</option>
-<option>AM</option>
-<option>BA</option>
-<option>CE</option>
-<option>DF</option>
-<option>ES</option>
-<option>GO</option>
-<option>MA</option>
-<option>MT</option>
-<option>MS</option>
-<option>MG</option>
-<option>PA</option>
-<option>PB</option>
-<option>PR</option>
-<option>PE</option>
-<option>PI</option>
-<option>RJ</option>
-<option>RN</option>
-<option>RS</option>
-<option>RO</option>
-<option>RR</option>
-<option>SC</option>
-<option>SP</option>
-<option>SE</option>
-<option>TO</option>
+                    <label>
+                        Número
+                    </label>
 
-</select>
+                    <input
+                        type="text"
+                        id="numero"
+                    >
 
-</div>
+                </div>
 
 
-<div class="form-group">
 
-<label>
-CEP
-</label>
+                <!-- BAIRRO -->
 
-<input
-    type="text"
-    id="cep"
->
+                <div class="form-group">
 
-</div>
+                    <label>
+                        Bairro
+                    </label>
 
-</div>
+                    <input
+                        type="text"
+                        id="bairro"
+                    >
 
+                </div>
 
-<!-- CONTATO -->
 
-<div class="section-title">
-Contato
-</div>
 
+                <!-- CIDADE -->
 
-<div class="form-grid">
+                <div class="form-group">
 
+                    <label>
+                        Cidade
+                    </label>
 
-<div class="form-group">
+                    <input
+                        type="text"
+                        id="cidade"
+                    >
 
-<label>
-Telefone
-</label>
+                </div>
 
-<input
-    type="text"
-    id="telefone"
->
 
-</div>
 
+                <!-- ESTADO -->
 
-<div class="form-group">
+                <div class="form-group">
 
-<label>
-E-mail
-</label>
+                    <label>
+                        Estado
+                    </label>
 
-<input
-    type="email"
-    id="email"
->
+                    <select id="estado">
 
-</div>
+                        <option value="">
+                            Selecione
+                        </option>
 
-</div>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
 
+                    </select>
 
-<!-- ESCOLAR -->
+                </div>
 
-<div class="section-title">
-Dados escolares
-</div>
 
 
-<div class="form-grid">
+                <!-- CEP -->
 
+                <div class="form-group">
 
-<div class="form-group">
+                    <label>
+                        CEP
+                    </label>
 
-<label>
-Data da matrícula
-</label>
+                    <input
+                        type="text"
+                        id="cep"
+                    >
 
-<input
-    type="date"
-    id="dataMatricula"
->
+                </div>
 
-</div>
 
 
-<div class="form-group">
+                <!-- STATUS -->
 
-<label>
-Ano letivo
-</label>
+                <div class="form-group">
 
-<input
-    type="number"
-    id="anoLetivo"
->
+                    <label>
+                        Situação
+                    </label>
 
-</div>
+                    <select id="ativo">
 
+                        <option value="true">
+                            Ativo
+                        </option>
 
-<div class="form-group">
+                        <option value="false">
+                            Inativo
+                        </option>
 
-<label>
-Turma
-</label>
+                    </select>
 
-<input
-    type="text"
-    id="turma"
->
+                </div>
 
-</div>
 
+            </div>
 
-<div class="form-group">
 
-<label>
-Situação
-</label>
 
-<select id="situacao">
+            <!-- BOTÕES -->
 
-<option value="Ativo">
-Ativo
-</option>
+            <div class="form-buttons">
 
-<option value="Transferido">
-Transferido
-</option>
+                <button
+                    type="submit"
+                    class="btn btn-success"
+                >
+                    💾 Salvar Aluno
+                </button>
 
-<option value="Concluído">
-Concluído
-</option>
 
-<option value="Inativo">
-Inativo
-</option>
+                <button
+                    type="button"
+                    id="btnCancelar"
+                    class="btn btn-secondary"
+                >
+                    Cancelar
+                </button>
 
-</select>
+            </div>
 
-</div>
 
+        </form>
 
-<div
-    class="form-group full"
->
+    </section>
 
-<label>
-Observações
-</label>
 
-<textarea
-    id="observacoes"
-></textarea>
 
-</div>
+    <!-- =========================
+         TABELA
+    ========================= -->
 
-</div>
+    <section class="table-box">
 
+        <div class="table-container">
 
-<div class="form-buttons">
+            <table>
 
-<button
-    type="submit"
-    class="btn btn-success"
->
-💾 Salvar Aluno
-</button>
+                <thead>
 
+                    <tr>
 
-<button
-    type="button"
-    class="btn btn-secondary"
-    id="btnCancelar"
->
-Cancelar
-</button>
+                        <th>
+                            Matrícula
+                        </th>
 
-</div>
+                        <th>
+                            Aluno
+                        </th>
 
+                        <th>
+                            Nascimento
+                        </th>
 
-</form>
+                        <th>
+                            CPF
+                        </th>
 
-</section>
+                        <th>
+                            Responsável
+                        </th>
 
+                        <th>
+                            Cidade
+                        </th>
 
-<!-- PESQUISA -->
+                        <th>
+                            Status
+                        </th>
 
-<div class="search">
+                        <th>
+                            Ações
+                        </th>
 
-<input
-    type="text"
-    id="pesquisa"
-    placeholder="Pesquisar por nome ou matrícula..."
->
+                    </tr>
 
-</div>
+                </thead>
 
 
-<!-- TABELA -->
+                <tbody id="listaAlunos">
 
-<section class="table-box">
+                </tbody>
 
-<div class="table-container">
+            </table>
 
-<table>
+        </div>
 
-<thead>
-
-<tr>
-
-<th>
-Matrícula
-</th>
-
-<th>
-Aluno
-</th>
-
-<th>
-Escola
-</th>
-
-<th>
-Nascimento
-</th>
-
-<th>
-Ano
-</th>
-
-<th>
-Turma
-</th>
-
-<th>
-Situação
-</th>
-
-<th>
-Ações
-</th>
-
-</tr>
-
-</thead>
-
-
-<tbody id="listaAlunos">
-
-<tr>
-
-<td
-    colspan="8"
-    class="loading"
->
-Carregando...
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-</div>
-
-</section>
+    </section>
 
 
 </main>
 
 
+
+<!-- =========================
+     FIREBASE
+========================= -->
+
 <script type="module">
 
 
-/* =====================================================
-   FIREBASE
-===================================================== */
-
+/* =========================
+   IMPORTS
+========================= */
 
 import {
 
-initializeApp
+    initializeApp
 
-}
-
-from
+} from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
 
 import {
 
-getAuth,
-onAuthStateChanged
+    getAuth,
 
-}
+    onAuthStateChanged
 
-from
+} from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
 
 import {
 
-getFirestore,
-collection,
-addDoc,
-getDocs,
-doc,
-getDoc,
-updateDoc,
-deleteDoc,
-serverTimestamp
+    getFirestore,
 
-}
+    collection,
 
-from
+    addDoc,
+
+    getDocs,
+
+    getDoc,
+
+    doc,
+
+    updateDoc,
+
+    deleteDoc,
+
+    serverTimestamp,
+
+    query,
+
+    where
+
+} from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 
+
+/* =========================
+   FIREBASE CONFIG
+========================= */
+
 const firebaseConfig = {
 
-apiKey:
-"AIzaSyAdwrOqN4-VQsiBByk4FVG-cDvfrR8ZYac",
+    apiKey:
+        "AIzaSyAdwrOqN4-VQsiBByk4FVG-cDvfrR8ZYac",
 
-authDomain:
-"dasorte-66ec5.firebaseapp.com",
+    authDomain:
+        "dasorte-66ec5.firebaseapp.com",
 
-projectId:
-"dasorte-66ec5",
+    projectId:
+        "dasorte-66ec5",
 
-storageBucket:
-"dasorte-66ec5.firebasestorage.app",
+    storageBucket:
+        "dasorte-66ec5.firebasestorage.app",
 
-messagingSenderId:
-"606389335961",
+    messagingSenderId:
+        "606389335961",
 
-appId:
-"1:606389335961:web:feac4e89f8b4fa74684508"
+    appId:
+        "1:606389335961:web:feac4e89f8b4fa74684508"
 
 };
 
 
+
+/* =========================
+   INICIALIZAÇÃO
+========================= */
+
 const app =
-initializeApp(firebaseConfig);
+    initializeApp(firebaseConfig);
 
 
 const auth =
-getAuth(app);
+    getAuth(app);
 
 
 const db =
-getFirestore(app);
+    getFirestore(app);
 
 
-/* =====================================================
+
+/* =========================
+   ELEMENTOS
+========================= */
+
+const form =
+    document.getElementById(
+        "alunoForm"
+    );
+
+
+const formBox =
+    document.getElementById(
+        "formBox"
+    );
+
+
+const lista =
+    document.getElementById(
+        "listaAlunos"
+    );
+
+
+const pesquisa =
+    document.getElementById(
+        "pesquisa"
+    );
+
+
+const message =
+    document.getElementById(
+        "message"
+    );
+
+
+const contador =
+    document.getElementById(
+        "contador"
+    );
+
+
+const schoolInfo =
+    document.getElementById(
+        "schoolInfo"
+    );
+
+
+
+/* =========================
    VARIÁVEIS
-===================================================== */
-
-
-let usuarioAtual = null;
-
-let perfilUsuario = "master";
-
-let escolaUsuario = null;
-
-let escolas = [];
+========================= */
 
 let alunos = [];
 
 let alunoEditando = null;
 
+let usuarioAtual = null;
 
-/* =====================================================
-   ELEMENTOS
-===================================================== */
+let dadosUsuario = null;
 
-
-const info =
-document.getElementById("info");
-
-const message =
-document.getElementById("message");
-
-const escolaSelect =
-document.getElementById("escolaId");
-
-const formBox =
-document.getElementById("formBox");
-
-const form =
-document.getElementById("alunoForm");
-
-const lista =
-document.getElementById("listaAlunos");
-
-const pesquisa =
-document.getElementById("pesquisa");
+let escolaAtualId = null;
 
 
-/* =====================================================
+
+/* =========================
    MENSAGEM
-===================================================== */
-
+========================= */
 
 function mostrarMensagem(
-texto,
-tipo="success"
-){
+    texto,
+    tipo = "success"
+) {
 
-message.textContent =
-texto;
+    message.textContent =
+        texto;
 
-message.className =
-"message " + tipo;
+    message.className =
+        "message " + tipo;
 
-setTimeout(
-()=>{
 
-message.className =
-"message";
+    setTimeout(() => {
 
-},
-5000
-);
+        message.className =
+            "message";
+
+    }, 4000);
 
 }
 
 
-/* =====================================================
-   ESCAPAR
-===================================================== */
 
+/* =========================
+   CAMPOS
+========================= */
 
-function escapar(valor){
+function pegarDados() {
 
-return String(valor ?? "")
-.replaceAll("&","&amp;")
-.replaceAll("<","&lt;")
-.replaceAll(">","&gt;")
-.replaceAll('"',"&quot;")
-.replaceAll("'","&#039;");
+    return {
 
-}
+        nome:
+            document
+                .getElementById("nome")
+                .value
+                .trim(),
 
+        dataNascimento:
+            document
+                .getElementById("dataNascimento")
+                .value,
 
-/* =====================================================
-   AUTENTICAÇÃO
-===================================================== */
+        sexo:
+            document
+                .getElementById("sexo")
+                .value,
 
+        cpf:
+            document
+                .getElementById("cpf")
+                .value
+                .trim(),
 
-onAuthStateChanged(
-auth,
-async user => {
+        rg:
+            document
+                .getElementById("rg")
+                .value
+                .trim(),
 
-console.log(
-"Usuário Firebase:",
-user
-);
+        matricula:
+            document
+                .getElementById("matricula")
+                .value
+                .trim(),
 
+        nis:
+            document
+                .getElementById("nis")
+                .value
+                .trim(),
 
-if(!user){
+        mae:
+            document
+                .getElementById("mae")
+                .value
+                .trim(),
 
-info.textContent =
-"⛔ Nenhum usuário autenticado.";
+        pai:
+            document
+                .getElementById("pai")
+                .value
+                .trim(),
 
-mostrarMensagem(
-"Você precisa estar logado.",
-"error"
-);
+        responsavel:
+            document
+                .getElementById("responsavel")
+                .value
+                .trim(),
 
-return;
+        telefone:
+            document
+                .getElementById("telefone")
+                .value
+                .trim(),
 
-}
+        email:
+            document
+                .getElementById("email")
+                .value
+                .trim(),
 
+        endereco:
+            document
+                .getElementById("endereco")
+                .value
+                .trim(),
 
-usuarioAtual =
-user;
+        numero:
+            document
+                .getElementById("numero")
+                .value
+                .trim(),
 
+        bairro:
+            document
+                .getElementById("bairro")
+                .value
+                .trim(),
 
-info.textContent =
-"Usuário autenticado: " +
-(
-user.email ||
-user.uid
-);
+        cidade:
+            document
+                .getElementById("cidade")
+                .value
+                .trim(),
 
+        estado:
+            document
+                .getElementById("estado")
+                .value,
 
-/*
- * Neste primeiro momento,
- * o usuário autenticado será tratado
- * como Master.
- *
- * Depois vamos conectar isso ao
- * documento de usuários.
- */
+        cep:
+            document
+                .getElementById("cep")
+                .value
+                .trim(),
 
+        ativo:
+            document
+                .getElementById("ativo")
+                .value === "true"
 
-try{
-
-await carregarEscolas();
-
-await carregarAlunos();
-
-}catch(error){
-
-console.error(error);
-
-mostrarMensagem(
-"Erro ao carregar dados: " +
-error.message,
-"error"
-);
-
-}
-
-});
-
-
-/* =====================================================
-   ESCOLAS
-===================================================== */
-
-
-async function carregarEscolas(){
-
-const snapshot =
-await getDocs(
-collection(
-db,
-"escolas"
-)
-);
-
-
-escolas = [];
-
-
-snapshot.forEach(
-item => {
-
-escolas.push({
-
-id:item.id,
-
-...item.data()
-
-});
-
-});
-
-
-escolas.sort(
-(a,b)=>
-(a.nome || "")
-.localeCompare(
-b.nome || "",
-"pt-BR"
-)
-);
-
-
-preencherEscolas();
+    };
 
 }
 
 
-/* =====================================================
-   SELECT ESCOLAS
-===================================================== */
+
+/* =========================
+   PREENCHER FORMULÁRIO
+========================= */
+
+function preencherFormulario(
+    aluno
+) {
+
+    document.getElementById(
+        "nome"
+    ).value =
+        aluno.nome || "";
 
 
-function preencherEscolas(){
-
-escolaSelect.innerHTML =
-`
-<option value="">
-Selecione a escola
-</option>
-`;
+    document.getElementById(
+        "dataNascimento"
+    ).value =
+        aluno.dataNascimento || "";
 
 
-escolas.forEach(
-escola => {
-
-if(escola.ativa === false)
-return;
-
-
-const option =
-document.createElement(
-"option"
-);
+    document.getElementById(
+        "sexo"
+    ).value =
+        aluno.sexo || "";
 
 
-option.value =
-escola.id;
+    document.getElementById(
+        "cpf"
+    ).value =
+        aluno.cpf || "";
 
 
-option.textContent =
-escola.nome;
+    document.getElementById(
+        "rg"
+    ).value =
+        aluno.rg || "";
 
 
-escolaSelect.appendChild(
-option
-);
-
-});
-
-}
+    document.getElementById(
+        "matricula"
+    ).value =
+        aluno.matricula || "";
 
 
-/* =====================================================
-   CARREGAR ALUNOS
-===================================================== */
+    document.getElementById(
+        "nis"
+    ).value =
+        aluno.nis || "";
 
 
-async function carregarAlunos(){
-
-const snapshot =
-await getDocs(
-collection(
-db,
-"alunos"
-)
-);
+    document.getElementById(
+        "mae"
+    ).value =
+        aluno.mae || "";
 
 
-alunos = [];
+    document.getElementById(
+        "pai"
+    ).value =
+        aluno.pai || "";
 
 
-snapshot.forEach(
-item => {
-
-alunos.push({
-
-id:item.id,
-
-...item.data()
-
-});
-
-});
+    document.getElementById(
+        "responsavel"
+    ).value =
+        aluno.responsavel || "";
 
 
-renderizarAlunos();
-
-}
-
-
-/* =====================================================
-   RENDERIZAR
-===================================================== */
+    document.getElementById(
+        "telefone"
+    ).value =
+        aluno.telefone || "";
 
 
-function renderizarAlunos(){
-
-const termo =
-pesquisa.value
-.toLowerCase()
-.trim();
+    document.getElementById(
+        "email"
+    ).value =
+        aluno.email || "";
 
 
-const filtrados =
-alunos.filter(
-aluno => {
-
-const texto =
-
-(aluno.nome || "") +
-" " +
-(aluno.matricula || "");
+    document.getElementById(
+        "endereco"
+    ).value =
+        aluno.endereco || "";
 
 
-return texto
-.toLowerCase()
-.includes(termo);
-
-});
-
-
-lista.innerHTML = "";
+    document.getElementById(
+        "numero"
+    ).value =
+        aluno.numero || "";
 
 
-if(!filtrados.length){
+    document.getElementById(
+        "bairro"
+    ).value =
+        aluno.bairro || "";
 
-lista.innerHTML = `
 
-<tr>
+    document.getElementById(
+        "cidade"
+    ).value =
+        aluno.cidade || "";
 
-<td
-colspan="8"
-class="empty"
->
 
-Nenhum aluno encontrado.
+    document.getElementById(
+        "estado"
+    ).value =
+        aluno.estado || "";
 
-</td>
 
-</tr>
+    document.getElementById(
+        "cep"
+    ).value =
+        aluno.cep || "";
 
-`;
 
-return;
+    document.getElementById(
+        "ativo"
+    ).value =
+        aluno.ativo === false
+            ? "false"
+            : "true";
 
 }
 
 
-filtrados.forEach(
-aluno => {
 
-const escola =
-escolas.find(
-e =>
-e.id ===
-aluno.escolaId
-);
-
-
-const tr =
-document.createElement(
-"tr"
-);
-
-
-tr.innerHTML = `
-
-<td>
-
-${escapar(
-aluno.matricula
-)}
-
-</td>
-
-
-<td>
-
-<strong>
-
-${escapar(
-aluno.nome
-)}
-
-</strong>
-
-</td>
-
-
-<td>
-
-${escapar(
-escola?.nome || "-"
-)}
-
-</td>
-
-
-<td>
-
-${escapar(
-aluno.dataNascimento || "-"
-)}
-
-</td>
-
-
-<td>
-
-${escapar(
-aluno.anoLetivo || "-"
-)}
-
-</td>
-
-
-<td>
-
-${escapar(
-aluno.turma || "-"
-)}
-
-</td>
-
-
-<td>
-
-<span class="
-status
-${
-aluno.situacao === "Inativo"
-? "inactive"
-: "active"
-}
-">
-
-${escapar(
-aluno.situacao || "Ativo"
-)}
-
-</span>
-
-</td>
-
-
-<td>
-
-<div class="actions">
-
-<button
-class="btn btn-primary"
-data-action="editar"
-data-id="${aluno.id}"
->
-Editar
-</button>
-
-
-<button
-class="btn btn-danger"
-data-action="excluir"
-data-id="${aluno.id}"
->
-Excluir
-</button>
-
-</div>
-
-</td>
-
-`;
-
-
-lista.appendChild(
-tr
-);
-
-});
-
-}
-
-
-/* =====================================================
-   PEGAR FORMULÁRIO
-===================================================== */
-
-
-function pegarDados(){
-
-return {
-
-escolaId:
-escolaSelect.value,
-
-matricula:
-document.getElementById(
-"matricula"
-).value.trim(),
-
-nome:
-document.getElementById(
-"nome"
-).value.trim(),
-
-dataNascimento:
-document.getElementById(
-"dataNascimento"
-).value,
-
-sexo:
-document.getElementById(
-"sexo"
-).value,
-
-cpf:
-document.getElementById(
-"cpf"
-).value.trim(),
-
-rg:
-document.getElementById(
-"rg"
-).value.trim(),
-
-naturalidade:
-document.getElementById(
-"naturalidade"
-).value.trim(),
-
-nacionalidade:
-document.getElementById(
-"nacionalidade"
-).value.trim(),
-
-nomeMae:
-document.getElementById(
-"nomeMae"
-).value.trim(),
-
-nomePai:
-document.getElementById(
-"nomePai"
-).value.trim(),
-
-responsavel:
-document.getElementById(
-"responsavel"
-).value.trim(),
-
-telefoneResponsavel:
-document.getElementById(
-"telefoneResponsavel"
-).value.trim(),
-
-endereco:
-document.getElementById(
-"endereco"
-).value.trim(),
-
-numero:
-document.getElementById(
-"numero"
-).value.trim(),
-
-bairro:
-document.getElementById(
-"bairro"
-).value.trim(),
-
-cidade:
-document.getElementById(
-"cidade"
-).value.trim(),
-
-estado:
-document.getElementById(
-"estado"
-).value,
-
-cep:
-document.getElementById(
-"cep"
-).value.trim(),
-
-telefone:
-document.getElementById(
-"telefone"
-).value.trim(),
-
-email:
-document.getElementById(
-"email"
-).value.trim(),
-
-dataMatricula:
-document.getElementById(
-"dataMatricula"
-).value,
-
-anoLetivo:
-document.getElementById(
-"anoLetivo"
-).value,
-
-turma:
-document.getElementById(
-"turma"
-).value.trim(),
-
-situacao:
-document.getElementById(
-"situacao"
-).value,
-
-observacoes:
-document.getElementById(
-"observacoes"
-).value.trim()
-
-};
-
-}
-
-
-/* =====================================================
+/* =========================
    LIMPAR
-===================================================== */
+========================= */
+
+function limparFormulario() {
+
+    form.reset();
+
+    alunoEditando = null;
+
+    document.getElementById(
+        "formTitle"
+    ).textContent =
+        "Novo Aluno";
 
 
-function limparFormulario(){
-
-form.reset();
-
-alunoEditando =
-null;
-
-document.getElementById(
-"nacionalidade"
-).value =
-"Brasileira";
-
-document.getElementById(
-"situacao"
-).value =
-"Ativo";
-
-document.getElementById(
-"formTitle"
-).textContent =
-"Novo Aluno";
+    document.getElementById(
+        "ativo"
+    ).value =
+        "true";
 
 }
 
 
-/* =====================================================
-   NOVO ALUNO
-===================================================== */
+
+/* =========================
+   ESCOLA DO USUÁRIO
+========================= */
+
+async function carregarEscolaAtual() {
+
+    if (!dadosUsuario) {
+
+        return;
+
+    }
 
 
-document
-.getElementById("btnNovo")
-.addEventListener(
-"click",
-()=>{
+    /* =========================
+       MASTER
+    ========================= */
 
-limparFormulario();
+    if (
+        dadosUsuario.perfil ===
+        "master"
+    ) {
 
-formBox.style.display =
-"block";
+        escolaAtualId = null;
 
-window.scrollTo({
+        schoolInfo.textContent =
+            "Administrador Master — acesso às escolas cadastradas.";
 
-top:0,
+        schoolInfo.className =
+            "master-info";
 
-behavior:"smooth"
+        return;
 
-});
-
-});
-
-
-/* =====================================================
-   CANCELAR
-===================================================== */
+    }
 
 
-document
-.getElementById("btnCancelar")
-.addEventListener(
-"click",
-()=>{
 
-limparFormulario();
+    /* =========================
+       USUÁRIO NORMAL
+    ========================= */
 
-formBox.style.display =
-"none";
-
-});
+    escolaAtualId =
+        dadosUsuario.escolaId;
 
 
-/* =====================================================
+    if (!escolaAtualId) {
+
+        schoolInfo.textContent =
+            "Este usuário ainda não está vinculado a uma escola.";
+
+        return;
+
+    }
+
+
+    const escolaRef =
+        doc(
+            db,
+            "escolas",
+            escolaAtualId
+        );
+
+
+    const escolaSnap =
+        await getDoc(
+            escolaRef
+        );
+
+
+    if (
+        !escolaSnap.exists()
+    ) {
+
+        schoolInfo.textContent =
+            "A escola vinculada não foi encontrada.";
+
+        escolaAtualId = null;
+
+        return;
+
+    }
+
+
+    const escola =
+        escolaSnap.data();
+
+
+    schoolInfo.textContent =
+        escola.nome ||
+        "Escola sem nome";
+
+}
+
+
+
+/* =========================
+   CARREGAR ALUNOS
+========================= */
+
+async function carregarAlunos() {
+
+    try {
+
+        alunos = [];
+
+
+        if (!usuarioAtual) {
+
+            return;
+
+        }
+
+
+        /* =========================
+           MASTER
+        ========================= */
+
+        if (
+            dadosUsuario.perfil ===
+            "master"
+        ) {
+
+            const snapshot =
+                await getDocs(
+                    collection(
+                        db,
+                        "alunos"
+                    )
+                );
+
+
+            snapshot.forEach(
+                item => {
+
+                    alunos.push({
+
+                        id: item.id,
+
+                        ...item.data()
+
+                    });
+
+                }
+            );
+
+        }
+
+
+        /* =========================
+           USUÁRIO DA ESCOLA
+        ========================= */
+
+        else {
+
+            if (!escolaAtualId) {
+
+                renderizar();
+
+                return;
+
+            }
+
+
+            const consulta =
+                query(
+
+                    collection(
+                        db,
+                        "alunos"
+                    ),
+
+                    where(
+                        "escolaId",
+                        "==",
+                        escolaAtualId
+                    )
+
+                );
+
+
+            const snapshot =
+                await getDocs(
+                    consulta
+                );
+
+
+            snapshot.forEach(
+                item => {
+
+                    alunos.push({
+
+                        id: item.id,
+
+                        ...item.data()
+
+                    });
+
+                }
+            );
+
+        }
+
+
+        renderizar();
+
+
+    } catch (error) {
+
+        console.error(
+            "Erro ao carregar alunos:",
+            error
+        );
+
+
+        mostrarMensagem(
+
+            "Erro ao carregar dados: " +
+            error.message,
+
+            "error"
+
+        );
+
+    }
+
+}
+
+
+
+/* =========================
+   RENDERIZAR
+========================= */
+
+function renderizar() {
+
+    const termo =
+        pesquisa.value
+            .toLowerCase()
+            .trim();
+
+
+    const filtrados =
+        alunos.filter(
+            aluno => {
+
+                const texto =
+
+                    (aluno.nome || "") +
+                    " " +
+                    (aluno.cpf || "") +
+                    " " +
+                    (aluno.matricula || "") +
+                    " " +
+                    (aluno.cidade || "") +
+                    " " +
+                    (aluno.responsavel || "");
+
+
+                return texto
+                    .toLowerCase()
+                    .includes(termo);
+
+            }
+        );
+
+
+    lista.innerHTML = "";
+
+
+    contador.textContent =
+
+        filtrados.length +
+        (
+            filtrados.length === 1
+                ? " aluno encontrado"
+                : " alunos encontrados"
+        );
+
+
+    if (
+        !filtrados.length
+    ) {
+
+        lista.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="8"
+                    class="empty"
+                >
+                    Nenhum aluno encontrado.
+                </td>
+
+            </tr>
+
+        `;
+
+        return;
+
+    }
+
+
+
+    filtrados.forEach(
+        aluno => {
+
+            const tr =
+                document.createElement(
+                    "tr"
+                );
+
+
+            const ativo =
+                aluno.ativo !== false;
+
+
+            tr.innerHTML = `
+
+                <td>
+                    ${escapar(
+                        aluno.matricula || "-"
+                    )}
+                </td>
+
+
+                <td>
+
+                    <strong>
+                        ${escapar(
+                            aluno.nome || ""
+                        )}
+                    </strong>
+
+                </td>
+
+
+                <td>
+                    ${formatarData(
+                        aluno.dataNascimento
+                    )}
+                </td>
+
+
+                <td>
+                    ${escapar(
+                        aluno.cpf || "-"
+                    )}
+                </td>
+
+
+                <td>
+                    ${escapar(
+                        aluno.responsavel || "-"
+                    )}
+                </td>
+
+
+                <td>
+                    ${escapar(
+                        aluno.cidade || "-"
+                    )}
+                </td>
+
+
+                <td>
+
+                    <span class="
+                        status
+                        ${
+                            ativo
+                                ? "active"
+                                : "inactive"
+                        }
+                    ">
+
+                        ${
+                            ativo
+                                ? "Ativo"
+                                : "Inativo"
+                        }
+
+                    </span>
+
+                </td>
+
+
+                <td>
+
+                    <div class="actions">
+
+
+                        <button
+                            class="btn btn-primary"
+                            data-action="editar"
+                            data-id="${aluno.id}"
+                        >
+                            Editar
+                        </button>
+
+
+                        <button
+                            class="btn btn-warning"
+                            data-action="status"
+                            data-id="${aluno.id}"
+                        >
+
+                            ${
+                                ativo
+                                    ? "Desativar"
+                                    : "Ativar"
+                            }
+
+                        </button>
+
+
+                        <button
+                            class="btn btn-danger"
+                            data-action="excluir"
+                            data-id="${aluno.id}"
+                        >
+                            Excluir
+                        </button>
+
+
+                    </div>
+
+                </td>
+
+            `;
+
+
+            lista.appendChild(
+                tr
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =========================
+   FORMATAR DATA
+========================= */
+
+function formatarData(
+    data
+) {
+
+    if (!data) {
+
+        return "-";
+
+    }
+
+
+    const partes =
+        String(data).split("-");
+
+
+    if (
+        partes.length !== 3
+    ) {
+
+        return data;
+
+    }
+
+
+    return (
+
+        partes[2] +
+        "/" +
+        partes[1] +
+        "/" +
+        partes[0]
+
+    );
+
+}
+
+
+
+/* =========================
+   ESCAPAR HTML
+========================= */
+
+function escapar(
+    valor
+) {
+
+    return String(valor)
+
+        .replaceAll(
+            "&",
+            "&amp;"
+        )
+
+        .replaceAll(
+            "<",
+            "&lt;"
+        )
+
+        .replaceAll(
+            ">",
+            "&gt;"
+        )
+
+        .replaceAll(
+            '"',
+            "&quot;"
+        )
+
+        .replaceAll(
+            "'",
+            "&#039;"
+        );
+
+}
+
+
+
+/* =========================
    SALVAR ALUNO
-===================================================== */
-
+========================= */
 
 form.addEventListener(
-"submit",
-async event => {
+    "submit",
+    async event => {
 
-event.preventDefault();
+        event.preventDefault();
 
 
-const dados =
-pegarDados();
+        if (!usuarioAtual) {
 
+            mostrarMensagem(
+                "Usuário não autenticado.",
+                "error"
+            );
 
-if(!dados.escolaId){
+            return;
 
-mostrarMensagem(
-"Selecione a escola.",
-"error"
-);
+        }
 
-return;
 
-}
+        const dados =
+            pegarDados();
 
 
-if(!dados.matricula){
+        if (!dados.nome) {
 
-mostrarMensagem(
-"Digite a matrícula.",
-"error"
-);
+            mostrarMensagem(
+                "Digite o nome do aluno.",
+                "error"
+            );
 
-return;
+            return;
 
-}
+        }
 
 
-if(!dados.nome){
+        if (
+            !dados.dataNascimento
+        ) {
 
-mostrarMensagem(
-"Digite o nome do aluno.",
-"error"
-);
+            mostrarMensagem(
+                "Informe a data de nascimento.",
+                "error"
+            );
 
-return;
+            return;
 
-}
+        }
 
 
-try{
 
+        /*
+         * =================================
+         * DEFINIR ESCOLA
+         * =================================
+         *
+         * Usuário normal:
+         * usa sua própria escola.
+         *
+         * Master:
+         * precisa escolher uma escola.
+         *
+         */
 
-/*
- * VERIFICA DUPLICIDADE
- */
 
+        let escolaIdParaSalvar =
+            escolaAtualId;
 
-const matriculaExistente =
-alunos.find(
-aluno =>
 
-aluno.escolaId ===
-dados.escolaId
 
-&&
+        /* =========================
+           MASTER
+        ========================= */
 
-String(
-aluno.matricula
-)
-.toLowerCase()
+        if (
+            dadosUsuario.perfil ===
+            "master"
+        ) {
 
-===
+            /*
+             * Para o Master vamos pedir
+             * a escola no momento do cadastro.
+             */
 
-String(
-dados.matricula
-)
-.toLowerCase()
+            const escolaDigitada =
+                prompt(
+                    "Digite o ID da escola onde este aluno será cadastrado:\n\n" +
+                    "Para ver os IDs, utilize o módulo Escolas."
+                );
 
-&&
 
-aluno.id !==
-alunoEditando
-);
+            if (
+                !escolaDigitada
+            ) {
 
+                mostrarMensagem(
+                    "Cadastro cancelado. É necessário informar a escola.",
+                    "error"
+                );
 
-if(matriculaExistente){
+                return;
 
-mostrarMensagem(
-"Esta matrícula já existe nesta escola.",
-"error"
-);
+            }
 
-return;
 
-}
+            escolaIdParaSalvar =
+                escolaDigitada.trim();
 
+        }
 
-/*
- * SALVAR
- */
 
 
-if(alunoEditando){
+        if (
+            !escolaIdParaSalvar
+        ) {
 
-await updateDoc(
+            mostrarMensagem(
+                "Este usuário não está vinculado a uma escola.",
+                "error"
+            );
 
-doc(
-db,
-"alunos",
-alunoEditando
-),
+            return;
 
-dados
+        }
 
-);
 
 
-mostrarMensagem(
-"Aluno atualizado com sucesso."
-);
+        try {
 
-}else{
 
+            /* =========================
+               EDITAR
+            ========================= */
 
-await addDoc(
+            if (
+                alunoEditando
+            ) {
 
-collection(
-db,
-"alunos"
-),
 
-{
+                /*
+                 * IMPORTANTE:
+                 *
+                 * Nunca permitimos alterar
+                 * o escolaId durante a edição.
+                 */
 
-...dados,
+                await updateDoc(
 
-criadoPor:
-usuarioAtual.uid,
+                    doc(
+                        db,
+                        "alunos",
+                        alunoEditando
+                    ),
 
-criadoEm:
-serverTimestamp()
+                    dados
 
-}
+                );
 
-);
 
+                mostrarMensagem(
+                    "Aluno atualizado com sucesso."
+                );
 
-mostrarMensagem(
-"Aluno cadastrado com sucesso."
-);
+            }
 
-}
 
+            /* =========================
+               NOVO
+            ========================= */
 
-limparFormulario();
+            else {
 
-formBox.style.display =
-"none";
+                await addDoc(
 
+                    collection(
+                        db,
+                        "alunos"
+                    ),
 
-await carregarAlunos();
+                    {
 
+                        ...dados,
 
-}catch(error){
+                        escolaId:
+                            escolaIdParaSalvar,
 
-console.error(error);
+                        criadoPor:
+                            usuarioAtual.uid,
 
-mostrarMensagem(
+                        criadoEm:
+                            serverTimestamp()
 
-"Erro ao salvar aluno: " +
-error.message,
+                    }
 
-"error"
+                );
 
-);
 
-}
+                mostrarMensagem(
+                    "Aluno cadastrado com sucesso."
+                );
 
-});
+            }
 
 
-/* =====================================================
-   PESQUISA
-===================================================== */
+            limparFormulario();
 
 
-pesquisa.addEventListener(
-"input",
-renderizarAlunos
-);
+            formBox.style.display =
+                "none";
 
 
-/* =====================================================
-   EDITAR / EXCLUIR
-===================================================== */
+            await carregarAlunos();
 
 
-lista.addEventListener(
-"click",
-async event => {
+        } catch (error) {
 
-const botao =
-event.target.closest(
-"button"
-);
+            console.error(
+                "Erro ao salvar aluno:",
+                error
+            );
 
-if(!botao)
-return;
 
+            mostrarMensagem(
 
-const id =
-botao.dataset.id;
+                "Erro ao salvar aluno: " +
+                error.message,
 
+                "error"
 
-const action =
-botao.dataset.action;
+            );
 
+        }
 
-const aluno =
-alunos.find(
-item =>
-item.id === id
-);
-
-
-if(!aluno)
-return;
-
-
-/*
- * EDITAR
- */
-
-
-if(action === "editar"){
-
-alunoEditando =
-id;
-
-
-document.getElementById(
-"escolaId"
-).value =
-aluno.escolaId || "";
-
-
-document.getElementById(
-"matricula"
-).value =
-aluno.matricula || "";
-
-
-document.getElementById(
-"nome"
-).value =
-aluno.nome || "";
-
-
-document.getElementById(
-"dataNascimento"
-).value =
-aluno.dataNascimento || "";
-
-
-document.getElementById(
-"sexo"
-).value =
-aluno.sexo || "";
-
-
-document.getElementById(
-"cpf"
-).value =
-aluno.cpf || "";
-
-
-document.getElementById(
-"rg"
-).value =
-aluno.rg || "";
-
-
-document.getElementById(
-"naturalidade"
-).value =
-aluno.naturalidade || "";
-
-
-document.getElementById(
-"nacionalidade"
-).value =
-aluno.nacionalidade ||
-"Brasileira";
-
-
-document.getElementById(
-"nomeMae"
-).value =
-aluno.nomeMae || "";
-
-
-document.getElementById(
-"nomePai"
-).value =
-aluno.nomePai || "";
-
-
-document.getElementById(
-"responsavel"
-).value =
-aluno.responsavel || "";
-
-
-document.getElementById(
-"telefoneResponsavel"
-).value =
-aluno.telefoneResponsavel || "";
-
-
-document.getElementById(
-"endereco"
-).value =
-aluno.endereco || "";
-
-
-document.getElementById(
-"numero"
-).value =
-aluno.numero || "";
-
-
-document.getElementById(
-"bairro"
-).value =
-aluno.bairro || "";
-
-
-document.getElementById(
-"cidade"
-).value =
-aluno.cidade || "";
-
-
-document.getElementById(
-"estado"
-).value =
-aluno.estado || "";
-
-
-document.getElementById(
-"cep"
-).value =
-aluno.cep || "";
-
-
-document.getElementById(
-"telefone"
-).value =
-aluno.telefone || "";
-
-
-document.getElementById(
-"email"
-).value =
-aluno.email || "";
-
-
-document.getElementById(
-"dataMatricula"
-).value =
-aluno.dataMatricula || "";
-
-
-document.getElementById(
-"anoLetivo"
-).value =
-aluno.anoLetivo || "";
-
-
-document.getElementById(
-"turma"
-).value =
-aluno.turma || "";
-
-
-document.getElementById(
-"situacao"
-).value =
-aluno.situacao ||
-"Ativo";
-
-
-document.getElementById(
-"observacoes"
-).value =
-aluno.observacoes || "";
-
-
-document.getElementById(
-"formTitle"
-).textContent =
-"Editar Aluno";
-
-
-formBox.style.display =
-"block";
-
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
-
-}
-
-
-/*
- * EXCLUIR
- */
-
-
-if(action === "excluir"){
-
-const confirmar =
-confirm(
-
-"Tem certeza que deseja excluir o aluno?\n\n" +
-aluno.nome
-
+    }
 );
 
 
-if(!confirmar)
-return;
 
-
-try{
-
-await deleteDoc(
-
-doc(
-db,
-"alunos",
-id
-)
-
-);
-
-
-mostrarMensagem(
-"Aluno excluído com sucesso."
-);
-
-
-await carregarAlunos();
-
-
-}catch(error){
-
-console.error(error);
-
-mostrarMensagem(
-"Erro ao excluir aluno: " +
-error.message,
-"error"
-);
-
-}
-
-}
-
-});
-
-
-/* =====================================================
-   PAINEL
-===================================================== */
-
+/* =========================
+   NOVO ALUNO
+========================= */
 
 document
-.getElementById("btnPainel")
-.addEventListener(
-"click",
-()=>{
+    .getElementById(
+        "btnNovo"
+    )
+    .addEventListener(
+        "click",
+        () => {
 
-window.location.href =
-"index.html";
+            limparFormulario();
 
-});
+
+            /*
+             * Usuário normal já possui
+             * a escola automaticamente.
+             */
+
+            if (
+                dadosUsuario &&
+                dadosUsuario.perfil !==
+                "master" &&
+                !escolaAtualId
+            ) {
+
+                mostrarMensagem(
+                    "Você precisa estar vinculado a uma escola para cadastrar alunos.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            formBox.style.display =
+                "block";
+
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        }
+    );
+
+
+
+/* =========================
+   CANCELAR
+========================= */
+
+document
+    .getElementById(
+        "btnCancelar"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            limparFormulario();
+
+            formBox.style.display =
+                "none";
+
+        }
+    );
+
+
+
+/* =========================
+   PESQUISA
+========================= */
+
+pesquisa.addEventListener(
+    "input",
+    renderizar
+);
+
+
+
+/* =========================
+   AÇÕES
+========================= */
+
+lista.addEventListener(
+    "click",
+    async event => {
+
+
+        const botao =
+            event.target.closest(
+                "button"
+            );
+
+
+        if (!botao) {
+
+            return;
+
+        }
+
+
+        const id =
+            botao.dataset.id;
+
+
+        const action =
+            botao.dataset.action;
+
+
+        const aluno =
+            alunos.find(
+                item =>
+                    item.id === id
+            );
+
+
+        if (!aluno) {
+
+            return;
+
+        }
+
+
+
+        /* =========================
+           EDITAR
+        ========================= */
+
+        if (
+            action === "editar"
+        ) {
+
+            /*
+             * Segurança adicional:
+             * usuário normal só pode editar
+             * aluno da própria escola.
+             */
+
+            if (
+                dadosUsuario.perfil !==
+                "master" &&
+                aluno.escolaId !==
+                escolaAtualId
+            ) {
+
+                mostrarMensagem(
+                    "Você não pode editar este aluno.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            alunoEditando =
+                id;
+
+
+            preencherFormulario(
+                aluno
+            );
+
+
+            document
+                .getElementById(
+                    "formTitle"
+                )
+                .textContent =
+                "Editar Aluno";
+
+
+            formBox.style.display =
+                "block";
+
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        }
+
+
+
+        /* =========================
+           STATUS
+        ========================= */
+
+        if (
+            action === "status"
+        ) {
+
+            if (
+                dadosUsuario.perfil !==
+                "master" &&
+                aluno.escolaId !==
+                escolaAtualId
+            ) {
+
+                mostrarMensagem(
+                    "Você não pode alterar este aluno.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            const novoStatus =
+                aluno.ativo === false;
+
+
+            const confirmacao =
+                confirm(
+
+                    novoStatus
+
+                        ? "Deseja ativar este aluno?"
+
+                        : "Deseja desativar este aluno?"
+
+                );
+
+
+            if (!confirmacao) {
+
+                return;
+
+            }
+
+
+            try {
+
+                await updateDoc(
+
+                    doc(
+                        db,
+                        "alunos",
+                        id
+                    ),
+
+                    {
+
+                        ativo:
+                            novoStatus
+
+                    }
+
+                );
+
+
+                mostrarMensagem(
+
+                    novoStatus
+
+                        ? "Aluno ativado."
+
+                        : "Aluno desativado."
+
+                );
+
+
+                await carregarAlunos();
+
+
+            } catch (error) {
+
+                console.error(error);
+
+
+                mostrarMensagem(
+                    "Erro ao alterar status.",
+                    "error"
+                );
+
+            }
+
+        }
+
+
+
+        /* =========================
+           EXCLUIR
+        ========================= */
+
+        if (
+            action === "excluir"
+        ) {
+
+
+            if (
+                dadosUsuario.perfil !==
+                "master" &&
+                aluno.escolaId !==
+                escolaAtualId
+            ) {
+
+                mostrarMensagem(
+                    "Você não pode excluir este aluno.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            const confirmacao =
+                confirm(
+
+                    "ATENÇÃO!\n\n" +
+
+                    "A exclusão do aluno é permanente.\n\n" +
+
+                    "O histórico escolar e outros documentos relacionados poderão ser afetados.\n\n" +
+
+                    "Deseja realmente excluir este aluno?"
+
+                );
+
+
+            if (!confirmacao) {
+
+                return;
+
+            }
+
+
+            try {
+
+                await deleteDoc(
+
+                    doc(
+                        db,
+                        "alunos",
+                        id
+                    )
+
+                );
+
+
+                mostrarMensagem(
+                    "Aluno excluído com sucesso."
+                );
+
+
+                await carregarAlunos();
+
+
+            } catch (error) {
+
+                console.error(error);
+
+
+                mostrarMensagem(
+                    "Erro ao excluir aluno.",
+                    "error"
+                );
+
+            }
+
+        }
+
+    }
+);
+
+
+
+/* =========================
+   AUTENTICAÇÃO
+========================= */
+
+onAuthStateChanged(
+    auth,
+    async user => {
+
+
+        if (!user) {
+
+            alert(
+                "Você precisa estar logado para acessar este módulo."
+            );
+
+
+            window.location.href =
+                "index.html";
+
+
+            return;
+
+        }
+
+
+        usuarioAtual =
+            user;
+
+
+        try {
+
+
+            /* =========================
+               BUSCAR USUÁRIO
+            ========================= */
+
+            const usuarioRef =
+                doc(
+                    db,
+                    "usuarios",
+                    user.uid
+                );
+
+
+            const usuarioSnap =
+                await getDoc(
+                    usuarioRef
+                );
+
+
+            if (
+                !usuarioSnap.exists()
+            ) {
+
+                alert(
+                    "Usuário não encontrado no sistema."
+                );
+
+
+                window.location.href =
+                    "index.html";
+
+
+                return;
+
+            }
+
+
+            dadosUsuario =
+                usuarioSnap.data();
+
+
+
+            /* =========================
+               VERIFICAR ATIVO
+            ========================= */
+
+            if (
+                dadosUsuario.ativo ===
+                false
+            ) {
+
+                alert(
+                    "Seu usuário está desativado."
+                );
+
+
+                window.location.href =
+                    "index.html";
+
+
+                return;
+
+            }
+
+
+
+            /* =========================
+               CARREGAR ESCOLA
+            ========================= */
+
+            await carregarEscolaAtual();
+
+
+
+            /* =========================
+               CARREGAR ALUNOS
+            ========================= */
+
+            await carregarAlunos();
+
+
+        } catch (error) {
+
+            console.error(
+                "Erro na inicialização:",
+                error
+            );
+
+
+            mostrarMensagem(
+
+                "Erro ao carregar dados: " +
+                error.message,
+
+                "error"
+
+            );
+
+        }
+
+    }
+);
+
+
+
+/* =========================
+   PAINEL
+========================= */
+
+window.voltarPainel =
+    function() {
+
+        window.location.href =
+            "index.html";
+
+    };
 
 
 </script>
+
 
 </body>
 
