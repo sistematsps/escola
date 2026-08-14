@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
 
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Histórico Escolar</title>
 
@@ -48,6 +45,12 @@ header{
     font-size:20px;
 }
 
+main{
+    max-width:1400px;
+    margin:auto;
+    padding:25px;
+}
+
 .btn{
     border:none;
     padding:11px 16px;
@@ -60,10 +63,6 @@ header{
 .btn-primary{
     background:#2563eb;
     color:white;
-}
-
-.btn-primary:hover{
-    background:#1d4ed8;
 }
 
 .btn-success{
@@ -86,149 +85,56 @@ header{
     color:white;
 }
 
-main{
-    max-width:1400px;
-    margin:auto;
-    padding:25px;
+.btn:hover{
+    opacity:.9;
 }
 
-.school-info{
-    background:white;
-    padding:18px 20px;
-    border-radius:12px;
-    margin-bottom:20px;
-    border-left:5px solid #2563eb;
-    box-shadow:0 5px 20px rgba(0,0,0,.05);
-}
-
-.school-info strong{
-    display:block;
-    font-size:18px;
-    margin-bottom:5px;
-}
-
-.school-info span{
-    color:#64748b;
-}
-
-.top-area{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:15px;
-    margin-bottom:20px;
-}
-
-.top-area h2{
-    font-size:25px;
-}
-
-.search{
-    margin-bottom:20px;
-}
-
-.search input{
-    width:100%;
-    padding:13px;
-    border:1px solid #cbd5e1;
-    border-radius:9px;
-    font-size:15px;
-    outline:none;
-}
-
-.search input:focus{
-    border-color:#2563eb;
-}
-
-.form-box{
+.message{
     display:none;
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:20px;
+}
+
+.message.success{
+    display:block;
+    background:#dcfce7;
+    color:#166534;
+}
+
+.message.error{
+    display:block;
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+.search-box{
     background:white;
-    padding:25px;
+    padding:20px;
     border-radius:14px;
-    margin-bottom:25px;
+    margin-bottom:20px;
     box-shadow:0 5px 20px rgba(0,0,0,.06);
 }
 
-.form-box h3{
-    margin-bottom:20px;
-}
-
-.form-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-}
-
-.form-group label{
+.search-box label{
     display:block;
-    margin-bottom:6px;
     font-weight:bold;
-    font-size:14px;
+    margin-bottom:8px;
 }
 
-.form-group input,
-.form-group select{
+.search-box input{
     width:100%;
-    padding:12px;
+    padding:13px;
     border:1px solid #cbd5e1;
     border-radius:8px;
-    outline:none;
-    font-size:14px;
+    font-size:15px;
 }
 
-.form-group input:focus,
-.form-group select:focus{
-    border-color:#2563eb;
-}
-
-.full{
-    grid-column:1/-1;
-}
-
-.disciplinas-box{
-    margin-top:25px;
-}
-
-.disciplinas-box h4{
-    margin-bottom:12px;
-}
-
-.disciplina-row{
-    display:grid;
-    grid-template-columns:2fr 1fr 1fr 1fr auto;
-    gap:10px;
-    margin-bottom:10px;
-    align-items:center;
-}
-
-.disciplina-row input,
-.disciplina-row select{
-    width:100%;
-    padding:10px;
-    border:1px solid #cbd5e1;
-    border-radius:7px;
-}
-
-.remove-disciplina{
-    border:none;
-    background:#dc2626;
-    color:white;
-    padding:9px 11px;
-    border-radius:7px;
-    cursor:pointer;
-}
-
-.form-buttons{
-    margin-top:20px;
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-}
-
-.table-box{
+.alunos-box{
     background:white;
     border-radius:14px;
     overflow:hidden;
+    margin-bottom:25px;
     box-shadow:0 5px 20px rgba(0,0,0,.06);
 }
 
@@ -240,7 +146,7 @@ main{
 table{
     width:100%;
     border-collapse:collapse;
-    min-width:1000px;
+    min-width:750px;
 }
 
 th{
@@ -263,59 +169,211 @@ td{
 }
 
 .actions .btn{
-    padding:7px 9px;
+    padding:7px 10px;
     font-size:12px;
+}
+
+.alunoSelecionado{
+    display:none;
+    background:white;
+    padding:25px;
+    border-radius:14px;
+    margin-bottom:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+.aluno-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    margin-bottom:20px;
+    flex-wrap:wrap;
+}
+
+.aluno-header h2{
+    color:#0f172a;
+}
+
+.aluno-info{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-bottom:20px;
+}
+
+.info{
+    background:#f8fafc;
+    padding:13px;
+    border-radius:8px;
+}
+
+.info strong{
+    display:block;
+    font-size:12px;
+    color:#64748b;
+    margin-bottom:5px;
+}
+
+.form-box{
+    display:none;
+    background:#f8fafc;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:20px;
+}
+
+.form-box h3{
+    margin-bottom:15px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.form-group label{
+    display:block;
+    font-weight:bold;
+    font-size:13px;
+    margin-bottom:6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:11px;
+    border:1px solid #cbd5e1;
+    border-radius:8px;
+    font-size:14px;
+}
+
+.form-group textarea{
+    min-height:90px;
+    resize:vertical;
+}
+
+.full{
+    grid-column:1/-1;
+}
+
+.form-buttons{
+    margin-top:15px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.document-buttons{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:20px;
 }
 
 .empty{
     text-align:center;
-    padding:35px;
+    padding:30px;
     color:#64748b;
 }
 
-.message{
+#documento{
     display:none;
-    padding:12px;
-    border-radius:8px;
+}
+
+
+/* =========================
+   DOCUMENTO A4
+========================= */
+
+.document-page{
+    width:210mm;
+    min-height:297mm;
+    margin:0 auto;
+    background:white;
+    padding:20mm;
+    color:#111;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+.document-header{
+    text-align:center;
+    border-bottom:2px solid #111;
+    padding-bottom:15px;
     margin-bottom:20px;
 }
 
-.message.success{
-    display:block;
-    background:#dcfce7;
-    color:#166534;
+.document-header h1{
+    font-size:18px;
+    margin-bottom:8px;
 }
 
-.message.error{
-    display:block;
-    background:#fee2e2;
-    color:#991b1b;
+.document-header h2{
+    font-size:16px;
+    margin-top:12px;
 }
 
-.badge{
-    display:inline-block;
-    padding:5px 9px;
-    border-radius:20px;
+.document-header p{
     font-size:12px;
-    font-weight:bold;
+    line-height:1.5;
 }
 
-.badge-success{
-    background:#dcfce7;
-    color:#166534;
+.document-aluno{
+    margin-bottom:20px;
+    font-size:12px;
 }
 
-.badge-danger{
-    background:#fee2e2;
-    color:#991b1b;
+.document-aluno p{
+    margin-bottom:6px;
 }
 
-.badge-warning{
-    background:#fef3c7;
-    color:#92400e;
+.document-table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:10px;
 }
 
-@media(max-width:800px){
+.document-table th,
+.document-table td{
+    border:1px solid #000;
+    padding:7px;
+}
+
+.document-table th{
+    background:#eee;
+    text-align:center;
+}
+
+.document-footer{
+    margin-top:40px;
+    font-size:12px;
+}
+
+.assinaturas{
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+    margin-top:60px;
+    text-align:center;
+}
+
+.assinatura{
+    width:45%;
+    border-top:1px solid #000;
+    padding-top:7px;
+}
+
+@media(max-width:700px){
+
+    main{
+        padding:15px;
+    }
+
+    .aluno-info{
+        grid-template-columns:1fr;
+    }
 
     .form-grid{
         grid-template-columns:1fr;
@@ -325,18 +383,36 @@ td{
         grid-column:auto;
     }
 
-    .disciplina-row{
-        grid-template-columns:1fr;
+}
+
+@media print{
+
+    body *{
+        visibility:hidden;
     }
 
-    header{
-        flex-direction:column;
-        align-items:flex-start;
+    #documento,
+    #documento *{
+        visibility:visible;
     }
 
-    .top-area{
-        flex-direction:column;
-        align-items:flex-start;
+    #documento{
+        display:block !important;
+        position:absolute;
+        left:0;
+        top:0;
+        width:100%;
+    }
+
+    .document-page{
+        margin:0;
+        width:210mm;
+        min-height:297mm;
+    }
+
+    @page{
+        size:A4;
+        margin:0;
     }
 
 }
@@ -346,6 +422,7 @@ td{
 </head>
 
 <body>
+
 
 <header>
 
@@ -361,10 +438,9 @@ td{
 
     <button
         class="btn btn-secondary"
-        onclick="voltarPainel()">
-
+        onclick="voltarPainel()"
+    >
         ← Painel
-
     </button>
 
 </header>
@@ -372,264 +448,36 @@ td{
 
 <main>
 
-<div id="message"
-     class="message">
-</div>
+<div
+    id="message"
+    class="message"
+></div>
 
 
-<div class="school-info">
+<!-- =========================
+     PESQUISA
+========================= -->
 
-    <strong id="nomeEscola">
-        Carregando escola...
-    </strong>
+<section class="search-box">
 
-    <span id="usuarioInfo">
-        Carregando usuário...
-    </span>
-
-</div>
-
-
-<div class="top-area">
-
-    <h2>
-        Históricos cadastrados
-    </h2>
-
-    <button
-        id="btnNovo"
-        class="btn btn-primary">
-
-        + Novo Histórico
-
-    </button>
-
-</div>
-
-
-<div class="search">
+    <label>
+        🔎 Pesquisar aluno
+    </label>
 
     <input
         type="text"
         id="pesquisa"
-        placeholder="Pesquisar por aluno, matrícula ou ano letivo...">
-
-</div>
-
-
-<section
-    id="formBox"
-    class="form-box">
-
-    <h3 id="formTitle">
-        Novo Histórico Escolar
-    </h3>
-
-
-    <form id="historicoForm">
-
-
-        <div class="form-grid">
-
-
-            <div class="form-group full">
-
-                <label>
-                    Aluno *
-                </label>
-
-                <select
-                    id="aluno"
-                    required>
-
-                    <option value="">
-                        Carregando alunos...
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Ano Letivo *
-                </label>
-
-                <input
-                    type="number"
-                    id="anoLetivo"
-                    min="1900"
-                    max="2100"
-                    required>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Série / Ano *
-                </label>
-
-                <input
-                    type="text"
-                    id="serie"
-                    placeholder="Ex.: 5º Ano"
-                    required>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Turma
-                </label>
-
-                <input
-                    type="text"
-                    id="turma"
-                    placeholder="Ex.: A">
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Turno
-                </label>
-
-                <select id="turno">
-
-                    <option value="">
-                        Selecione
-                    </option>
-
-                    <option value="Matutino">
-                        Matutino
-                    </option>
-
-                    <option value="Vespertino">
-                        Vespertino
-                    </option>
-
-                    <option value="Noturno">
-                        Noturno
-                    </option>
-
-                    <option value="Integral">
-                        Integral
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Carga Horária Total
-                </label>
-
-                <input
-                    type="number"
-                    id="cargaHoraria"
-                    placeholder="Ex.: 800">
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Resultado Final
-                </label>
-
-                <select id="resultado">
-
-                    <option value="Aprovado">
-                        Aprovado
-                    </option>
-
-                    <option value="Reprovado">
-                        Reprovado
-                    </option>
-
-                    <option value="Transferido">
-                        Transferido
-                    </option>
-
-                    <option value="Desistente">
-                        Desistente
-                    </option>
-
-                    <option value="Cursando">
-                        Cursando
-                    </option>
-
-                </select>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="disciplinas-box">
-
-            <h4>
-                📖 Disciplinas
-            </h4>
-
-            <div id="disciplinas">
-
-            </div>
-
-            <button
-                type="button"
-                id="btnAdicionarDisciplina"
-                class="btn btn-primary">
-
-                + Adicionar Disciplina
-
-            </button>
-
-        </div>
-
-
-        <div class="form-buttons">
-
-            <button
-                type="submit"
-                class="btn btn-success">
-
-                💾 Salvar Histórico
-
-            </button>
-
-
-            <button
-                type="button"
-                id="btnCancelar"
-                class="btn btn-secondary">
-
-                Cancelar
-
-            </button>
-
-        </div>
-
-
-    </form>
+        placeholder="Digite o nome ou matrícula..."
+    >
 
 </section>
 
 
-<section class="table-box">
+<!-- =========================
+     ALUNOS
+========================= -->
+
+<section class="alunos-box">
 
 <div class="table-container">
 
@@ -640,25 +488,364 @@ td{
 <tr>
 
 <th>Aluno</th>
+<th>Matrícula</th>
+<th>Data de nascimento</th>
+<th>Ação</th>
+
+</tr>
+
+</thead>
+
+<tbody id="listaAlunos">
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     ALUNO SELECIONADO
+========================= -->
+
+<section
+    id="alunoSelecionado"
+    class="alunoSelecionado"
+>
+
+<div class="aluno-header">
+
+    <div>
+
+        <h2 id="nomeAluno">
+            Aluno
+        </h2>
+
+        <p id="matriculaAluno"></p>
+
+    </div>
+
+    <div class="document-buttons">
+
+        <button
+            class="btn btn-primary"
+            id="btnNovoHistorico"
+        >
+            + Adicionar período
+        </button>
+
+        <button
+            class="btn btn-success"
+            id="btnGerar"
+        >
+            📄 Gerar Histórico
+        </button>
+
+    </div>
+
+</div>
+
+
+<div class="aluno-info">
+
+    <div class="info">
+
+        <strong>
+            Data de nascimento
+        </strong>
+
+        <span id="infoNascimento">
+            -
+        </span>
+
+    </div>
+
+    <div class="info">
+
+        <strong>
+            CPF
+        </strong>
+
+        <span id="infoCpf">
+            -
+        </span>
+
+    </div>
+
+    <div class="info">
+
+        <strong>
+            Escola
+        </strong>
+
+        <span id="infoEscola">
+            -
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- FORMULÁRIO -->
+
+<div
+    id="formHistorico"
+    class="form-box"
+>
+
+<h3 id="tituloForm">
+    Novo período escolar
+</h3>
+
+<form id="historicoForm">
+
+<div class="form-grid">
+
+<div class="form-group">
+
+<label>
+Ano Letivo *
+</label>
+
+<input
+    type="number"
+    id="anoLetivo"
+    min="1900"
+    max="2100"
+    required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Etapa de Ensino
+</label>
+
+<select id="etapa">
+
+<option value="">
+Selecione
+</option>
+
+<option>
+Educação Infantil
+</option>
+
+<option>
+Ensino Fundamental
+</option>
+
+<option>
+Ensino Médio
+</option>
+
+<option>
+EJA
+</option>
+
+<option>
+Outro
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Série / Ano
+</label>
+
+<input
+    type="text"
+    id="serie"
+    placeholder="Ex.: 8º Ano"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Turma
+</label>
+
+<input
+    type="text"
+    id="turma"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Turno
+</label>
+
+<select id="turno">
+
+<option value="">
+Selecione
+</option>
+
+<option>
+Matutino
+</option>
+
+<option>
+Vespertino
+</option>
+
+<option>
+Noturno
+</option>
+
+<option>
+Integral
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Carga Horária
+</label>
+
+<input
+    type="text"
+    id="cargaHoraria"
+    placeholder="Ex.: 800 horas"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Resultado
+</label>
+
+<select id="resultado">
+
+<option value="">
+Selecione
+</option>
+
+<option>
+Aprovado
+</option>
+
+<option>
+Reprovado
+</option>
+
+<option>
+Cursando
+</option>
+
+<option>
+Transferido
+</option>
+
+<option>
+Desistente
+</option>
+
+<option>
+Concluído
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group full">
+
+<label>
+Observações
+</label>
+
+<textarea
+    id="observacoes"
+></textarea>
+
+</div>
+
+</div>
+
+
+<div class="form-buttons">
+
+<button
+    type="submit"
+    class="btn btn-success"
+>
+💾 Salvar
+</button>
+
+<button
+    type="button"
+    class="btn btn-secondary"
+    id="btnCancelar"
+>
+Cancelar
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+
+<!-- =========================
+     HISTÓRICO
+========================= -->
+
+<h3 style="margin-bottom:12px;">
+📚 Histórico Escolar
+</h3>
+
+<div class="table-container">
+
+<table>
+
+<thead>
+
+<tr>
 
 <th>Ano</th>
-
-<th>Série</th>
-
+<th>Etapa</th>
+<th>Série/Ano</th>
 <th>Turma</th>
-
 <th>Turno</th>
-
+<th>Carga Horária</th>
 <th>Resultado</th>
-
 <th>Ações</th>
 
 </tr>
 
 </thead>
 
-
-<tbody id="listaHistoricos">
+<tbody id="listaHistorico">
 
 </tbody>
 
@@ -671,28 +858,168 @@ td{
 </main>
 
 
-<script type="module">
+<!-- =========================
+     DOCUMENTO
+========================= -->
 
+<section id="documento">
+
+<div class="document-page">
+
+<div class="document-header">
+
+<h1 id="docEscola">
+    ESCOLA
+</h1>
+
+<p id="docEndereco">
+</p>
+
+<p id="docContato">
+</p>
+
+<h2>
+HISTÓRICO ESCOLAR
+</h2>
+
+</div>
+
+
+<div class="document-aluno">
+
+<p>
+<strong>Aluno:</strong>
+<span id="docAluno"></span>
+</p>
+
+<p>
+<strong>Matrícula:</strong>
+<span id="docMatricula"></span>
+</p>
+
+<p>
+<strong>Data de nascimento:</strong>
+<span id="docNascimento"></span>
+</p>
+
+<p>
+<strong>CPF:</strong>
+<span id="docCpf"></span>
+</p>
+
+</div>
+
+
+<table class="document-table">
+
+<thead>
+
+<tr>
+
+<th>
+Ano Letivo
+</th>
+
+<th>
+Etapa
+</th>
+
+<th>
+Série/Ano
+</th>
+
+<th>
+Turma
+</th>
+
+<th>
+Turno
+</th>
+
+<th>
+Carga Horária
+</th>
+
+<th>
+Resultado
+</th>
+
+</tr>
+
+</thead>
+
+<tbody id="docHistorico">
+
+</tbody>
+
+</table>
+
+
+<div class="document-footer">
+
+<p>
+Observações:
+</p>
+
+<p
+    id="docObservacoes"
+    style="margin-top:8px;"
+>
+</p>
+
+</div>
+
+
+<div class="assinaturas">
+
+<div class="assinatura">
+
+<div id="docDiretor">
+</div>
+
+Diretor(a)
+
+</div>
+
+
+<div class="assinatura">
+
+<div id="docSecretario">
+</div>
+
+Secretário(a)
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<script type="module">
 
 import {
     initializeApp
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-
 
 import {
     getAuth,
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
-
 import {
     getFirestore,
     collection,
     getDocs,
+    getDoc,
+    doc,
     addDoc,
     updateDoc,
     deleteDoc,
-    doc,
+    query,
+    where,
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
@@ -700,7 +1027,6 @@ import {
 /* =========================
    FIREBASE
 ========================= */
-
 
 const firebaseConfig = {
 
@@ -728,49 +1054,65 @@ const firebaseConfig = {
 const app =
     initializeApp(firebaseConfig);
 
-
 const auth =
     getAuth(app);
-
 
 const db =
     getFirestore(app);
 
 
 /* =========================
+   VARIÁVEIS
+========================= */
+
+let usuario = null;
+
+let escolaId = null;
+
+let escola = null;
+
+let alunos = [];
+
+let historicos = [];
+
+let alunoSelecionado = null;
+
+let historicoEditando = null;
+
+
+/* =========================
    ELEMENTOS
 ========================= */
 
+const listaAlunos =
+    document.getElementById(
+        "listaAlunos"
+    );
+
+const listaHistorico =
+    document.getElementById(
+        "listaHistorico"
+    );
+
+const alunoBox =
+    document.getElementById(
+        "alunoSelecionado"
+    );
+
+const formBox =
+    document.getElementById(
+        "formHistorico"
+    );
 
 const form =
     document.getElementById(
         "historicoForm"
     );
 
-
-const formBox =
-    document.getElementById(
-        "formBox"
-    );
-
-
-const lista =
-    document.getElementById(
-        "listaHistoricos"
-    );
-
-
 const pesquisa =
     document.getElementById(
         "pesquisa"
     );
-
-
-const disciplinasBox =
-    document.getElementById(
-        "disciplinas"
-    );
-
 
 const message =
     document.getElementById(
@@ -779,29 +1121,12 @@ const message =
 
 
 /* =========================
-   VARIÁVEIS
-========================= */
-
-
-let usuarioAtual = null;
-
-let escolaAtual = null;
-
-let alunos = [];
-
-let historicos = [];
-
-let historicoEditando = null;
-
-
-/* =========================
    MENSAGEM
 ========================= */
 
-
 function mostrarMensagem(
     texto,
-    tipo = "success"
+    tipo="success"
 ){
 
     message.textContent =
@@ -810,8 +1135,7 @@ function mostrarMensagem(
     message.className =
         "message " + tipo;
 
-
-    setTimeout(() => {
+    setTimeout(()=>{
 
         message.className =
             "message";
@@ -824,7 +1148,6 @@ function mostrarMensagem(
 /* =========================
    ESCAPAR
 ========================= */
-
 
 function escapar(valor){
 
@@ -839,495 +1162,154 @@ function escapar(valor){
 
 
 /* =========================
+   DATA
+========================= */
+
+function formatarData(valor){
+
+    if(!valor)
+        return "-";
+
+    if(
+        typeof valor === "string" &&
+        valor.includes("-")
+    ){
+
+        const partes =
+            valor.split("-");
+
+        if(partes.length === 3){
+
+            return (
+                partes[2] +
+                "/" +
+                partes[1] +
+                "/" +
+                partes[0]
+            );
+
+        }
+
+    }
+
+    return valor;
+
+}
+
+
+/* =========================
+   CARREGAR USUÁRIO
+========================= */
+
+async function carregarUsuario(
+    user
+){
+
+    const ref =
+        doc(
+            db,
+            "usuarios",
+            user.uid
+        );
+
+    const snap =
+        await getDoc(ref);
+
+    if(!snap.exists()){
+
+        throw new Error(
+            "Usuário não encontrado."
+        );
+
+    }
+
+    usuario =
+        snap.data();
+
+    escolaId =
+        usuario.escolaId;
+
+
+    if(!escolaId){
+
+        throw new Error(
+            "Este usuário não está vinculado a uma escola."
+        );
+
+    }
+
+}
+
+
+/* =========================
+   CARREGAR ESCOLA
+========================= */
+
+async function carregarEscola(){
+
+    const ref =
+        doc(
+            db,
+            "escolas",
+            escolaId
+        );
+
+    const snap =
+        await getDoc(ref);
+
+    if(snap.exists()){
+
+        escola =
+            snap.data();
+
+    }
+
+}
+
+
+/* =========================
    CARREGAR ALUNOS
 ========================= */
 
-
 async function carregarAlunos(){
 
-    alunos = [];
-
-    try{
-
-        const snapshot =
-            await getDocs(
-                collection(
-                    db,
-                    "alunos"
-                )
-            );
-
-
-        snapshot.forEach(
-            item => {
-
-                const data =
-                    item.data();
-
-
-                /*
-                 * IMPORTANTE:
-                 * somente alunos da escola
-                 * do usuário serão carregados.
-                 */
-
-                if(
-                    data.escolaId ===
-                    usuarioAtual.escolaId
-                ){
-
-                    alunos.push({
-
-                        id:item.id,
-
-                        ...data
-
-                    });
-
-                }
-
-            }
-        );
-
-
-        preencherAlunos();
-
-
-    }catch(error){
-
-        console.error(error);
-
-        mostrarMensagem(
-            "Erro ao carregar alunos.",
-            "error"
-        );
-
-    }
-
-}
-
-
-/* =========================
-   PREENCHER ALUNOS
-========================= */
-
-
-function preencherAlunos(){
-
-    const select =
-        document.getElementById(
-            "aluno"
-        );
-
-
-    select.innerHTML = `
-        <option value="">
-            Selecione o aluno
-        </option>
-    `;
-
-
-    alunos
-        .sort(
-            (a,b) =>
-                (a.nome || "")
-                .localeCompare(
-                    b.nome || ""
-                )
-        )
-        .forEach(
-            aluno => {
-
-                const option =
-                    document.createElement(
-                        "option"
-                    );
-
-
-                option.value =
-                    aluno.id;
-
-
-                option.textContent =
-                    aluno.nome +
-                    (
-                        aluno.matricula
-                        ? " - Matrícula: " +
-                          aluno.matricula
-                        : ""
-                    );
-
-
-                select.appendChild(
-                    option
-                );
-
-            }
-        );
-
-}
-
-
-/* =========================
-   ADICIONAR DISCIPLINA
-========================= */
-
-
-function adicionarDisciplina(
-    dados = null
-){
-
-    const row =
-        document.createElement(
-            "div"
-        );
-
-
-    row.className =
-        "disciplina-row";
-
-
-    row.innerHTML = `
-
-        <input
-            type="text"
-            class="disciplina-nome"
-            placeholder="Disciplina"
-            value="${escapar(
-                dados?.nome || ""
-            )}">
-
-        <input
-            type="number"
-            step="0.01"
-            class="disciplina-nota"
-            placeholder="Nota"
-            value="${dados?.nota ?? ""}">
-
-        <input
-            type="number"
-            class="disciplina-faltas"
-            placeholder="Faltas"
-            value="${dados?.faltas ?? ""}">
-
-        <input
-            type="number"
-            class="disciplina-carga"
-            placeholder="Carga horária"
-            value="${dados?.cargaHoraria ?? ""}">
-
-        <button
-            type="button"
-            class="remove-disciplina">
-
-            X
-
-        </button>
-
-    `;
-
-
-    row
-        .querySelector(
-            ".remove-disciplina"
-        )
-        .addEventListener(
-            "click",
-            () => {
-
-                row.remove();
-
-            }
-        );
-
-
-    disciplinasBox.appendChild(
-        row
-    );
-
-}
-
-
-/* =========================
-   PEGAR DISCIPLINAS
-========================= */
-
-
-function pegarDisciplinas(){
-
-    const rows =
-        disciplinasBox.querySelectorAll(
-            ".disciplina-row"
-        );
-
-
-    const resultado = [];
-
-
-    rows.forEach(
-        row => {
-
-            const nome =
-                row
-                    .querySelector(
-                        ".disciplina-nome"
-                    )
-                    .value
-                    .trim();
-
-
-            const nota =
-                row
-                    .querySelector(
-                        ".disciplina-nota"
-                    )
-                    .value;
-
-
-            const faltas =
-                row
-                    .querySelector(
-                        ".disciplina-faltas"
-                    )
-                    .value;
-
-
-            const cargaHoraria =
-                row
-                    .querySelector(
-                        ".disciplina-carga"
-                    )
-                    .value;
-
-
-            if(nome){
-
-                resultado.push({
-
-                    nome,
-
-                    nota:
-                        nota === ""
-                        ? null
-                        : Number(nota),
-
-                    faltas:
-                        faltas === ""
-                        ? 0
-                        : Number(faltas),
-
-                    cargaHoraria:
-                        cargaHoraria === ""
-                        ? 0
-                        : Number(
-                            cargaHoraria
-                        )
-
-                });
-
-            }
-
-        }
-    );
-
-
-    return resultado;
-
-}
-
-
-/* =========================
-   LIMPAR FORMULÁRIO
-========================= */
-
-
-function limparFormulario(){
-
-    form.reset();
-
-    disciplinasBox.innerHTML = "";
-
-    adicionarDisciplina();
-
-    historicoEditando = null;
-
-    document
-        .getElementById(
-            "formTitle"
-        )
-        .textContent =
-        "Novo Histórico Escolar";
-
-}
-
-
-/* =========================
-   PEGAR DADOS
-========================= */
-
-
-function pegarDados(){
-
-    const alunoId =
-        document
-            .getElementById(
-                "aluno"
+    const q =
+        query(
+            collection(db,"alunos"),
+            where(
+                "escolaId",
+                "==",
+                escolaId
             )
-            .value;
-
-
-    const aluno =
-        alunos.find(
-            item =>
-                item.id === alunoId
         );
 
+    const snapshot =
+        await getDocs(q);
 
-    return {
+    alunos=[];
 
-        escolaId:
-            usuarioAtual.escolaId,
+    snapshot.forEach(item=>{
 
-        alunoId,
+        alunos.push({
 
-        alunoNome:
-            aluno?.nome || "",
+            id:item.id,
 
-        anoLetivo:
-            Number(
-                document
-                    .getElementById(
-                        "anoLetivo"
-                    )
-                    .value
-            ),
+            ...item.data()
 
-        serie:
-            document
-                .getElementById(
-                    "serie"
-                )
-                .value
-                .trim(),
+        });
 
-        turma:
-            document
-                .getElementById(
-                    "turma"
-                )
-                .value
-                .trim(),
+    });
 
-        turno:
-            document
-                .getElementById(
-                    "turno"
-                )
-                .value,
-
-        cargaHoraria:
-            Number(
-                document
-                    .getElementById(
-                        "cargaHoraria"
-                    )
-                    .value || 0
-            ),
-
-        resultado:
-            document
-                .getElementById(
-                    "resultado"
-                )
-                .value,
-
-        disciplinas:
-            pegarDisciplinas(),
-
-        atualizadoEm:
-            serverTimestamp()
-
-    };
+    renderizarAlunos();
 
 }
 
 
 /* =========================
-   CARREGAR HISTÓRICOS
+   RENDERIZAR ALUNOS
 ========================= */
 
-
-async function carregarHistoricos(){
-
-    historicos = [];
-
-
-    try{
-
-        const snapshot =
-            await getDocs(
-                collection(
-                    db,
-                    "historicos"
-                )
-            );
-
-
-        snapshot.forEach(
-            item => {
-
-                const data =
-                    item.data();
-
-
-                /*
-                 * SEGURANÇA:
-                 * só entra o histórico
-                 * da escola atual.
-                 */
-
-                if(
-                    data.escolaId ===
-                    usuarioAtual.escolaId
-                ){
-
-                    historicos.push({
-
-                        id:item.id,
-
-                        ...data
-
-                    });
-
-                }
-
-            }
-        );
-
-
-        renderizar();
-
-
-    }catch(error){
-
-        console.error(error);
-
-        mostrarMensagem(
-            "Erro ao carregar históricos.",
-            "error"
-        );
-
-    }
-
-}
-
-
-/* =========================
-   RENDERIZAR
-========================= */
-
-
-function renderizar(){
+function renderizarAlunos(){
 
     const termo =
         pesquisa.value
@@ -1336,313 +1318,86 @@ function renderizar(){
 
 
     const filtrados =
-        historicos.filter(
-            historico => {
+        alunos.filter(aluno=>{
 
-                const texto = (
+            const texto =
+                (
+                    (aluno.nome || "") +
+                    " " +
+                    (aluno.matricula || "")
+                )
+                .toLowerCase();
 
-                    historico.alunoNome ||
-                    ""
+            return texto.includes(
+                termo
+            );
 
-                ) + " " + (
-
-                    historico.anoLetivo ||
-                    ""
-
-                ) + " " + (
-
-                    historico.serie ||
-                    ""
-
-                ) + " " + (
-
-                    historico.turma ||
-                    ""
-
-                );
+        });
 
 
-                return texto
-                    .toLowerCase()
-                    .includes(
-                        termo
-                    );
-
-            }
-        );
-
-
-    lista.innerHTML = "";
+    listaAlunos.innerHTML="";
 
 
     if(!filtrados.length){
 
-        lista.innerHTML = `
+        listaAlunos.innerHTML=`
 
-            <tr>
+<tr>
 
-                <td
-                    colspan="7"
-                    class="empty">
+<td
+    colspan="4"
+    class="empty"
+>
+Nenhum aluno encontrado.
+</td>
 
-                    Nenhum histórico encontrado.
+</tr>
 
-                </td>
-
-            </tr>
-
-        `;
+`;
 
         return;
 
     }
 
 
-    filtrados
-        .sort(
-            (a,b) =>
-                Number(
-                    b.anoLetivo || 0
-                ) -
-                Number(
-                    a.anoLetivo || 0
-                )
-        )
-        .forEach(
-            historico => {
+    filtrados.forEach(aluno=>{
 
-                const tr =
-                    document.createElement(
-                        "tr"
-                    );
+        const tr =
+            document.createElement(
+                "tr"
+            );
 
 
-                let classe =
-                    "badge-success";
+        tr.innerHTML=`
 
+<td>
+<strong>
+${escapar(aluno.nome)}
+</strong>
+</td>
 
-                if(
-                    historico.resultado ===
-                    "Reprovado"
-                ){
+<td>
+${escapar(aluno.matricula || "-")}
+</td>
 
-                    classe =
-                        "badge-danger";
+<td>
+${formatarData(aluno.nascimento)}
+</td>
 
-                }
+<td>
 
+<button
+    class="btn btn-primary"
+    data-id="${aluno.id}"
+>
+📚 Histórico
+</button>
 
-                if(
-                    historico.resultado ===
-                    "Cursando"
-                ){
+</td>
 
-                    classe =
-                        "badge-warning";
+`;
 
-                }
-
-
-                tr.innerHTML = `
-
-                    <td>
-                        <strong>
-                            ${escapar(
-                                historico.alunoNome
-                            )}
-                        </strong>
-                    </td>
-
-                    <td>
-                        ${escapar(
-                            historico.anoLetivo
-                        )}
-                    </td>
-
-                    <td>
-                        ${escapar(
-                            historico.serie
-                        )}
-                    </td>
-
-                    <td>
-                        ${escapar(
-                            historico.turma || "-"
-                        )}
-                    </td>
-
-                    <td>
-                        ${escapar(
-                            historico.turno || "-"
-                        )}
-                    </td>
-
-                    <td>
-
-                        <span
-                            class="badge ${classe}">
-
-                            ${escapar(
-                                historico.resultado
-                            )}
-
-                        </span>
-
-                    </td>
-
-                    <td>
-
-                        <div class="actions">
-
-                            <button
-                                class="btn btn-primary"
-                                data-action="editar"
-                                data-id="${historico.id}">
-
-                                Editar
-
-                            </button>
-
-
-                            <button
-                                class="btn btn-danger"
-                                data-action="excluir"
-                                data-id="${historico.id}">
-
-                                Excluir
-
-                            </button>
-
-                        </div>
-
-                    </td>
-
-                `;
-
-
-                lista.appendChild(
-                    tr
-                );
-
-            }
-        );
-
-}
-
-
-/* =========================
-   EDITAR
-========================= */
-
-
-function editarHistorico(
-    historico
-){
-
-    historicoEditando =
-        historico.id;
-
-
-    document
-        .getElementById(
-            "aluno"
-        )
-        .value =
-        historico.alunoId || "";
-
-
-    document
-        .getElementById(
-            "anoLetivo"
-        )
-        .value =
-        historico.anoLetivo || "";
-
-
-    document
-        .getElementById(
-            "serie"
-        )
-        .value =
-        historico.serie || "";
-
-
-    document
-        .getElementById(
-            "turma"
-        )
-        .value =
-        historico.turma || "";
-
-
-    document
-        .getElementById(
-            "turno"
-        )
-        .value =
-        historico.turno || "";
-
-
-    document
-        .getElementById(
-            "cargaHoraria"
-        )
-        .value =
-        historico.cargaHoraria || "";
-
-
-    document
-        .getElementById(
-            "resultado"
-        )
-        .value =
-        historico.resultado || "Aprovado";
-
-
-    disciplinasBox.innerHTML = "";
-
-
-    if(
-        Array.isArray(
-            historico.disciplinas
-        ) &&
-        historico.disciplinas.length
-    ){
-
-        historico.disciplinas.forEach(
-            disciplina => {
-
-                adicionarDisciplina(
-                    disciplina
-                );
-
-            }
-        );
-
-    }else{
-
-        adicionarDisciplina();
-
-    }
-
-
-    document
-        .getElementById(
-            "formTitle"
-        )
-        .textContent =
-        "Editar Histórico Escolar";
-
-
-    formBox.style.display =
-        "block";
-
-
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
+        listaAlunos.appendChild(tr);
 
     });
 
@@ -1650,24 +1405,334 @@ function editarHistorico(
 
 
 /* =========================
-   SALVAR
+   SELECIONAR ALUNO
 ========================= */
 
+listaAlunos.addEventListener(
+    "click",
+    async event=>{
+
+        const botao =
+            event.target.closest(
+                "button"
+            );
+
+        if(!botao)
+            return;
+
+        const id =
+            botao.dataset.id;
+
+        const aluno =
+            alunos.find(
+                item=>item.id===id
+            );
+
+        if(!aluno)
+            return;
+
+        alunoSelecionado =
+            aluno;
+
+        mostrarAluno();
+
+        await carregarHistoricos();
+
+    }
+);
+
+
+/* =========================
+   MOSTRAR ALUNO
+========================= */
+
+function mostrarAluno(){
+
+    alunoBox.style.display =
+        "block";
+
+
+    document.getElementById(
+        "nomeAluno"
+    ).textContent =
+        alunoSelecionado.nome || "";
+
+
+    document.getElementById(
+        "matriculaAluno"
+    ).textContent =
+        "Matrícula: " +
+        (
+            alunoSelecionado.matricula ||
+            "-"
+        );
+
+
+    document.getElementById(
+        "infoNascimento"
+    ).textContent =
+        formatarData(
+            alunoSelecionado.nascimento
+        );
+
+
+    document.getElementById(
+        "infoCpf"
+    ).textContent =
+        alunoSelecionado.cpf || "-";
+
+
+    document.getElementById(
+        "infoEscola"
+    ).textContent =
+        escola?.nome || "-";
+
+
+    window.scrollTo({
+        top:alunoBox.offsetTop-20,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================
+   HISTÓRICOS
+========================= */
+
+async function carregarHistoricos(){
+
+    const q =
+        query(
+
+            collection(
+                db,
+                "historicos"
+            ),
+
+            where(
+                "escolaId",
+                "==",
+                escolaId
+            ),
+
+            where(
+                "alunoId",
+                "==",
+                alunoSelecionado.id
+            )
+
+        );
+
+
+    const snapshot =
+        await getDocs(q);
+
+
+    historicos=[];
+
+
+    snapshot.forEach(item=>{
+
+        historicos.push({
+
+            id:item.id,
+
+            ...item.data()
+
+        });
+
+    });
+
+
+    historicos.sort(
+        (a,b)=>
+            Number(a.anoLetivo || 0) -
+            Number(b.anoLetivo || 0)
+    );
+
+
+    renderizarHistoricos();
+
+}
+
+
+/* =========================
+   RENDERIZAR HISTÓRICOS
+========================= */
+
+function renderizarHistoricos(){
+
+    listaHistorico.innerHTML="";
+
+
+    if(!historicos.length){
+
+        listaHistorico.innerHTML=`
+
+<tr>
+
+<td
+    colspan="8"
+    class="empty"
+>
+Nenhum período escolar cadastrado.
+</td>
+
+</tr>
+
+`;
+
+        return;
+
+    }
+
+
+    historicos.forEach(item=>{
+
+        const tr =
+            document.createElement(
+                "tr"
+            );
+
+
+        tr.innerHTML=`
+
+<td>
+${escapar(item.anoLetivo || "-")}
+</td>
+
+<td>
+${escapar(item.etapa || "-")}
+</td>
+
+<td>
+${escapar(item.serie || "-")}
+</td>
+
+<td>
+${escapar(item.turma || "-")}
+</td>
+
+<td>
+${escapar(item.turno || "-")}
+</td>
+
+<td>
+${escapar(item.cargaHoraria || "-")}
+</td>
+
+<td>
+<strong>
+${escapar(item.resultado || "-")}
+</strong>
+</td>
+
+<td>
+
+<div class="actions">
+
+<button
+    class="btn btn-warning"
+    data-action="editar"
+    data-id="${item.id}"
+>
+Editar
+</button>
+
+<button
+    class="btn btn-danger"
+    data-action="excluir"
+    data-id="${item.id}"
+>
+Excluir
+</button>
+
+</div>
+
+</td>
+
+`;
+
+        listaHistorico.appendChild(tr);
+
+    });
+
+}
+
+
+/* =========================
+   NOVO HISTÓRICO
+========================= */
+
+document
+    .getElementById(
+        "btnNovoHistorico"
+    )
+    .addEventListener(
+        "click",
+        ()=>{
+
+            historicoEditando =
+                null;
+
+            form.reset();
+
+            document.getElementById(
+                "tituloForm"
+            ).textContent =
+                "Novo período escolar";
+
+            formBox.style.display =
+                "block";
+
+            formBox.scrollIntoView({
+                behavior:"smooth"
+            });
+
+        }
+    );
+
+
+/* =========================
+   CANCELAR
+========================= */
+
+document
+    .getElementById(
+        "btnCancelar"
+    )
+    .addEventListener(
+        "click",
+        ()=>{
+
+            form.reset();
+
+            historicoEditando =
+                null;
+
+            formBox.style.display =
+                "none";
+
+        }
+    );
+
+
+/* =========================
+   SALVAR HISTÓRICO
+========================= */
 
 form.addEventListener(
     "submit",
-    async event => {
+    async event=>{
 
         event.preventDefault();
 
 
-        if(
-            !usuarioAtual ||
-            !usuarioAtual.escolaId
-        ){
+        if(!alunoSelecionado){
 
             mostrarMensagem(
-                "Usuário não está vinculado a uma escola.",
+                "Selecione um aluno primeiro.",
                 "error"
             );
 
@@ -1676,48 +1741,88 @@ form.addEventListener(
         }
 
 
-        const dados =
-            pegarDados();
+        const dados={
 
+            escolaId:
 
-        if(!dados.alunoId){
+                escolaId,
 
-            mostrarMensagem(
-                "Selecione o aluno.",
-                "error"
-            );
+            alunoId:
 
-            return;
+                alunoSelecionado.id,
 
-        }
+            anoLetivo:
 
+                document
+                    .getElementById(
+                        "anoLetivo"
+                    )
+                    .value,
 
-        if(!dados.anoLetivo){
+            etapa:
 
-            mostrarMensagem(
-                "Informe o ano letivo.",
-                "error"
-            );
+                document
+                    .getElementById(
+                        "etapa"
+                    )
+                    .value,
 
-            return;
+            serie:
 
-        }
+                document
+                    .getElementById(
+                        "serie"
+                    )
+                    .value
+                    .trim(),
 
+            turma:
 
-        if(!dados.serie){
+                document
+                    .getElementById(
+                        "turma"
+                    )
+                    .value
+                    .trim(),
 
-            mostrarMensagem(
-                "Informe a série/ano.",
-                "error"
-            );
+            turno:
 
-            return;
+                document
+                    .getElementById(
+                        "turno"
+                    )
+                    .value,
 
-        }
+            cargaHoraria:
+
+                document
+                    .getElementById(
+                        "cargaHoraria"
+                    )
+                    .value
+                    .trim(),
+
+            resultado:
+
+                document
+                    .getElementById(
+                        "resultado"
+                    )
+                    .value,
+
+            observacoes:
+
+                document
+                    .getElementById(
+                        "observacoes"
+                    )
+                    .value
+                    .trim()
+
+        };
 
 
         try{
-
 
             if(historicoEditando){
 
@@ -1733,11 +1838,9 @@ form.addEventListener(
 
                 );
 
-
                 mostrarMensagem(
                     "Histórico atualizado com sucesso."
                 );
-
 
             }else{
 
@@ -1759,20 +1862,20 @@ form.addEventListener(
 
                 );
 
-
                 mostrarMensagem(
-                    "Histórico cadastrado com sucesso."
+                    "Período escolar cadastrado."
                 );
 
             }
 
 
-            limparFormulario();
+            form.reset();
 
+            historicoEditando =
+                null;
 
             formBox.style.display =
                 "none";
-
 
             await carregarHistoricos();
 
@@ -1793,101 +1896,17 @@ form.addEventListener(
 
 
 /* =========================
-   NOVO
+   AÇÕES DO HISTÓRICO
 ========================= */
 
-
-document
-    .getElementById(
-        "btnNovo"
-    )
-    .addEventListener(
-        "click",
-        () => {
-
-            limparFormulario();
-
-            formBox.style.display =
-                "block";
-
-            window.scrollTo({
-
-                top:0,
-
-                behavior:"smooth"
-
-            });
-
-        }
-    );
-
-
-/* =========================
-   CANCELAR
-========================= */
-
-
-document
-    .getElementById(
-        "btnCancelar"
-    )
-    .addEventListener(
-        "click",
-        () => {
-
-            limparFormulario();
-
-            formBox.style.display =
-                "none";
-
-        }
-    );
-
-
-/* =========================
-   NOVA DISCIPLINA
-========================= */
-
-
-document
-    .getElementById(
-        "btnAdicionarDisciplina"
-    )
-    .addEventListener(
-        "click",
-        () => {
-
-            adicionarDisciplina();
-
-        }
-    );
-
-
-/* =========================
-   PESQUISA
-========================= */
-
-
-pesquisa.addEventListener(
-    "input",
-    renderizar
-);
-
-
-/* =========================
-   AÇÕES
-========================= */
-
-
-lista.addEventListener(
+listaHistorico.addEventListener(
     "click",
-    async event => {
+    async event=>{
 
         const botao =
             event.target.closest(
                 "button"
             );
-
 
         if(!botao)
             return;
@@ -1896,44 +1915,96 @@ lista.addEventListener(
         const id =
             botao.dataset.id;
 
-
         const action =
             botao.dataset.action;
 
 
-        const historico =
+        const item =
             historicos.find(
-                item =>
-                    item.id === id
+                h=>h.id===id
             );
 
-
-        if(!historico)
+        if(!item)
             return;
 
 
-        if(
-            action === "editar"
-        ){
+        if(action==="editar"){
 
-            editarHistorico(
-                historico
-            );
+            historicoEditando =
+                id;
 
-            return;
+
+            document.getElementById(
+                "anoLetivo"
+            ).value =
+                item.anoLetivo || "";
+
+
+            document.getElementById(
+                "etapa"
+            ).value =
+                item.etapa || "";
+
+
+            document.getElementById(
+                "serie"
+            ).value =
+                item.serie || "";
+
+
+            document.getElementById(
+                "turma"
+            ).value =
+                item.turma || "";
+
+
+            document.getElementById(
+                "turno"
+            ).value =
+                item.turno || "";
+
+
+            document.getElementById(
+                "cargaHoraria"
+            ).value =
+                item.cargaHoraria || "";
+
+
+            document.getElementById(
+                "resultado"
+            ).value =
+                item.resultado || "";
+
+
+            document.getElementById(
+                "observacoes"
+            ).value =
+                item.observacoes || "";
+
+
+            document.getElementById(
+                "tituloForm"
+            ).textContent =
+                "Editar período escolar";
+
+
+            formBox.style.display =
+                "block";
+
+
+            formBox.scrollIntoView({
+                behavior:"smooth"
+            });
 
         }
 
 
-        if(
-            action === "excluir"
-        ){
+        if(action==="excluir"){
 
             const confirmar =
                 confirm(
-                    "Deseja realmente excluir este histórico escolar?"
+                    "Deseja realmente excluir este período escolar?"
                 );
-
 
             if(!confirmar)
                 return;
@@ -1953,7 +2024,7 @@ lista.addEventListener(
 
 
                 mostrarMensagem(
-                    "Histórico excluído."
+                    "Período excluído."
                 );
 
 
@@ -1965,7 +2036,7 @@ lista.addEventListener(
                 console.error(error);
 
                 mostrarMensagem(
-                    "Erro ao excluir histórico.",
+                    "Erro ao excluir período.",
                     "error"
                 );
 
@@ -1978,24 +2049,218 @@ lista.addEventListener(
 
 
 /* =========================
+   GERAR DOCUMENTO
+========================= */
+
+document
+    .getElementById(
+        "btnGerar"
+    )
+    .addEventListener(
+        "click",
+        ()=>{
+
+            if(!alunoSelecionado)
+                return;
+
+
+            if(!historicos.length){
+
+                mostrarMensagem(
+                    "Este aluno ainda não possui histórico cadastrado.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            document.getElementById(
+                "docEscola"
+            ).textContent =
+                escola?.nome || "";
+
+
+            const endereco = [
+
+                escola?.endereco,
+                escola?.numero,
+                escola?.bairro,
+                escola?.cidade,
+                escola?.estado,
+                escola?.cep
+
+            ]
+            .filter(Boolean)
+            .join(", ");
+
+
+            document.getElementById(
+                "docEndereco"
+            ).textContent =
+                endereco;
+
+
+            document.getElementById(
+                "docContato"
+            ).textContent =
+                [
+                    escola?.telefone,
+                    escola?.email,
+                    escola?.inep
+                    ? "INEP: " + escola.inep
+                    : ""
+                ]
+                .filter(Boolean)
+                .join(" | ");
+
+
+            document.getElementById(
+                "docAluno"
+            ).textContent =
+                alunoSelecionado.nome || "";
+
+
+            document.getElementById(
+                "docMatricula"
+            ).textContent =
+                alunoSelecionado.matricula || "-";
+
+
+            document.getElementById(
+                "docNascimento"
+            ).textContent =
+                formatarData(
+                    alunoSelecionado.nascimento
+                );
+
+
+            document.getElementById(
+                "docCpf"
+            ).textContent =
+                alunoSelecionado.cpf || "-";
+
+
+            const tabela =
+                document.getElementById(
+                    "docHistorico"
+                );
+
+
+            tabela.innerHTML="";
+
+
+            historicos.forEach(item=>{
+
+                const tr =
+                    document.createElement(
+                        "tr"
+                    );
+
+
+                tr.innerHTML=`
+
+<td>
+${escapar(item.anoLetivo || "")}
+</td>
+
+<td>
+${escapar(item.etapa || "")}
+</td>
+
+<td>
+${escapar(item.serie || "")}
+</td>
+
+<td>
+${escapar(item.turma || "")}
+</td>
+
+<td>
+${escapar(item.turno || "")}
+</td>
+
+<td>
+${escapar(item.cargaHoraria || "")}
+</td>
+
+<td>
+${escapar(item.resultado || "")}
+</td>
+
+`;
+
+                tabela.appendChild(tr);
+
+            });
+
+
+            const observacoes =
+                historicos
+                .map(
+                    h=>h.observacoes
+                )
+                .filter(Boolean)
+                .join(" | ");
+
+
+            document.getElementById(
+                "docObservacoes"
+            ).textContent =
+                observacoes || "Nada consta.";
+
+
+            document.getElementById(
+                "docDiretor"
+            ).textContent =
+                escola?.diretor || "";
+
+
+            document.getElementById(
+                "docSecretario"
+            ).textContent =
+                escola?.secretario || "";
+
+
+            document.getElementById(
+                "documento"
+            ).style.display =
+                "block";
+
+
+            setTimeout(()=>{
+
+                window.print();
+
+            },300);
+
+        }
+    );
+
+
+/* =========================
+   PESQUISA
+========================= */
+
+pesquisa.addEventListener(
+    "input",
+    renderizarAlunos
+);
+
+
+/* =========================
    AUTENTICAÇÃO
 ========================= */
 
-
 onAuthStateChanged(
     auth,
-    async user => {
+    async user=>{
 
         if(!user){
 
-            alert(
-                "Você precisa estar logado para acessar este módulo."
-            );
-
-
             window.location.href =
                 "index.html";
-
 
             return;
 
@@ -2004,197 +2269,13 @@ onAuthStateChanged(
 
         try{
 
-            /*
-             * Busca o usuário logado
-             */
-
-            const usuarioSnap =
-                await getDocs(
-                    collection(
-                        db,
-                        "usuarios"
-                    )
-                );
-
-
-            let encontrado = null;
-
-
-            usuarioSnap.forEach(
-                item => {
-
-                    const data =
-                        item.data();
-
-
-                    if(
-                        data.uid ===
-                        user.uid
-                    ){
-
-                        encontrado = {
-
-                            id:item.id,
-
-                            ...data
-
-                        };
-
-                    }
-
-                }
+            await carregarUsuario(
+                user
             );
 
-
-            if(!encontrado){
-
-                alert(
-                    "Usuário não encontrado no Firestore."
-                );
-
-
-                window.location.href =
-                    "index.html";
-
-
-                return;
-
-            }
-
-
-            usuarioAtual =
-                encontrado;
-
-
-            /*
-             * Usuário precisa ter escola.
-             */
-
-            if(
-                !usuarioAtual.escolaId
-            ){
-
-                document
-                    .getElementById(
-                        "nomeEscola"
-                    )
-                    .textContent =
-                    "Nenhuma escola vinculada";
-
-
-                document
-                    .getElementById(
-                        "usuarioInfo"
-                    )
-                    .textContent =
-                    usuarioAtual.nome ||
-                    user.email;
-
-
-                mostrarMensagem(
-                    "Este usuário ainda não está vinculado a uma escola.",
-                    "error"
-                );
-
-
-                return;
-
-            }
-
-
-            /*
-             * Mostra informações do usuário.
-             */
-
-            document
-                .getElementById(
-                    "usuarioInfo"
-                )
-                .textContent =
-                (
-                    usuarioAtual.nome ||
-                    user.email
-                ) +
-                " — " +
-                (
-                    usuarioAtual.perfil ||
-                    "Usuário"
-                );
-
-
-            /*
-             * Busca a escola.
-             */
-
-            const escolasSnapshot =
-                await getDocs(
-                    collection(
-                        db,
-                        "escolas"
-                    )
-                );
-
-
-            let escolaEncontrada =
-                null;
-
-
-            escolasSnapshot.forEach(
-                item => {
-
-                    if(
-                        item.id ===
-                        usuarioAtual.escolaId
-                    ){
-
-                        escolaEncontrada = {
-
-                            id:item.id,
-
-                            ...item.data()
-
-                        };
-
-                    }
-
-                }
-            );
-
-
-            escolaAtual =
-                escolaEncontrada;
-
-
-            if(escolaAtual){
-
-                document
-                    .getElementById(
-                        "nomeEscola"
-                    )
-                    .textContent =
-                    escolaAtual.nome ||
-                    "Escola";
-
-            }else{
-
-                document
-                    .getElementById(
-                        "nomeEscola"
-                    )
-                    .textContent =
-                    "Escola não encontrada";
-
-            }
-
-
-            /*
-             * Carrega somente dados
-             * da escola atual.
-             */
+            await carregarEscola();
 
             await carregarAlunos();
-
-            await carregarHistoricos();
 
 
         }catch(error){
@@ -2202,7 +2283,8 @@ onAuthStateChanged(
             console.error(error);
 
             mostrarMensagem(
-                "Erro ao carregar os dados do usuário.",
+                error.message ||
+                "Erro ao carregar dados.",
                 "error"
             );
 
@@ -2213,9 +2295,8 @@ onAuthStateChanged(
 
 
 /* =========================
-   PAINEL
+   VOLTAR
 ========================= */
-
 
 window.voltarPainel =
     function(){
@@ -2225,17 +2306,7 @@ window.voltarPainel =
 
     };
 
-
-/* =========================
-   INÍCIO
-========================= */
-
-
-adicionarDisciplina();
-
-
 </script>
 
 </body>
-
-</html>
+      </html>
