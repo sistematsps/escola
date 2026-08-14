@@ -4,271 +4,301 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Usuários — Sistema Escolar</title>
+<title>Usuários - Sistema Escolar</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f1f5f9;
-    color: #1e293b;
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f1f5f9;
+    color:#1e293b;
 }
 
-header {
-    background: #0f172a;
-    color: white;
-    padding: 15px 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
+header{
+    background:#0f172a;
+    color:white;
+    padding:15px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
 }
 
-.header-title {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.header-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
 }
 
-.header-title span {
-    font-size: 30px;
+.header-title span{
+    font-size:30px;
 }
 
-.header-title h1 {
-    font-size: 20px;
+.header-title h1{
+    font-size:20px;
 }
 
-main {
-    max-width: 1400px;
-    margin: auto;
-    padding: 25px;
+.btn{
+    border:none;
+    padding:11px 16px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:14px;
 }
 
-.btn {
-    border: none;
-    padding: 11px 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 14px;
+.btn-primary{
+    background:#2563eb;
+    color:white;
 }
 
-.btn-primary {
-    background: #2563eb;
-    color: white;
+.btn-primary:hover{
+    background:#1d4ed8;
 }
 
-.btn-primary:hover {
-    background: #1d4ed8;
+.btn-secondary{
+    background:#64748b;
+    color:white;
 }
 
-.btn-secondary {
-    background: #64748b;
-    color: white;
+.btn-success{
+    background:#16a34a;
+    color:white;
 }
 
-.btn-success {
-    background: #16a34a;
-    color: white;
+.btn-danger{
+    background:#dc2626;
+    color:white;
 }
 
-.btn-danger {
-    background: #dc2626;
-    color: white;
+.btn-warning{
+    background:#d97706;
+    color:white;
 }
 
-.btn-warning {
-    background: #d97706;
-    color: white;
+main{
+    max-width:1400px;
+    margin:auto;
+    padding:25px;
 }
 
-.top-area {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    gap: 15px;
+.top-area{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    margin-bottom:20px;
 }
 
-.top-area h2 {
-    font-size: 25px;
+.top-area h2{
+    font-size:25px;
 }
 
-.message {
-    display: none;
-    padding: 12px;
-    border-radius: 8px;
-    margin-bottom: 20px;
+.search{
+    margin-bottom:20px;
 }
 
-.message.success {
-    display: block;
-    background: #dcfce7;
-    color: #166534;
+.search input{
+    width:100%;
+    padding:13px;
+    border:1px solid #cbd5e1;
+    border-radius:9px;
+    font-size:15px;
+    outline:none;
 }
 
-.message.error {
-    display: block;
-    background: #fee2e2;
-    color: #991b1b;
+.search input:focus{
+    border-color:#2563eb;
 }
 
-.form-box {
-    display: none;
-    background: white;
-    padding: 25px;
-    border-radius: 14px;
-    margin-bottom: 25px;
-    box-shadow: 0 5px 20px rgba(0,0,0,.06);
+.form-box{
+    display:none;
+    background:white;
+    padding:25px;
+    border-radius:14px;
+    margin-bottom:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
 }
 
-.form-box h3 {
-    margin-bottom: 20px;
+.form-box h3{
+    margin-bottom:20px;
 }
 
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: bold;
-    font-size: 14px;
+.form-group label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:bold;
+    font-size:14px;
 }
 
 .form-group input,
-.form-group select {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    outline: none;
-    font-size: 14px;
+.form-group select{
+    width:100%;
+    padding:12px;
+    border:1px solid #cbd5e1;
+    border-radius:8px;
+    outline:none;
+    font-size:14px;
 }
 
 .form-group input:focus,
-.form-group select:focus {
-    border-color: #2563eb;
+.form-group select:focus{
+    border-color:#2563eb;
 }
 
-.full {
-    grid-column: 1 / -1;
+.full{
+    grid-column:1/-1;
 }
 
-.form-buttons {
-    margin-top: 20px;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+.form-buttons{
+    margin-top:20px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
 }
 
-.table-box {
-    background: white;
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,.06);
+.table-box{
+    background:white;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
 }
 
-.table-container {
-    width: 100%;
-    overflow-x: auto;
+.table-container{
+    width:100%;
+    overflow-x:auto;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 900px;
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:950px;
 }
 
-th {
-    background: #e2e8f0;
-    padding: 13px;
-    text-align: left;
-    font-size: 13px;
+th{
+    background:#e2e8f0;
+    padding:13px;
+    text-align:left;
+    font-size:13px;
 }
 
-td {
-    padding: 12px;
-    border-top: 1px solid #e2e8f0;
-    font-size: 14px;
+td{
+    padding:12px;
+    border-top:1px solid #e2e8f0;
+    font-size:14px;
 }
 
-.status {
-    display: inline-block;
-    padding: 5px 9px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: bold;
+.status{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
 }
 
-.status.active {
-    background: #dcfce7;
-    color: #166534;
+.status.active{
+    background:#dcfce7;
+    color:#166534;
 }
 
-.status.inactive {
-    background: #fee2e2;
-    color: #991b1b;
+.status.inactive{
+    background:#fee2e2;
+    color:#991b1b;
 }
 
-.actions {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
+.profile{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+    background:#dbeafe;
+    color:#1e40af;
 }
 
-.actions .btn {
-    padding: 7px 9px;
-    font-size: 12px;
+.actions{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
 }
 
-.empty {
-    text-align: center;
-    padding: 35px;
-    color: #64748b;
+.actions .btn{
+    padding:7px 9px;
+    font-size:12px;
 }
 
-.password-info {
-    background: #fff7ed;
-    color: #9a3412;
-    padding: 12px;
-    border-radius: 8px;
-    margin-top: 15px;
-    font-size: 13px;
+.empty{
+    text-align:center;
+    padding:35px;
+    color:#64748b;
 }
 
-@media(max-width: 700px) {
+.message{
+    display:none;
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:20px;
+}
 
-    header {
-        flex-direction: column;
-        align-items: flex-start;
+.message.success{
+    display:block;
+    background:#dcfce7;
+    color:#166534;
+}
+
+.message.error{
+    display:block;
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+.info-box{
+    background:#eff6ff;
+    border-left:4px solid #2563eb;
+    padding:15px;
+    border-radius:8px;
+    margin-bottom:20px;
+    color:#1e40af;
+}
+
+@media(max-width:700px){
+
+    header{
+        flex-direction:column;
+        align-items:flex-start;
     }
 
-    main {
-        padding: 15px;
+    main{
+        padding:15px;
     }
 
-    .top-area {
-        flex-direction: column;
-        align-items: flex-start;
+    .top-area{
+        flex-direction:column;
+        align-items:flex-start;
     }
 
-    .form-grid {
-        grid-template-columns: 1fr;
+    .form-grid{
+        grid-template-columns:1fr;
     }
 
-    .full {
-        grid-column: auto;
+    .full{
+        grid-column:auto;
     }
+
 }
+
 </style>
 </head>
 
@@ -277,8 +307,13 @@ td {
 <header>
 
     <div class="header-title">
+
         <span>👥</span>
-        <h1>Usuários</h1>
+
+        <h1>
+            Usuários do Sistema
+        </h1>
+
     </div>
 
     <button
@@ -293,191 +328,243 @@ td {
 
 <main>
 
-    <div id="message" class="message"></div>
+<div id="message" class="message"></div>
 
 
-    <div class="top-area">
+<div class="top-area">
 
-        <h2>Administradores das escolas</h2>
+    <h2>
+        Usuários cadastrados
+    </h2>
 
-        <button
-            id="btnNovo"
-            class="btn btn-primary"
-        >
-            + Novo Administrador
-        </button>
+    <button
+        id="btnNovo"
+        class="btn btn-primary"
+    >
+        + Novo Usuário
+    </button>
 
-    </div>
+</div>
 
 
-    <!-- FORMULÁRIO -->
+<div class="info-box">
 
-    <section
-        id="formBox"
-        class="form-box"
+    <strong>Controle de acesso:</strong>
+
+    Cada usuário deverá estar vinculado a uma escola.
+    O perfil Master possui acesso administrativo geral.
+
+</div>
+
+
+<div class="search">
+
+    <input
+        type="text"
+        id="pesquisa"
+        placeholder="Pesquisar por nome, e-mail ou escola..."
     >
 
-        <h3>
-            Criar Administrador
-        </h3>
+</div>
 
 
-        <form id="usuarioForm">
+<section
+    id="formBox"
+    class="form-box"
+>
 
-            <div class="form-grid">
-
-                <div class="form-group">
-
-                    <label>
-                        Nome completo *
-                    </label>
-
-                    <input
-                        type="text"
-                        id="nome"
-                        required
-                    >
-
-                </div>
+    <h3 id="formTitle">
+        Novo Usuário
+    </h3>
 
 
-                <div class="form-group">
+    <form id="usuarioForm">
 
-                    <label>
-                        E-mail *
-                    </label>
-
-                    <input
-                        type="email"
-                        id="email"
-                        required
-                    >
-
-                </div>
+        <div class="form-grid">
 
 
-                <div class="form-group">
+            <div class="form-group">
 
-                    <label>
-                        Escola *
-                    </label>
+                <label>
+                    Nome *
+                </label>
 
-                    <select
-                        id="escolaId"
-                        required
-                    >
-
-                        <option value="">
-                            Selecione a escola
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>
-                        Senha inicial *
-                    </label>
-
-                    <input
-                        type="password"
-                        id="senha"
-                        minlength="6"
-                        required
-                    >
-
-                </div>
-
-            </div>
-
-
-            <div class="password-info">
-
-                A senha inicial será entregue ao administrador.
-                Depois podemos criar a função de alteração de senha
-                no próprio sistema.
-
-            </div>
-
-
-            <div class="form-buttons">
-
-                <button
-                    type="submit"
-                    class="btn btn-success"
+                <input
+                    type="text"
+                    id="nome"
+                    required
                 >
-                    💾 Criar Administrador
-                </button>
-
-                <button
-                    type="button"
-                    id="btnCancelar"
-                    class="btn btn-secondary"
-                >
-                    Cancelar
-                </button>
 
             </div>
 
-        </form>
 
-    </section>
+            <div class="form-group">
 
+                <label>
+                    E-mail *
+                </label>
 
-    <!-- PESQUISA -->
+                <input
+                    type="email"
+                    id="email"
+                    required
+                >
 
-    <div style="margin-bottom:20px;">
-
-        <input
-            type="text"
-            id="pesquisa"
-            placeholder="Pesquisar usuário ou escola..."
-            style="
-                width:100%;
-                padding:13px;
-                border:1px solid #cbd5e1;
-                border-radius:9px;
-                font-size:15px;
-                outline:none;
-            "
-        >
-
-    </div>
+            </div>
 
 
-    <!-- TABELA -->
+            <div class="form-group">
 
-    <section class="table-box">
+                <label>
+                    Perfil *
+                </label>
 
-        <div class="table-container">
+                <select id="perfil" required>
 
-            <table>
+                    <option value="">
+                        Selecione
+                    </option>
 
-                <thead>
+                    <option value="master">
+                        Master
+                    </option>
 
-                    <tr>
-                        <th>Nome</th>
-                        <th>E-mail</th>
-                        <th>Escola</th>
-                        <th>Perfil</th>
-                        <th>Status</th>
-                        <th>Ações</th>
-                    </tr>
+                    <option value="administrador">
+                        Administrador
+                    </option>
 
-                </thead>
+                    <option value="secretaria">
+                        Secretaria
+                    </option>
 
-                <tbody id="listaUsuarios">
+                    <option value="usuario">
+                        Usuário
+                    </option>
 
-                </tbody>
+                </select>
 
-            </table>
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Escola *
+                </label>
+
+                <select
+                    id="escolaId"
+                    required
+                >
+
+                    <option value="">
+                        Selecione a escola
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Status
+                </label>
+
+                <select id="ativo">
+
+                    <option value="true">
+                        Ativo
+                    </option>
+
+                    <option value="false">
+                        Inativo
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    UID do Firebase
+                </label>
+
+                <input
+                    type="text"
+                    id="uid"
+                    placeholder="Será preenchido pelo Firebase"
+                    readonly
+                >
+
+            </div>
 
         </div>
 
-    </section>
+
+        <div class="form-buttons">
+
+            <button
+                type="submit"
+                class="btn btn-success"
+            >
+                💾 Salvar Usuário
+            </button>
+
+            <button
+                type="button"
+                id="btnCancelar"
+                class="btn btn-secondary"
+            >
+                Cancelar
+            </button>
+
+        </div>
+
+    </form>
+
+</section>
+
+
+<section class="table-box">
+
+<div class="table-container">
+
+<table>
+
+<thead>
+
+<tr>
+
+    <th>Nome</th>
+
+    <th>E-mail</th>
+
+    <th>Perfil</th>
+
+    <th>Escola</th>
+
+    <th>Status</th>
+
+    <th>Ações</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="listaUsuarios">
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
 
 </main>
 
@@ -490,8 +577,7 @@ import {
 
 import {
     getAuth,
-    onAuthStateChanged,
-    createUserWithEmailAndPassword
+    onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
 import {
@@ -499,14 +585,14 @@ import {
     collection,
     getDocs,
     doc,
-    setDoc,
-    updateDoc
+    updateDoc,
+    deleteDoc
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 
-/* =====================================================
+/* =========================
    FIREBASE
-===================================================== */
+========================= */
 
 const firebaseConfig = {
 
@@ -531,69 +617,28 @@ const firebaseConfig = {
 };
 
 
-/* Aplicação principal */
-
 const app =
     initializeApp(firebaseConfig);
 
-
-/* Authentication principal */
-
 const auth =
     getAuth(app);
-
-
-/* Firestore */
 
 const db =
     getFirestore(app);
 
 
-/*
- * Segunda aplicação Firebase.
- *
- * Ela será usada somente para criar
- * novos usuários sem retirar o Master
- * da sessão atual.
- */
-
-const secondaryApp =
-    initializeApp(
-        firebaseConfig,
-        "SecondaryApp"
-    );
-
-
-const secondaryAuth =
-    getAuth(
-        secondaryApp
-    );
-
-
-/* =====================================================
-   VARIÁVEIS
-===================================================== */
-
-let escolas = [];
-
-let usuarios = [];
-
-
-/* =====================================================
+/* =========================
    ELEMENTOS
-===================================================== */
-
-const formBox =
-    document.getElementById("formBox");
+========================= */
 
 const form =
     document.getElementById("usuarioForm");
 
+const formBox =
+    document.getElementById("formBox");
+
 const lista =
     document.getElementById("listaUsuarios");
-
-const escolaSelect =
-    document.getElementById("escolaId");
 
 const pesquisa =
     document.getElementById("pesquisa");
@@ -601,15 +646,27 @@ const pesquisa =
 const message =
     document.getElementById("message");
 
+const escolaSelect =
+    document.getElementById("escolaId");
 
-/* =====================================================
+
+let usuarios = [];
+
+let escolas = [];
+
+let usuarioEditando = null;
+
+let usuarioAtual = null;
+
+
+/* =========================
    MENSAGEM
-===================================================== */
+========================= */
 
 function mostrarMensagem(
     texto,
-    tipo = "success"
-) {
+    tipo="success"
+){
 
     message.textContent =
         texto;
@@ -617,190 +674,160 @@ function mostrarMensagem(
     message.className =
         "message " + tipo;
 
-
-    setTimeout(() => {
+    setTimeout(()=>{
 
         message.className =
             "message";
 
-    }, 5000);
+    },4000);
 
 }
 
 
-/* =====================================================
+/* =========================
    ESCAPAR HTML
-===================================================== */
+========================= */
 
-function escapar(valor) {
+function escapar(valor){
 
-    return String(valor || "")
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
+    return String(valor)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
 
 }
 
 
-/* =====================================================
+/* =========================
    CARREGAR ESCOLAS
-===================================================== */
+========================= */
 
-async function carregarEscolas() {
-
-    escolaSelect.innerHTML = `
-
-        <option value="">
-            Selecione a escola
-        </option>
-
-    `;
-
+async function carregarEscolas(){
 
     const snapshot =
         await getDocs(
-            collection(
-                db,
-                "escolas"
-            )
+            collection(db,"escolas")
         );
-
 
     escolas = [];
 
+    snapshot.forEach(item=>{
 
-    snapshot.forEach(
-        item => {
+        escolas.push({
 
-            const escola = {
+            id:item.id,
 
-                id: item.id,
+            ...item.data()
 
-                ...item.data()
+        });
 
-            };
-
-
-            escolas.push(escola);
-
-
-            /*
-             * Somente escolas ativas
-             * podem receber novos
-             * administradores.
-             */
-
-            if (
-                escola.ativa !== false
-            ) {
-
-                const option =
-                    document.createElement(
-                        "option"
-                    );
-
-                option.value =
-                    escola.id;
-
-                option.textContent =
-                    escola.nome;
-
-                escolaSelect.appendChild(
-                    option
-                );
-
-            }
-
-        }
-    );
+    });
 
 }
 
 
-/* =====================================================
-   CARREGAR USUÁRIOS
-===================================================== */
+/* =========================
+   ESCOLA PELO ID
+========================= */
 
-async function carregarUsuarios() {
-
-    const snapshot =
-        await getDocs(
-            collection(
-                db,
-                "usuarios"
-            )
-        );
-
-
-    usuarios = [];
-
-
-    snapshot.forEach(
-        item => {
-
-            const usuario = {
-
-                id: item.id,
-
-                ...item.data()
-
-            };
-
-
-            /*
-             * Nesta tela mostramos
-             * somente administradores.
-             */
-
-            if (
-                usuario.perfil ===
-                "administrador"
-            ) {
-
-                usuarios.push(
-                    usuario
-                );
-
-            }
-
-        }
-    );
-
-
-    renderizarUsuarios();
-
-}
-
-
-/* =====================================================
-   NOME DA ESCOLA
-===================================================== */
-
-function nomeDaEscola(
-    escolaId
-) {
+function nomeEscola(id){
 
     const escola =
         escolas.find(
-            item =>
-                item.id === escolaId
+            item => item.id === id
         );
-
 
     return escola
         ? escola.nome
-        : "Escola não encontrada";
+        : "Sem escola";
 
 }
 
 
-/* =====================================================
-   RENDERIZAR
-===================================================== */
+/* =========================
+   PREENCHER ESCOLAS
+========================= */
 
-function renderizarUsuarios() {
+function preencherEscolas(){
+
+    escolaSelect.innerHTML = `
+        <option value="">
+            Selecione a escola
+        </option>
+    `;
+
+
+    escolas.forEach(escola=>{
+
+        const option =
+            document.createElement("option");
+
+        option.value =
+            escola.id;
+
+        option.textContent =
+            escola.nome;
+
+        escolaSelect.appendChild(
+            option
+        );
+
+    });
+
+}
+
+
+/* =========================
+   CARREGAR USUÁRIOS
+========================= */
+
+async function carregarUsuarios(){
+
+    try{
+
+        const snapshot =
+            await getDocs(
+                collection(db,"usuarios")
+            );
+
+        usuarios = [];
+
+        snapshot.forEach(item=>{
+
+            usuarios.push({
+
+                id:item.id,
+
+                ...item.data()
+
+            });
+
+        });
+
+
+        renderizar();
+
+    }catch(error){
+
+        console.error(error);
+
+        mostrarMensagem(
+            "Erro ao carregar usuários.",
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =========================
+   RENDERIZAR
+========================= */
+
+function renderizar(){
 
     const termo =
         pesquisa.value
@@ -808,48 +835,65 @@ function renderizarUsuarios() {
             .trim();
 
 
-    const filtrados =
-        usuarios.filter(
-            usuario => {
+    let filtrados =
+        usuarios.filter(usuario=>{
 
-                const texto = (
+            const texto = (
 
-                    (usuario.nome || "") +
-                    " " +
-                    (usuario.email || "") +
-                    " " +
-                    nomeDaEscola(
-                        usuario.escolaId
-                    )
+                (usuario.nome || "") +
+                " " +
+                (usuario.email || "") +
+                " " +
+                nomeEscola(
+                    usuario.escolaId
+                )
 
-                ).toLowerCase();
+            ).toLowerCase();
+
+            return texto.includes(termo);
+
+        });
 
 
-                return texto.includes(
-                    termo
-                );
+    /*
+     * USUÁRIO NÃO MASTER
+     *
+     * Visualiza apenas usuários
+     * da própria escola.
+     */
 
-            }
-        );
+    if(
+        usuarioAtual &&
+        usuarioAtual.perfil !== "master"
+    ){
+
+        filtrados =
+            filtrados.filter(
+                usuario =>
+                    usuario.escolaId ===
+                    usuarioAtual.escolaId
+            );
+
+    }
 
 
     lista.innerHTML = "";
 
 
-    if (!filtrados.length) {
+    if(!filtrados.length){
 
         lista.innerHTML = `
 
-            <tr>
+        <tr>
 
-                <td
-                    colspan="6"
-                    class="empty"
-                >
-                    Nenhum administrador encontrado.
-                </td>
+            <td
+                colspan="6"
+                class="empty"
+            >
+                Nenhum usuário encontrado.
+            </td>
 
-            </tr>
+        </tr>
 
         `;
 
@@ -858,194 +902,217 @@ function renderizarUsuarios() {
     }
 
 
-    filtrados.forEach(
-        usuario => {
+    filtrados.forEach(usuario=>{
 
-            const tr =
-                document.createElement(
-                    "tr"
-                );
+        const tr =
+            document.createElement("tr");
 
 
-            const ativo =
-                usuario.ativo !== false;
+        const ativo =
+            usuario.ativo !== false;
 
 
-            tr.innerHTML = `
+        tr.innerHTML = `
 
-                <td>
-                    <strong>
-                        ${escapar(
-                            usuario.nome
-                        )}
-                    </strong>
-                </td>
+        <td>
 
-                <td>
-                    ${escapar(
-                        usuario.email
-                    )}
-                </td>
+            <strong>
+                ${escapar(
+                    usuario.nome || "-"
+                )}
+            </strong>
 
-                <td>
-                    ${escapar(
-                        nomeDaEscola(
-                            usuario.escolaId
-                        )
-                    )}
-                </td>
-
-                <td>
-                    Administrador
-                </td>
-
-                <td>
-
-                    <span class="
-                        status
-                        ${
-                            ativo
-                            ? "active"
-                            : "inactive"
-                        }
-                    ">
-
-                        ${
-                            ativo
-                            ? "Ativo"
-                            : "Inativo"
-                        }
-
-                    </span>
-
-                </td>
-
-                <td>
-
-                    <div class="actions">
-
-                        <button
-                            class="btn btn-warning"
-                            data-action="status"
-                            data-id="${usuario.id}"
-                        >
-
-                            ${
-                                ativo
-                                ? "Desativar"
-                                : "Ativar"
-                            }
-
-                        </button>
-
-                    </div>
-
-                </td>
-
-            `;
+        </td>
 
 
-            lista.appendChild(
-                tr
-            );
+        <td>
 
-        }
-    );
+            ${escapar(
+                usuario.email || "-"
+            )}
+
+        </td>
+
+
+        <td>
+
+            <span class="profile">
+
+                ${escapar(
+                    usuario.perfil || "usuario"
+                )}
+
+            </span>
+
+        </td>
+
+
+        <td>
+
+            ${escapar(
+                nomeEscola(
+                    usuario.escolaId
+                )
+            )}
+
+        </td>
+
+
+        <td>
+
+            <span class="
+                status
+                ${ativo
+                    ? "active"
+                    : "inactive"}
+            ">
+
+                ${ativo
+                    ? "Ativo"
+                    : "Inativo"}
+
+            </span>
+
+        </td>
+
+
+        <td>
+
+            <div class="actions">
+
+                <button
+                    class="btn btn-primary"
+                    data-action="editar"
+                    data-id="${usuario.id}"
+                >
+                    Editar
+                </button>
+
+
+                <button
+                    class="btn btn-warning"
+                    data-action="status"
+                    data-id="${usuario.id}"
+                >
+
+                    ${ativo
+                        ? "Desativar"
+                        : "Ativar"}
+
+                </button>
+
+
+                <button
+                    class="btn btn-danger"
+                    data-action="excluir"
+                    data-id="${usuario.id}"
+                >
+                    Excluir
+                </button>
+
+            </div>
+
+        </td>
+
+        `;
+
+
+        lista.appendChild(tr);
+
+    });
 
 }
 
 
-/* =====================================================
-   NOVO USUÁRIO
-===================================================== */
+/* =========================
+   LIMPAR
+========================= */
 
-document
-    .getElementById("btnNovo")
-    .addEventListener(
-        "click",
-        async () => {
+function limparFormulario(){
 
-            form.reset();
+    form.reset();
 
-            await carregarEscolas();
+    document
+        .getElementById("uid")
+        .value = "";
 
-            formBox.style.display =
-                "block";
+    usuarioEditando = null;
 
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
+    document
+        .getElementById("formTitle")
+        .textContent =
+        "Novo Usuário";
 
-        }
-    );
+}
 
 
-/* =====================================================
-   CANCELAR
-===================================================== */
+/* =========================
+   PREENCHER FORM
+========================= */
 
-document
-    .getElementById("btnCancelar")
-    .addEventListener(
-        "click",
-        () => {
+function preencherFormulario(usuario){
 
-            form.reset();
-
-            formBox.style.display =
-                "none";
-
-        }
-    );
+    document
+        .getElementById("nome")
+        .value =
+        usuario.nome || "";
 
 
-/* =====================================================
-   CRIAR ADMINISTRADOR
-===================================================== */
+    document
+        .getElementById("email")
+        .value =
+        usuario.email || "";
+
+
+    document
+        .getElementById("perfil")
+        .value =
+        usuario.perfil || "usuario";
+
+
+    document
+        .getElementById("escolaId")
+        .value =
+        usuario.escolaId || "";
+
+
+    document
+        .getElementById("ativo")
+        .value =
+        usuario.ativo === false
+        ? "false"
+        : "true";
+
+
+    document
+        .getElementById("uid")
+        .value =
+        usuario.uid || usuario.id;
+
+}
+
+
+/* =========================
+   SALVAR
+========================= */
 
 form.addEventListener(
     "submit",
-    async event => {
+    async event=>{
 
         event.preventDefault();
 
 
-        const nome =
-            document
-                .getElementById("nome")
-                .value
-                .trim();
+        /*
+         * Nesta primeira versão,
+         * somente usuários existentes
+         * podem ser editados.
+         */
 
-
-        const email =
-            document
-                .getElementById("email")
-                .value
-                .trim();
-
-
-        const escolaId =
-            document
-                .getElementById("escolaId")
-                .value;
-
-
-        const senha =
-            document
-                .getElementById("senha")
-                .value;
-
-
-        if (
-            !nome ||
-            !email ||
-            !escolaId ||
-            !senha
-        ) {
+        if(!usuarioEditando){
 
             mostrarMensagem(
-                "Preencha todos os campos obrigatórios.",
+                "A criação da conta de login será disponibilizada na próxima etapa. Por enquanto, edite usuários já existentes.",
                 "error"
             );
 
@@ -1054,10 +1121,42 @@ form.addEventListener(
         }
 
 
-        if (senha.length < 6) {
+        const dados = {
+
+            nome:
+                document
+                    .getElementById("nome")
+                    .value
+                    .trim(),
+
+            email:
+                document
+                    .getElementById("email")
+                    .value
+                    .trim(),
+
+            perfil:
+                document
+                    .getElementById("perfil")
+                    .value,
+
+            escolaId:
+                document
+                    .getElementById("escolaId")
+                    .value,
+
+            ativo:
+                document
+                    .getElementById("ativo")
+                    .value === "true"
+
+        };
+
+
+        if(!dados.nome){
 
             mostrarMensagem(
-                "A senha precisa ter pelo menos 6 caracteres.",
+                "Digite o nome.",
                 "error"
             );
 
@@ -1066,241 +1165,54 @@ form.addEventListener(
         }
 
 
-        try {
-
-            /*
-             * Cria o usuário na
-             * instância secundária.
-             */
-
-            const credential =
-                await createUserWithEmailAndPassword(
-                    secondaryAuth,
-                    email,
-                    senha
-                );
-
-
-            const novoUid =
-                credential.user.uid;
-
-
-            /*
-             * Cria o cadastro do usuário
-             * no Firestore.
-             */
-
-            await setDoc(
-                doc(
-                    db,
-                    "usuarios",
-                    novoUid
-                ),
-                {
-
-                    uid:
-                        novoUid,
-
-                    nome:
-                        nome,
-
-                    email:
-                        email,
-
-                    perfil:
-                        "administrador",
-
-                    escolaId:
-                        escolaId,
-
-                    ativo:
-                        true,
-
-                    criadoEm:
-                        new Date()
-
-                }
-            );
-
-
-            /*
-             * Faz logout da instância
-             * secundária.
-             */
-
-            await secondaryAuth.signOut();
-
+        if(
+            dados.perfil !== "master" &&
+            !dados.escolaId
+        ){
 
             mostrarMensagem(
-                "Administrador criado com sucesso."
-            );
-
-
-            form.reset();
-
-            formBox.style.display =
-                "none";
-
-
-            await carregarUsuarios();
-
-
-        } catch (error) {
-
-            console.error(error);
-
-
-            let texto =
-                "Não foi possível criar o administrador.";
-
-
-            if (
-                error.code ===
-                "auth/email-already-in-use"
-            ) {
-
-                texto =
-                    "Este e-mail já está cadastrado no Firebase Authentication.";
-
-            }
-
-
-            if (
-                error.code ===
-                "auth/invalid-email"
-            ) {
-
-                texto =
-                    "O e-mail informado é inválido.";
-
-            }
-
-
-            if (
-                error.code ===
-                "auth/weak-password"
-            ) {
-
-                texto =
-                    "A senha precisa ter pelo menos 6 caracteres.";
-
-            }
-
-
-            mostrarMensagem(
-                texto,
+                "Selecione a escola do usuário.",
                 "error"
             );
 
+            return;
+
         }
 
-    }
-);
 
-
-/* =====================================================
-   PESQUISA
-===================================================== */
-
-pesquisa.addEventListener(
-    "input",
-    renderizarUsuarios
-);
-
-
-/* =====================================================
-   ATIVAR / DESATIVAR
-===================================================== */
-
-lista.addEventListener(
-    "click",
-    async event => {
-
-        const botao =
-            event.target.closest(
-                "button"
-            );
-
-
-        if (!botao)
-            return;
-
-
-        const id =
-            botao.dataset.id;
-
-
-        const action =
-            botao.dataset.action;
-
-
-        if (
-            action !== "status"
-        )
-            return;
-
-
-        const usuario =
-            usuarios.find(
-                item =>
-                    item.id === id
-            );
-
-
-        if (!usuario)
-            return;
-
-
-        const novoStatus =
-            usuario.ativo === false;
-
-
-        const confirmar =
-            confirm(
-                novoStatus
-                ? "Deseja ativar este administrador?"
-                : "Deseja desativar este administrador?"
-            );
-
-
-        if (!confirmar)
-            return;
-
-
-        try {
+        try{
 
             await updateDoc(
 
                 doc(
                     db,
                     "usuarios",
-                    id
+                    usuarioEditando
                 ),
 
-                {
-                    ativo:
-                        novoStatus
-                }
+                dados
 
             );
 
 
             mostrarMensagem(
-                novoStatus
-                ? "Administrador ativado."
-                : "Administrador desativado."
+                "Usuário atualizado com sucesso."
             );
 
 
+            limparFormulario();
+
+            formBox.style.display =
+                "none";
+
             await carregarUsuarios();
 
-
-        } catch (error) {
+        }catch(error){
 
             console.error(error);
 
             mostrarMensagem(
-                "Erro ao alterar o usuário.",
+                "Erro ao atualizar usuário.",
                 "error"
             );
 
@@ -1310,19 +1222,290 @@ lista.addEventListener(
 );
 
 
-/* =====================================================
+/* =========================
+   NOVO
+========================= */
+
+document
+    .getElementById("btnNovo")
+    .addEventListener(
+        "click",
+        ()=>{
+
+            limparFormulario();
+
+            formBox.style.display =
+                "block";
+
+            window.scrollTo({
+                top:0,
+                behavior:"smooth"
+            });
+
+        }
+    );
+
+
+/* =========================
+   CANCELAR
+========================= */
+
+document
+    .getElementById("btnCancelar")
+    .addEventListener(
+        "click",
+        ()=>{
+
+            limparFormulario();
+
+            formBox.style.display =
+                "none";
+
+        }
+    );
+
+
+/* =========================
+   PESQUISA
+========================= */
+
+pesquisa.addEventListener(
+    "input",
+    renderizar
+);
+
+
+/* =========================
+   AÇÕES
+========================= */
+
+lista.addEventListener(
+    "click",
+    async event=>{
+
+        const botao =
+            event.target.closest("button");
+
+        if(!botao) return;
+
+
+        const id =
+            botao.dataset.id;
+
+        const action =
+            botao.dataset.action;
+
+
+        const usuario =
+            usuarios.find(
+                item => item.id === id
+            );
+
+
+        if(!usuario)
+            return;
+
+
+        /*
+         * NÃO PERMITIR QUE USUÁRIO
+         * COMUM EDITE OUTRA ESCOLA.
+         */
+
+        if(
+            usuarioAtual &&
+            usuarioAtual.perfil !== "master" &&
+            usuario.escolaId !==
+            usuarioAtual.escolaId
+        ){
+
+            mostrarMensagem(
+                "Você não tem permissão para este usuário.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        /* EDITAR */
+
+        if(action === "editar"){
+
+            usuarioEditando =
+                id;
+
+            preencherFormulario(
+                usuario
+            );
+
+            document
+                .getElementById("formTitle")
+                .textContent =
+                "Editar Usuário";
+
+            formBox.style.display =
+                "block";
+
+            window.scrollTo({
+                top:0,
+                behavior:"smooth"
+            });
+
+        }
+
+
+        /* STATUS */
+
+        if(action === "status"){
+
+            const novoStatus =
+                usuario.ativo === false;
+
+
+            if(
+                usuario.id ===
+                usuarioAtual?.uid
+            ){
+
+                mostrarMensagem(
+                    "Você não pode desativar o próprio usuário.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            if(!confirm(
+                novoStatus
+                ? "Deseja ativar este usuário?"
+                : "Deseja desativar este usuário?"
+            )){
+
+                return;
+
+            }
+
+
+            try{
+
+                await updateDoc(
+
+                    doc(
+                        db,
+                        "usuarios",
+                        id
+                    ),
+
+                    {
+                        ativo:
+                            novoStatus
+                    }
+
+                );
+
+
+                mostrarMensagem(
+                    novoStatus
+                    ? "Usuário ativado."
+                    : "Usuário desativado."
+                );
+
+
+                await carregarUsuarios();
+
+            }catch(error){
+
+                console.error(error);
+
+                mostrarMensagem(
+                    "Erro ao alterar status.",
+                    "error"
+                );
+
+            }
+
+        }
+
+
+        /* EXCLUIR */
+
+        if(action === "excluir"){
+
+            if(
+                usuario.id ===
+                usuarioAtual?.uid
+            ){
+
+                mostrarMensagem(
+                    "Você não pode excluir seu próprio usuário.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            if(!confirm(
+                "ATENÇÃO!\n\n"+
+                "Esta operação excluirá o cadastro do usuário no Firestore.\n\n"+
+                "Deseja continuar?"
+            )){
+
+                return;
+
+            }
+
+
+            try{
+
+                await deleteDoc(
+
+                    doc(
+                        db,
+                        "usuarios",
+                        id
+                    )
+
+                );
+
+
+                mostrarMensagem(
+                    "Cadastro do usuário excluído."
+                );
+
+
+                await carregarUsuarios();
+
+            }catch(error){
+
+                console.error(error);
+
+                mostrarMensagem(
+                    "Erro ao excluir usuário.",
+                    "error"
+                );
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =========================
    AUTENTICAÇÃO
-===================================================== */
+========================= */
 
 onAuthStateChanged(
     auth,
-    async user => {
+    async user=>{
 
-        if (!user) {
-
-            alert(
-                "Você precisa estar logado."
-            );
+        if(!user){
 
             window.location.href =
                 "index.html";
@@ -1332,26 +1515,97 @@ onAuthStateChanged(
         }
 
 
-        try {
+        try{
+
+            const snap =
+                await getDocs(
+                    collection(
+                        db,
+                        "usuarios"
+                    )
+                );
+
+
+            let encontrado = null;
+
+
+            snap.forEach(item=>{
+
+                const data =
+                    item.data();
+
+                if(
+                    data.uid === user.uid ||
+                    item.id === user.uid
+                ){
+
+                    encontrado = {
+
+                        id:item.id,
+
+                        ...data
+
+                    };
+
+                }
+
+            });
+
+
+            if(!encontrado){
+
+                alert(
+                    "Usuário não encontrado no cadastro."
+                );
+
+                window.location.href =
+                    "index.html";
+
+                return;
+
+            }
+
+
+            usuarioAtual =
+                encontrado;
+
 
             /*
-             * Nesta primeira versão,
-             * a proteção definitiva de
-             * perfil será feita nas
-             * Security Rules.
+             * Somente Master pode
+             * administrar usuários.
              */
+
+            if(
+                usuarioAtual.perfil !==
+                "master"
+            ){
+
+                document
+                    .getElementById("btnNovo")
+                    .style.display =
+                    "none";
+
+                document
+                    .getElementById("formBox")
+                    .style.display =
+                    "none";
+
+            }
+
 
             await carregarEscolas();
 
+            preencherEscolas();
+
             await carregarUsuarios();
 
-
-        } catch (error) {
+        }catch(error){
 
             console.error(error);
 
             mostrarMensagem(
-                "Erro ao carregar os dados.",
+                "Erro ao carregar dados: "+
+                error.message,
                 "error"
             );
 
@@ -1361,19 +1615,19 @@ onAuthStateChanged(
 );
 
 
-/* =====================================================
-   VOLTAR
-===================================================== */
+/* =========================
+   PAINEL
+========================= */
 
 window.voltarPainel =
-    function() {
+function(){
 
-        window.location.href =
-            "index.html";
+    window.location.href =
+        "index.html";
 
-    };
+};
 
 </script>
 
 </body>
-</html>
+    </html>
