@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>Cadastro de Alunos</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -23,9 +30,11 @@ header{
     background:#0f172a;
     color:white;
     padding:15px 25px;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
+
     gap:15px;
 }
 
@@ -43,38 +52,13 @@ header{
     font-size:20px;
 }
 
-main{
-    max-width:1500px;
-    margin:auto;
-    padding:25px;
-}
-
-.top-area{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:15px;
-    margin-bottom:20px;
-}
-
-.top-area h2{
-    font-size:25px;
-}
-
-.school-info{
-    background:#dbeafe;
-    color:#1e40af;
-    padding:12px 15px;
-    border-radius:9px;
-    margin-bottom:20px;
-    font-weight:bold;
-}
-
 .btn{
     border:none;
     padding:11px 16px;
     border-radius:8px;
+
     cursor:pointer;
+
     font-weight:bold;
     font-size:14px;
 }
@@ -104,32 +88,76 @@ main{
     color:white;
 }
 
+main{
+    max-width:1500px;
+    margin:auto;
+    padding:25px;
+}
+
+.top-area{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:20px;
+}
+
+.top-area h2{
+    font-size:25px;
+}
+
+.info{
+    background:#dbeafe;
+    color:#1e40af;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    margin-bottom:20px;
+
+    font-weight:bold;
+}
+
 .message{
     display:none;
+
     padding:12px;
+
     border-radius:8px;
+
     margin-bottom:20px;
 }
 
 .message.success{
     display:block;
+
     background:#dcfce7;
     color:#166534;
 }
 
 .message.error{
     display:block;
+
     background:#fee2e2;
     color:#991b1b;
 }
 
 .form-box{
     display:none;
+
     background:white;
+
     padding:25px;
+
     border-radius:14px;
+
     margin-bottom:25px;
-    box-shadow:0 5px 20px rgba(0,0,0,.06);
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.06);
 }
 
 .form-box h3{
@@ -137,56 +165,80 @@ main{
 }
 
 .section-title{
+    font-size:18px;
+    font-weight:bold;
+
     margin-top:25px;
     margin-bottom:15px;
+
     padding-bottom:8px;
-    border-bottom:2px solid #e2e8f0;
-    font-size:18px;
+
+    border-bottom:
+        2px solid #e2e8f0;
 }
 
 .form-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:15px;
 }
 
 .form-group label{
     display:block;
+
     margin-bottom:6px;
+
     font-weight:bold;
+
     font-size:14px;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea{
+
     width:100%;
+
     padding:12px;
-    border:1px solid #cbd5e1;
+
+    border:
+        1px solid #cbd5e1;
+
     border-radius:8px;
+
     outline:none;
+
     font-size:14px;
 }
 
 .form-group textarea{
     min-height:100px;
+
     resize:vertical;
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus{
+
     border-color:#2563eb;
+
 }
 
 .full{
-    grid-column:1 / -1;
+    grid-column:1/-1;
 }
 
 .form-buttons{
     margin-top:25px;
+
     display:flex;
+
     gap:10px;
+
     flex-wrap:wrap;
 }
 
@@ -195,161 +247,239 @@ main{
 }
 
 .search input{
+
     width:100%;
+
     padding:13px;
-    border:1px solid #cbd5e1;
+
+    border:
+        1px solid #cbd5e1;
+
     border-radius:9px;
+
     font-size:15px;
+
     outline:none;
 }
 
 .table-box{
+
     background:white;
+
     border-radius:14px;
+
     overflow:hidden;
-    box-shadow:0 5px 20px rgba(0,0,0,.06);
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.06);
 }
 
 .table-container{
+
     width:100%;
+
     overflow-x:auto;
 }
 
 table{
+
     width:100%;
+
     border-collapse:collapse;
-    min-width:1000px;
+
+    min-width:1100px;
 }
 
 th{
+
     background:#e2e8f0;
+
     padding:13px;
+
     text-align:left;
+
     font-size:13px;
 }
 
 td{
+
     padding:12px;
-    border-top:1px solid #e2e8f0;
+
+    border-top:
+        1px solid #e2e8f0;
+
     font-size:14px;
 }
 
 .status{
+
     display:inline-block;
+
     padding:5px 9px;
+
     border-radius:20px;
+
     font-size:12px;
+
     font-weight:bold;
 }
 
 .status.active{
+
     background:#dcfce7;
+
     color:#166534;
 }
 
 .status.inactive{
+
     background:#fee2e2;
+
     color:#991b1b;
 }
 
 .actions{
+
     display:flex;
+
     gap:6px;
+
     flex-wrap:wrap;
 }
 
 .actions .btn{
+
     padding:7px 9px;
+
     font-size:12px;
 }
 
 .empty{
+
     text-align:center;
+
     padding:35px;
+
     color:#64748b;
 }
 
-.badge-master{
-    background:#ede9fe;
-    color:#6d28d9;
-    padding:5px 9px;
-    border-radius:20px;
-    font-size:12px;
-    font-weight:bold;
+.loading{
+
+    text-align:center;
+
+    padding:30px;
+
+    color:#64748b;
 }
 
 @media(max-width:900px){
 
     .form-grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+            repeat(2,1fr);
     }
+
 }
 
 @media(max-width:650px){
 
     header{
+
         flex-direction:column;
+
         align-items:flex-start;
+
     }
 
     main{
+
         padding:15px;
+
     }
 
     .top-area{
+
         flex-direction:column;
+
         align-items:flex-start;
+
     }
 
     .form-grid{
+
         grid-template-columns:1fr;
+
     }
 
     .full{
+
         grid-column:auto;
+
     }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <header>
 
-    <div class="header-title">
-        <span>👨‍🎓</span>
-        <h1>Cadastro de Alunos</h1>
-    </div>
+<div class="header-title">
 
-    <button
-        class="btn btn-secondary"
-        onclick="voltarPainel()"
-    >
-        ← Painel
-    </button>
+<span>👨‍🎓</span>
+
+<h1>
+Cadastro de Alunos
+</h1>
+
+</div>
+
+
+<button
+    class="btn btn-secondary"
+    id="btnPainel"
+>
+← Painel
+</button>
 
 </header>
 
 
 <main>
 
-<div id="message" class="message"></div>
 
-<div id="schoolInfo" class="school-info">
-    Carregando...
+<div
+    id="message"
+    class="message"
+></div>
+
+
+<div
+    id="info"
+    class="info"
+>
+Verificando usuário...
 </div>
 
 
 <div class="top-area">
 
-    <h2>Alunos</h2>
+<h2>
+Alunos
+</h2>
 
-    <button
-        id="btnNovo"
-        class="btn btn-primary"
-    >
-        + Novo Aluno
-    </button>
+
+<button
+    id="btnNovo"
+    class="btn btn-primary"
+>
++ Novo Aluno
+</button>
 
 </div>
 
@@ -362,150 +492,184 @@ td{
 >
 
 <h3 id="formTitle">
-    Novo Aluno
+Novo Aluno
 </h3>
 
 
 <form id="alunoForm">
 
 
-<!-- DADOS PESSOAIS -->
+<!-- ESCOLA -->
 
 <div class="section-title">
-    Dados pessoais
+Escola
 </div>
 
 
 <div class="form-grid">
 
-    <div class="form-group">
 
-        <label>
-            Matrícula *
-        </label>
+<div
+    class="form-group full"
+>
 
-        <input
-            type="text"
-            id="matricula"
-            required
-        >
-
-    </div>
+<label>
+Escola *
+</label>
 
 
-    <div class="form-group full">
+<select
+    id="escolaId"
+    required
+>
 
-        <label>
-            Nome completo *
-        </label>
+<option value="">
+Carregando escolas...
+</option>
 
-        <input
-            type="text"
-            id="nome"
-            required
-        >
+</select>
 
-    </div>
+</div>
 
-
-    <div class="form-group">
-
-        <label>
-            Data de nascimento
-        </label>
-
-        <input
-            type="date"
-            id="dataNascimento"
-        >
-
-    </div>
+</div>
 
 
-    <div class="form-group">
+<!-- DADOS PESSOAIS -->
 
-        <label>
-            Sexo
-        </label>
-
-        <select id="sexo">
-
-            <option value="">
-                Selecione
-            </option>
-
-            <option value="Masculino">
-                Masculino
-            </option>
-
-            <option value="Feminino">
-                Feminino
-            </option>
-
-            <option value="Outro">
-                Outro
-            </option>
-
-        </select>
-
-    </div>
+<div class="section-title">
+Dados pessoais
+</div>
 
 
-    <div class="form-group">
-
-        <label>
-            CPF
-        </label>
-
-        <input
-            type="text"
-            id="cpf"
-        >
-
-    </div>
+<div class="form-grid">
 
 
-    <div class="form-group">
+<div class="form-group">
 
-        <label>
-            RG
-        </label>
+<label>
+Matrícula *
+</label>
 
-        <input
-            type="text"
-            id="rg"
-        >
+<input
+    type="text"
+    id="matricula"
+    required
+>
 
-    </div>
-
-
-    <div class="form-group">
-
-        <label>
-            Naturalidade
-        </label>
-
-        <input
-            type="text"
-            id="naturalidade"
-        >
-
-    </div>
+</div>
 
 
-    <div class="form-group">
+<div
+    class="form-group full"
+>
 
-        <label>
-            Nacionalidade
-        </label>
+<label>
+Nome completo *
+</label>
 
-        <input
-            type="text"
-            id="nacionalidade"
-            value="Brasileira"
-        >
+<input
+    type="text"
+    id="nome"
+    required
+>
 
-    </div>
+</div>
+
+
+<div class="form-group">
+
+<label>
+Data de nascimento
+</label>
+
+<input
+    type="date"
+    id="dataNascimento"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Sexo
+</label>
+
+<select id="sexo">
+
+<option value="">
+Selecione
+</option>
+
+<option value="Masculino">
+Masculino
+</option>
+
+<option value="Feminino">
+Feminino
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+CPF
+</label>
+
+<input
+    type="text"
+    id="cpf"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+RG
+</label>
+
+<input
+    type="text"
+    id="rg"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Naturalidade
+</label>
+
+<input
+    type="text"
+    id="naturalidade"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Nacionalidade
+</label>
+
+<input
+    type="text"
+    id="nacionalidade"
+    value="Brasileira"
+>
+
+</div>
 
 </div>
 
@@ -513,66 +677,71 @@ td{
 <!-- FILIAÇÃO -->
 
 <div class="section-title">
-    Filiação e responsável
+Filiação
 </div>
 
 
 <div class="form-grid">
 
-    <div class="form-group full">
 
-        <label>
-            Nome da mãe
-        </label>
+<div
+    class="form-group full"
+>
 
-        <input
-            type="text"
-            id="nomeMae"
-        >
+<label>
+Nome da mãe
+</label>
 
-    </div>
+<input
+    type="text"
+    id="nomeMae"
+>
 
-
-    <div class="form-group full">
-
-        <label>
-            Nome do pai
-        </label>
-
-        <input
-            type="text"
-            id="nomePai"
-        >
-
-    </div>
+</div>
 
 
-    <div class="form-group">
+<div
+    class="form-group full"
+>
 
-        <label>
-            Responsável
-        </label>
+<label>
+Nome do pai
+</label>
 
-        <input
-            type="text"
-            id="responsavel"
-        >
+<input
+    type="text"
+    id="nomePai"
+>
 
-    </div>
+</div>
 
 
-    <div class="form-group">
+<div class="form-group">
 
-        <label>
-            Telefone do responsável
-        </label>
+<label>
+Responsável
+</label>
 
-        <input
-            type="text"
-            id="telefoneResponsavel"
-        >
+<input
+    type="text"
+    id="responsavel"
+>
 
-    </div>
+</div>
+
+
+<div class="form-group">
+
+<label>
+Telefone do responsável
+</label>
+
+<input
+    type="text"
+    id="telefoneResponsavel"
+>
+
+</div>
 
 </div>
 
@@ -580,125 +749,128 @@ td{
 <!-- ENDEREÇO -->
 
 <div class="section-title">
-    Endereço
+Endereço
 </div>
 
 
 <div class="form-grid">
 
-    <div class="form-group full">
 
-        <label>
-            Endereço
-        </label>
+<div
+    class="form-group full"
+>
 
-        <input
-            type="text"
-            id="endereco"
-        >
+<label>
+Endereço
+</label>
 
-    </div>
+<input
+    type="text"
+    id="endereco"
+>
 
-
-    <div class="form-group">
-
-        <label>
-            Número
-        </label>
-
-        <input
-            type="text"
-            id="numero"
-        >
-
-    </div>
+</div>
 
 
-    <div class="form-group">
+<div class="form-group">
 
-        <label>
-            Bairro
-        </label>
+<label>
+Número
+</label>
 
-        <input
-            type="text"
-            id="bairro"
-        >
+<input
+    type="text"
+    id="numero"
+>
 
-    </div>
-
-
-    <div class="form-group">
-
-        <label>
-            Cidade
-        </label>
-
-        <input
-            type="text"
-            id="cidade"
-        >
-
-    </div>
+</div>
 
 
-    <div class="form-group">
+<div class="form-group">
 
-        <label>
-            Estado
-        </label>
+<label>
+Bairro
+</label>
 
-        <select id="estado">
+<input
+    type="text"
+    id="bairro"
+>
 
-            <option value="">
-                Selecione
-            </option>
-
-            <option value="AC">AC</option>
-            <option value="AL">AL</option>
-            <option value="AP">AP</option>
-            <option value="AM">AM</option>
-            <option value="BA">BA</option>
-            <option value="CE">CE</option>
-            <option value="DF">DF</option>
-            <option value="ES">ES</option>
-            <option value="GO">GO</option>
-            <option value="MA">MA</option>
-            <option value="MT">MT</option>
-            <option value="MS">MS</option>
-            <option value="MG">MG</option>
-            <option value="PA">PA</option>
-            <option value="PB">PB</option>
-            <option value="PR">PR</option>
-            <option value="PE">PE</option>
-            <option value="PI">PI</option>
-            <option value="RJ">RJ</option>
-            <option value="RN">RN</option>
-            <option value="RS">RS</option>
-            <option value="RO">RO</option>
-            <option value="RR">RR</option>
-            <option value="SC">SC</option>
-            <option value="SP">SP</option>
-            <option value="SE">SE</option>
-            <option value="TO">TO</option>
-
-        </select>
-
-    </div>
+</div>
 
 
-    <div class="form-group">
+<div class="form-group">
 
-        <label>
-            CEP
-        </label>
+<label>
+Cidade
+</label>
 
-        <input
-            type="text"
-            id="cep"
-        >
+<input
+    type="text"
+    id="cidade"
+>
 
-    </div>
+</div>
+
+
+<div class="form-group">
+
+<label>
+Estado
+</label>
+
+<select id="estado">
+
+<option value="">
+Selecione
+</option>
+
+<option>AC</option>
+<option>AL</option>
+<option>AP</option>
+<option>AM</option>
+<option>BA</option>
+<option>CE</option>
+<option>DF</option>
+<option>ES</option>
+<option>GO</option>
+<option>MA</option>
+<option>MT</option>
+<option>MS</option>
+<option>MG</option>
+<option>PA</option>
+<option>PB</option>
+<option>PR</option>
+<option>PE</option>
+<option>PI</option>
+<option>RJ</option>
+<option>RN</option>
+<option>RS</option>
+<option>RO</option>
+<option>RR</option>
+<option>SC</option>
+<option>SP</option>
+<option>SE</option>
+<option>TO</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+CEP
+</label>
+
+<input
+    type="text"
+    id="cep"
+>
+
+</div>
 
 </div>
 
@@ -706,157 +878,161 @@ td{
 <!-- CONTATO -->
 
 <div class="section-title">
-    Contato
+Contato
 </div>
 
 
 <div class="form-grid">
 
-    <div class="form-group">
 
-        <label>
-            Telefone
-        </label>
+<div class="form-group">
 
-        <input
-            type="text"
-            id="telefone"
-        >
+<label>
+Telefone
+</label>
 
-    </div>
-
-
-    <div class="form-group">
-
-        <label>
-            E-mail
-        </label>
-
-        <input
-            type="email"
-            id="email"
-        >
-
-    </div>
+<input
+    type="text"
+    id="telefone"
+>
 
 </div>
 
 
-<!-- DADOS ESCOLARES -->
+<div class="form-group">
+
+<label>
+E-mail
+</label>
+
+<input
+    type="email"
+    id="email"
+>
+
+</div>
+
+</div>
+
+
+<!-- ESCOLAR -->
 
 <div class="section-title">
-    Dados escolares
+Dados escolares
 </div>
 
 
 <div class="form-grid">
 
-    <div class="form-group">
 
-        <label>
-            Data da matrícula
-        </label>
+<div class="form-group">
 
-        <input
-            type="date"
-            id="dataMatricula"
-        >
+<label>
+Data da matrícula
+</label>
 
-    </div>
+<input
+    type="date"
+    id="dataMatricula"
+>
 
-
-    <div class="form-group">
-
-        <label>
-            Ano letivo
-        </label>
-
-        <input
-            type="number"
-            id="anoLetivo"
-            min="1900"
-            max="2100"
-        >
-
-    </div>
+</div>
 
 
-    <div class="form-group">
+<div class="form-group">
 
-        <label>
-            Turma
-        </label>
+<label>
+Ano letivo
+</label>
 
-        <input
-            type="text"
-            id="turma"
-        >
+<input
+    type="number"
+    id="anoLetivo"
+>
 
-    </div>
-
-
-    <div class="form-group">
-
-        <label>
-            Situação
-        </label>
-
-        <select id="situacao">
-
-            <option value="Ativo">
-                Ativo
-            </option>
-
-            <option value="Transferido">
-                Transferido
-            </option>
-
-            <option value="Concluído">
-                Concluído
-            </option>
-
-            <option value="Inativo">
-                Inativo
-            </option>
-
-        </select>
-
-    </div>
+</div>
 
 
-    <div class="form-group full">
+<div class="form-group">
 
-        <label>
-            Observações
-        </label>
+<label>
+Turma
+</label>
 
-        <textarea
-            id="observacoes"
-        ></textarea>
+<input
+    type="text"
+    id="turma"
+>
 
-    </div>
+</div>
+
+
+<div class="form-group">
+
+<label>
+Situação
+</label>
+
+<select id="situacao">
+
+<option value="Ativo">
+Ativo
+</option>
+
+<option value="Transferido">
+Transferido
+</option>
+
+<option value="Concluído">
+Concluído
+</option>
+
+<option value="Inativo">
+Inativo
+</option>
+
+</select>
+
+</div>
+
+
+<div
+    class="form-group full"
+>
+
+<label>
+Observações
+</label>
+
+<textarea
+    id="observacoes"
+></textarea>
+
+</div>
 
 </div>
 
 
 <div class="form-buttons">
 
-    <button
-        type="submit"
-        class="btn btn-success"
-    >
-        💾 Salvar Aluno
-    </button>
+<button
+    type="submit"
+    class="btn btn-success"
+>
+💾 Salvar Aluno
+</button>
 
-    <button
-        type="button"
-        id="btnCancelar"
-        class="btn btn-secondary"
-    >
-        Cancelar
-    </button>
+
+<button
+    type="button"
+    class="btn btn-secondary"
+    id="btnCancelar"
+>
+Cancelar
+</button>
 
 </div>
+
 
 </form>
 
@@ -887,18 +1063,56 @@ td{
 <thead>
 
 <tr>
-    <th>Matrícula</th>
-    <th>Aluno</th>
-    <th>Nascimento</th>
-    <th>Ano</th>
-    <th>Turma</th>
-    <th>Situação</th>
-    <th>Ações</th>
+
+<th>
+Matrícula
+</th>
+
+<th>
+Aluno
+</th>
+
+<th>
+Escola
+</th>
+
+<th>
+Nascimento
+</th>
+
+<th>
+Ano
+</th>
+
+<th>
+Turma
+</th>
+
+<th>
+Situação
+</th>
+
+<th>
+Ações
+</th>
+
 </tr>
 
 </thead>
 
+
 <tbody id="listaAlunos">
+
+<tr>
+
+<td
+    colspan="8"
+    class="loading"
+>
+Carregando...
+</td>
+
+</tr>
 
 </tbody>
 
@@ -908,83 +1122,104 @@ td{
 
 </section>
 
+
 </main>
 
 
 <script type="module">
-
-import {
-    initializeApp
-} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-
-import {
-    getAuth,
-    onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-
-import {
-    getFirestore,
-    doc,
-    getDoc,
-    collection,
-    query,
-    where,
-    getDocs,
-    addDoc,
-    updateDoc,
-    deleteDoc,
-    serverTimestamp
-} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 
 /* =====================================================
    FIREBASE
 ===================================================== */
 
+
+import {
+
+initializeApp
+
+}
+
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+
+import {
+
+getAuth,
+onAuthStateChanged
+
+}
+
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+
+import {
+
+getFirestore,
+collection,
+addDoc,
+getDocs,
+doc,
+getDoc,
+updateDoc,
+deleteDoc,
+serverTimestamp
+
+}
+
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
 const firebaseConfig = {
 
-    apiKey:
-        "AIzaSyAdwrOqN4-VQsiBByk4FVGACDvfrR8ZYac",
+apiKey:
+"AIzaSyAdwrOqN4-VQsiBByk4FVG-cDvfrR8ZYac",
 
-    authDomain:
-        "dasorte-66ec5.firebaseapp.com",
+authDomain:
+"dasorte-66ec5.firebaseapp.com",
 
-    projectId:
-        "dasorte-66ec5",
+projectId:
+"dasorte-66ec5",
 
-    storageBucket:
-        "dasorte-66ec5.firebasestorage.app",
+storageBucket:
+"dasorte-66ec5.firebasestorage.app",
 
-    messagingSenderId:
-        "606389335961",
+messagingSenderId:
+"606389335961",
 
-    appId:
-        "1:606389335961:web:feac4e89f8b4fa74684508"
+appId:
+"1:606389335961:web:feac4e89f8b4fa74684508"
 
 };
 
 
 const app =
-    initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
+
 
 const auth =
-    getAuth(app);
+getAuth(app);
+
 
 const db =
-    getFirestore(app);
+getFirestore(app);
 
 
 /* =====================================================
    VARIÁVEIS
 ===================================================== */
 
+
 let usuarioAtual = null;
 
-let dadosUsuario = null;
+let perfilUsuario = "master";
 
-let escolaAtualId = null;
+let escolaUsuario = null;
 
-let escolaAtualNome = "";
+let escolas = [];
 
 let alunos = [];
 
@@ -995,197 +1230,237 @@ let alunoEditando = null;
    ELEMENTOS
 ===================================================== */
 
-const form =
-    document.getElementById("alunoForm");
 
-const formBox =
-    document.getElementById("formBox");
-
-const lista =
-    document.getElementById("listaAlunos");
-
-const pesquisa =
-    document.getElementById("pesquisa");
+const info =
+document.getElementById("info");
 
 const message =
-    document.getElementById("message");
+document.getElementById("message");
 
-const schoolInfo =
-    document.getElementById("schoolInfo");
+const escolaSelect =
+document.getElementById("escolaId");
+
+const formBox =
+document.getElementById("formBox");
+
+const form =
+document.getElementById("alunoForm");
+
+const lista =
+document.getElementById("listaAlunos");
+
+const pesquisa =
+document.getElementById("pesquisa");
 
 
 /* =====================================================
    MENSAGEM
 ===================================================== */
 
+
 function mostrarMensagem(
-    texto,
-    tipo = "success"
+texto,
+tipo="success"
 ){
 
-    message.textContent =
-        texto;
+message.textContent =
+texto;
 
-    message.className =
-        "message " + tipo;
+message.className =
+"message " + tipo;
 
-    setTimeout(() => {
+setTimeout(
+()=>{
 
-        message.className =
-            "message";
+message.className =
+"message";
 
-    }, 5000);
+},
+5000
+);
 
 }
 
 
 /* =====================================================
-   ESCAPAR HTML
+   ESCAPAR
 ===================================================== */
+
 
 function escapar(valor){
 
-    return String(valor ?? "")
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
+return String(valor ?? "")
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
 
 }
 
 
 /* =====================================================
-   CARREGAR PERFIL DO USUÁRIO
+   AUTENTICAÇÃO
 ===================================================== */
 
-async function carregarPerfil(){
 
-    const ref =
-        doc(
-            db,
-            "usuarios",
-            usuarioAtual.uid
-        );
+onAuthStateChanged(
+auth,
+async user => {
 
-    const snap =
-        await getDoc(ref);
+console.log(
+"Usuário Firebase:",
+user
+);
 
 
-    if(!snap.exists()){
+if(!user){
 
-        throw new Error(
-            "Cadastro do usuário não encontrado."
-        );
+info.textContent =
+"⛔ Nenhum usuário autenticado.";
 
-    }
+mostrarMensagem(
+"Você precisa estar logado.",
+"error"
+);
 
+return;
 
-    dadosUsuario =
-        snap.data();
-
-
-    if(
-        dadosUsuario.ativo === false
-    ){
-
-        throw new Error(
-            "Este usuário está desativado."
-        );
-
-    }
+}
 
 
-    if(
-        dadosUsuario.perfil !== "master" &&
-        dadosUsuario.perfil !== "administrador"
-    ){
-
-        throw new Error(
-            "Usuário sem permissão para acessar alunos."
-        );
-
-    }
+usuarioAtual =
+user;
 
 
-    /*
-     * MASTER
-     *
-     * O Master não possui uma escola
-     * obrigatória.
-     */
-
-    if(
-        dadosUsuario.perfil === "master"
-    ){
-
-        schoolInfo.innerHTML =
-            "👑 Usuário Master — visualização de todas as escolas.";
-
-        return;
-
-    }
+info.textContent =
+"Usuário autenticado: " +
+(
+user.email ||
+user.uid
+);
 
 
-    /*
-     * ADMINISTRADOR
-     *
-     * O escolaId vem do Firestore,
-     * nunca do formulário.
-     */
-
-    escolaAtualId =
-        dadosUsuario.escolaId;
-
-
-    if(!escolaAtualId){
-
-        throw new Error(
-            "Este administrador não está vinculado a uma escola."
-        );
-
-    }
+/*
+ * Neste primeiro momento,
+ * o usuário autenticado será tratado
+ * como Master.
+ *
+ * Depois vamos conectar isso ao
+ * documento de usuários.
+ */
 
 
-    const escolaSnap =
-        await getDoc(
-            doc(
-                db,
-                "escolas",
-                escolaAtualId
-            )
-        );
+try{
+
+await carregarEscolas();
+
+await carregarAlunos();
+
+}catch(error){
+
+console.error(error);
+
+mostrarMensagem(
+"Erro ao carregar dados: " +
+error.message,
+"error"
+);
+
+}
+
+});
 
 
-    if(!escolaSnap.exists()){
-
-        throw new Error(
-            "A escola vinculada não foi encontrada."
-        );
-
-    }
+/* =====================================================
+   ESCOLAS
+===================================================== */
 
 
-    const escola =
-        escolaSnap.data();
+async function carregarEscolas(){
+
+const snapshot =
+await getDocs(
+collection(
+db,
+"escolas"
+)
+);
 
 
-    if(escola.ativa === false){
-
-        throw new Error(
-            "A escola está desativada."
-        );
-
-    }
+escolas = [];
 
 
-    escolaAtualNome =
-        escola.nome || "";
+snapshot.forEach(
+item => {
+
+escolas.push({
+
+id:item.id,
+
+...item.data()
+
+});
+
+});
 
 
-    schoolInfo.innerHTML =
-        "🏫 Escola: " +
-        escapar(escolaAtualNome);
+escolas.sort(
+(a,b)=>
+(a.nome || "")
+.localeCompare(
+b.nome || "",
+"pt-BR"
+)
+);
+
+
+preencherEscolas();
+
+}
+
+
+/* =====================================================
+   SELECT ESCOLAS
+===================================================== */
+
+
+function preencherEscolas(){
+
+escolaSelect.innerHTML =
+`
+<option value="">
+Selecione a escola
+</option>
+`;
+
+
+escolas.forEach(
+escola => {
+
+if(escola.ativa === false)
+return;
+
+
+const option =
+document.createElement(
+"option"
+);
+
+
+option.value =
+escola.id;
+
+
+option.textContent =
+escola.nome;
+
+
+escolaSelect.appendChild(
+option
+);
+
+});
 
 }
 
@@ -1194,95 +1469,36 @@ async function carregarPerfil(){
    CARREGAR ALUNOS
 ===================================================== */
 
+
 async function carregarAlunos(){
 
-    let consulta;
+const snapshot =
+await getDocs(
+collection(
+db,
+"alunos"
+)
+);
 
 
-    /*
-     * ADMINISTRADOR:
-     *
-     * Busca somente os alunos
-     * da própria escola.
-     */
-
-    if(
-        dadosUsuario.perfil ===
-        "administrador"
-    ){
-
-        consulta =
-            query(
-                collection(
-                    db,
-                    "alunos"
-                ),
-                where(
-                    "escolaId",
-                    "==",
-                    escolaAtualId
-                )
-            );
-
-    }
+alunos = [];
 
 
-    /*
-     * MASTER:
-     *
-     * Pode consultar todos.
-     */
+snapshot.forEach(
+item => {
 
-    else{
+alunos.push({
 
-        consulta =
-            collection(
-                db,
-                "alunos"
-            );
+id:item.id,
 
-    }
+...item.data()
+
+});
+
+});
 
 
-    const snapshot =
-        await getDocs(
-            consulta
-        );
-
-
-    alunos = [];
-
-
-    snapshot.forEach(
-        item => {
-
-            alunos.push({
-
-                id:item.id,
-
-                ...item.data()
-
-            });
-
-        }
-    );
-
-
-    /*
-     * Ordenação local por nome.
-     */
-
-    alunos.sort(
-        (a,b) =>
-            (a.nome || "")
-            .localeCompare(
-                b.nome || "",
-                "pt-BR"
-            )
-    );
-
-
-    renderizarAlunos();
+renderizarAlunos();
 
 }
 
@@ -1291,382 +1507,332 @@ async function carregarAlunos(){
    RENDERIZAR
 ===================================================== */
 
+
 function renderizarAlunos(){
 
-    const termo =
-        pesquisa.value
-            .toLowerCase()
-            .trim();
+const termo =
+pesquisa.value
+.toLowerCase()
+.trim();
 
 
-    const filtrados =
-        alunos.filter(
-            aluno => {
+const filtrados =
+alunos.filter(
+aluno => {
 
-                const texto =
-                    (
-                        aluno.nome || ""
-                    ) +
-                    " " +
-                    (
-                        aluno.matricula || ""
-                    );
+const texto =
+
+(aluno.nome || "") +
+" " +
+(aluno.matricula || "");
 
 
-                return texto
-                    .toLowerCase()
-                    .includes(termo);
+return texto
+.toLowerCase()
+.includes(termo);
 
-            }
-        );
-
-
-    lista.innerHTML = "";
+});
 
 
-    if(!filtrados.length){
-
-        lista.innerHTML = `
-
-            <tr>
-
-                <td
-                    colspan="7"
-                    class="empty"
-                >
-                    Nenhum aluno encontrado.
-                </td>
-
-            </tr>
-
-        `;
-
-        return;
-
-    }
+lista.innerHTML = "";
 
 
-    filtrados.forEach(
-        aluno => {
+if(!filtrados.length){
 
-            const tr =
-                document.createElement(
-                    "tr"
-                );
+lista.innerHTML = `
 
+<tr>
 
-            const ativo =
-                aluno.situacao !==
-                "Inativo";
+<td
+colspan="8"
+class="empty"
+>
 
+Nenhum aluno encontrado.
 
-            tr.innerHTML = `
+</td>
 
-                <td>
-                    ${escapar(
-                        aluno.matricula
-                    )}
-                </td>
+</tr>
 
-                <td>
-                    <strong>
-                        ${escapar(
-                            aluno.nome
-                        )}
-                    </strong>
-                </td>
+`;
 
-                <td>
-                    ${escapar(
-                        aluno.dataNascimento ||
-                        "-"
-                    )}
-                </td>
+return;
 
-                <td>
-                    ${escapar(
-                        aluno.anoLetivo ||
-                        "-"
-                    )}
-                </td>
-
-                <td>
-                    ${escapar(
-                        aluno.turma ||
-                        "-"
-                    )}
-                </td>
-
-                <td>
-
-                    <span class="
-                        status
-                        ${
-                            ativo
-                            ? "active"
-                            : "inactive"
-                        }
-                    ">
-
-                        ${escapar(
-                            aluno.situacao ||
-                            "Ativo"
-                        )}
-
-                    </span>
-
-                </td>
-
-                <td>
-
-                    <div class="actions">
-
-                        <button
-                            class="btn btn-primary"
-                            data-action="editar"
-                            data-id="${aluno.id}"
-                        >
-                            Editar
-                        </button>
-
-                        <button
-                            class="btn btn-danger"
-                            data-action="excluir"
-                            data-id="${aluno.id}"
-                        >
-                            Excluir
-                        </button>
-
-                    </div>
-
-                </td>
-
-            `;
+}
 
 
-            lista.appendChild(tr);
+filtrados.forEach(
+aluno => {
 
-        }
-    );
+const escola =
+escolas.find(
+e =>
+e.id ===
+aluno.escolaId
+);
+
+
+const tr =
+document.createElement(
+"tr"
+);
+
+
+tr.innerHTML = `
+
+<td>
+
+${escapar(
+aluno.matricula
+)}
+
+</td>
+
+
+<td>
+
+<strong>
+
+${escapar(
+aluno.nome
+)}
+
+</strong>
+
+</td>
+
+
+<td>
+
+${escapar(
+escola?.nome || "-"
+)}
+
+</td>
+
+
+<td>
+
+${escapar(
+aluno.dataNascimento || "-"
+)}
+
+</td>
+
+
+<td>
+
+${escapar(
+aluno.anoLetivo || "-"
+)}
+
+</td>
+
+
+<td>
+
+${escapar(
+aluno.turma || "-"
+)}
+
+</td>
+
+
+<td>
+
+<span class="
+status
+${
+aluno.situacao === "Inativo"
+? "inactive"
+: "active"
+}
+">
+
+${escapar(
+aluno.situacao || "Ativo"
+)}
+
+</span>
+
+</td>
+
+
+<td>
+
+<div class="actions">
+
+<button
+class="btn btn-primary"
+data-action="editar"
+data-id="${aluno.id}"
+>
+Editar
+</button>
+
+
+<button
+class="btn btn-danger"
+data-action="excluir"
+data-id="${aluno.id}"
+>
+Excluir
+</button>
+
+</div>
+
+</td>
+
+`;
+
+
+lista.appendChild(
+tr
+);
+
+});
 
 }
 
 
 /* =====================================================
-   DADOS DO FORMULÁRIO
+   PEGAR FORMULÁRIO
 ===================================================== */
+
 
 function pegarDados(){
 
-    return {
+return {
 
-        matricula:
-            document
-            .getElementById("matricula")
-            .value
-            .trim(),
+escolaId:
+escolaSelect.value,
 
-        nome:
-            document
-            .getElementById("nome")
-            .value
-            .trim(),
+matricula:
+document.getElementById(
+"matricula"
+).value.trim(),
 
-        dataNascimento:
-            document
-            .getElementById("dataNascimento")
-            .value,
+nome:
+document.getElementById(
+"nome"
+).value.trim(),
 
-        sexo:
-            document
-            .getElementById("sexo")
-            .value,
+dataNascimento:
+document.getElementById(
+"dataNascimento"
+).value,
 
-        cpf:
-            document
-            .getElementById("cpf")
-            .value
-            .trim(),
+sexo:
+document.getElementById(
+"sexo"
+).value,
 
-        rg:
-            document
-            .getElementById("rg")
-            .value
-            .trim(),
+cpf:
+document.getElementById(
+"cpf"
+).value.trim(),
 
-        naturalidade:
-            document
-            .getElementById("naturalidade")
-            .value
-            .trim(),
+rg:
+document.getElementById(
+"rg"
+).value.trim(),
 
-        nacionalidade:
-            document
-            .getElementById("nacionalidade")
-            .value
-            .trim(),
+naturalidade:
+document.getElementById(
+"naturalidade"
+).value.trim(),
 
-        nomeMae:
-            document
-            .getElementById("nomeMae")
-            .value
-            .trim(),
+nacionalidade:
+document.getElementById(
+"nacionalidade"
+).value.trim(),
 
-        nomePai:
-            document
-            .getElementById("nomePai")
-            .value
-            .trim(),
+nomeMae:
+document.getElementById(
+"nomeMae"
+).value.trim(),
 
-        responsavel:
-            document
-            .getElementById("responsavel")
-            .value
-            .trim(),
+nomePai:
+document.getElementById(
+"nomePai"
+).value.trim(),
 
-        telefoneResponsavel:
-            document
-            .getElementById("telefoneResponsavel")
-            .value
-            .trim(),
+responsavel:
+document.getElementById(
+"responsavel"
+).value.trim(),
 
-        endereco:
-            document
-            .getElementById("endereco")
-            .value
-            .trim(),
+telefoneResponsavel:
+document.getElementById(
+"telefoneResponsavel"
+).value.trim(),
 
-        numero:
-            document
-            .getElementById("numero")
-            .value
-            .trim(),
+endereco:
+document.getElementById(
+"endereco"
+).value.trim(),
 
-        bairro:
-            document
-            .getElementById("bairro")
-            .value
-            .trim(),
+numero:
+document.getElementById(
+"numero"
+).value.trim(),
 
-        cidade:
-            document
-            .getElementById("cidade")
-            .value
-            .trim(),
+bairro:
+document.getElementById(
+"bairro"
+).value.trim(),
 
-        estado:
-            document
-            .getElementById("estado")
-            .value,
+cidade:
+document.getElementById(
+"cidade"
+).value.trim(),
 
-        cep:
-            document
-            .getElementById("cep")
-            .value
-            .trim(),
+estado:
+document.getElementById(
+"estado"
+).value,
 
-        telefone:
-            document
-            .getElementById("telefone")
-            .value
-            .trim(),
+cep:
+document.getElementById(
+"cep"
+).value.trim(),
 
-        email:
-            document
-            .getElementById("email")
-            .value
-            .trim(),
+telefone:
+document.getElementById(
+"telefone"
+).value.trim(),
 
-        dataMatricula:
-            document
-            .getElementById("dataMatricula")
-            .value,
+email:
+document.getElementById(
+"email"
+).value.trim(),
 
-        anoLetivo:
-            document
-            .getElementById("anoLetivo")
-            .value,
+dataMatricula:
+document.getElementById(
+"dataMatricula"
+).value,
 
-        turma:
-            document
-            .getElementById("turma")
-            .value
-            .trim(),
+anoLetivo:
+document.getElementById(
+"anoLetivo"
+).value,
 
-        situacao:
-            document
-            .getElementById("situacao")
-            .value,
+turma:
+document.getElementById(
+"turma"
+).value.trim(),
 
-        observacoes:
-            document
-            .getElementById("observacoes")
-            .value
-            .trim()
+situacao:
+document.getElementById(
+"situacao"
+).value,
 
-    };
+observacoes:
+document.getElementById(
+"observacoes"
+).value.trim()
 
-}
-
-
-/* =====================================================
-   PREENCHER FORMULÁRIO
-===================================================== */
-
-function preencherFormulario(
-    aluno
-){
-
-    const campos = {
-
-        matricula:aluno.matricula,
-        nome:aluno.nome,
-        dataNascimento:aluno.dataNascimento,
-        sexo:aluno.sexo,
-        cpf:aluno.cpf,
-        rg:aluno.rg,
-        naturalidade:aluno.naturalidade,
-        nacionalidade:aluno.nacionalidade,
-        nomeMae:aluno.nomeMae,
-        nomePai:aluno.nomePai,
-        responsavel:aluno.responsavel,
-        telefoneResponsavel:aluno.telefoneResponsavel,
-        endereco:aluno.endereco,
-        numero:aluno.numero,
-        bairro:aluno.bairro,
-        cidade:aluno.cidade,
-        estado:aluno.estado,
-        cep:aluno.cep,
-        telefone:aluno.telefone,
-        email:aluno.email,
-        dataMatricula:aluno.dataMatricula,
-        anoLetivo:aluno.anoLetivo,
-        turma:aluno.turma,
-        situacao:aluno.situacao,
-        observacoes:aluno.observacoes
-
-    };
-
-
-    Object.entries(
-        campos
-    ).forEach(
-        ([campo,valor]) => {
-
-            const elemento =
-                document.getElementById(
-                    campo
-                );
-
-            if(elemento){
-
-                elemento.value =
-                    valor ?? "";
-
-            }
-
-        }
-    );
+};
 
 }
 
@@ -1675,32 +1841,28 @@ function preencherFormulario(
    LIMPAR
 ===================================================== */
 
+
 function limparFormulario(){
 
-    form.reset();
+form.reset();
 
-    document
-        .getElementById(
-            "nacionalidade"
-        )
-        .value =
-        "Brasileira";
+alunoEditando =
+null;
 
-    document
-        .getElementById(
-            "situacao"
-        )
-        .value =
-        "Ativo";
+document.getElementById(
+"nacionalidade"
+).value =
+"Brasileira";
 
-    alunoEditando = null;
+document.getElementById(
+"situacao"
+).value =
+"Ativo";
 
-    document
-        .getElementById(
-            "formTitle"
-        )
-        .textContent =
-        "Novo Aluno";
+document.getElementById(
+"formTitle"
+).textContent =
+"Novo Aluno";
 
 }
 
@@ -1709,490 +1871,546 @@ function limparFormulario(){
    NOVO ALUNO
 ===================================================== */
 
+
 document
-    .getElementById("btnNovo")
-    .addEventListener(
-        "click",
-        () => {
+.getElementById("btnNovo")
+.addEventListener(
+"click",
+()=>{
 
-            limparFormulario();
+limparFormulario();
 
-            formBox.style.display =
-                "block";
+formBox.style.display =
+"block";
 
-            window.scrollTo({
-                top:0,
-                behavior:"smooth"
-            });
+window.scrollTo({
 
-        }
-    );
+top:0,
+
+behavior:"smooth"
+
+});
+
+});
 
 
 /* =====================================================
    CANCELAR
 ===================================================== */
 
+
 document
-    .getElementById("btnCancelar")
-    .addEventListener(
-        "click",
-        () => {
+.getElementById("btnCancelar")
+.addEventListener(
+"click",
+()=>{
 
-            limparFormulario();
+limparFormulario();
 
-            formBox.style.display =
-                "none";
+formBox.style.display =
+"none";
 
-        }
-    );
+});
 
 
 /* =====================================================
-   SALVAR
+   SALVAR ALUNO
 ===================================================== */
 
+
 form.addEventListener(
-    "submit",
-    async event => {
+"submit",
+async event => {
 
-        event.preventDefault();
-
-
-        const dados =
-            pegarDados();
+event.preventDefault();
 
 
-        if(
-            !dados.matricula ||
-            !dados.nome
-        ){
-
-            mostrarMensagem(
-                "Informe a matrícula e o nome do aluno.",
-                "error"
-            );
-
-            return;
-
-        }
+const dados =
+pegarDados();
 
 
-        try{
+if(!dados.escolaId){
 
-            /*
-             * ADMINISTRADOR:
-             *
-             * O escolaId é sempre
-             * obtido do perfil.
-             */
-
-            if(
-                dadosUsuario.perfil ===
-                "administrador"
-            ){
-
-                dados.escolaId =
-                    escolaAtualId;
-
-            }
-
-
-            /*
-             * MASTER:
-             *
-             * Para o Master vamos exigir
-             * que uma escola seja definida
-             * posteriormente através de
-             * uma seleção própria.
-             *
-             * Por segurança, nesta primeira
-             * versão o Master não poderá
-             * criar aluno sem escola.
-             */
-
-            if(
-                dadosUsuario.perfil ===
-                "master"
-                &&
-                !dados.escolaId
-            ){
-
-                /*
-                 * Para não colocar uma escola
-                 * arbitrariamente, pedimos que
-                 * o cadastro seja feito pelo
-                 * administrador da escola.
-                 */
-
-                mostrarMensagem(
-                    "O cadastro de aluno pelo Master será habilitado na próxima etapa com seleção da escola.",
-                    "error"
-                );
-
-                return;
-
-            }
-
-
-            if(alunoEditando){
-
-                /*
-                 * Mantém o escolaId existente.
-                 */
-
-                const alunoOriginal =
-                    alunos.find(
-                        item =>
-                            item.id ===
-                            alunoEditando
-                    );
-
-
-                if(
-                    dadosUsuario.perfil ===
-                    "administrador"
-                ){
-
-                    if(
-                        !alunoOriginal ||
-                        alunoOriginal.escolaId !==
-                        escolaAtualId
-                    ){
-
-                        mostrarMensagem(
-                            "Você não pode editar este aluno.",
-                            "error"
-                        );
-
-                        return;
-
-                    }
-
-                }
-
-
-                await updateDoc(
-
-                    doc(
-                        db,
-                        "alunos",
-                        alunoEditando
-                    ),
-
-                    dados
-
-                );
-
-
-                mostrarMensagem(
-                    "Aluno atualizado com sucesso."
-                );
-
-            }
-
-            else{
-
-                dados.criadoEm =
-                    serverTimestamp();
-
-
-                await addDoc(
-
-                    collection(
-                        db,
-                        "alunos"
-                    ),
-
-                    dados
-
-                );
-
-
-                mostrarMensagem(
-                    "Aluno cadastrado com sucesso."
-                );
-
-            }
-
-
-            limparFormulario();
-
-            formBox.style.display =
-                "none";
-
-
-            await carregarAlunos();
-
-
-        }catch(error){
-
-            console.error(error);
-
-            mostrarMensagem(
-                "Erro ao salvar aluno: " +
-                error.message,
-                "error"
-            );
-
-        }
-
-    }
+mostrarMensagem(
+"Selecione a escola.",
+"error"
 );
+
+return;
+
+}
+
+
+if(!dados.matricula){
+
+mostrarMensagem(
+"Digite a matrícula.",
+"error"
+);
+
+return;
+
+}
+
+
+if(!dados.nome){
+
+mostrarMensagem(
+"Digite o nome do aluno.",
+"error"
+);
+
+return;
+
+}
+
+
+try{
+
+
+/*
+ * VERIFICA DUPLICIDADE
+ */
+
+
+const matriculaExistente =
+alunos.find(
+aluno =>
+
+aluno.escolaId ===
+dados.escolaId
+
+&&
+
+String(
+aluno.matricula
+)
+.toLowerCase()
+
+===
+
+String(
+dados.matricula
+)
+.toLowerCase()
+
+&&
+
+aluno.id !==
+alunoEditando
+);
+
+
+if(matriculaExistente){
+
+mostrarMensagem(
+"Esta matrícula já existe nesta escola.",
+"error"
+);
+
+return;
+
+}
+
+
+/*
+ * SALVAR
+ */
+
+
+if(alunoEditando){
+
+await updateDoc(
+
+doc(
+db,
+"alunos",
+alunoEditando
+),
+
+dados
+
+);
+
+
+mostrarMensagem(
+"Aluno atualizado com sucesso."
+);
+
+}else{
+
+
+await addDoc(
+
+collection(
+db,
+"alunos"
+),
+
+{
+
+...dados,
+
+criadoPor:
+usuarioAtual.uid,
+
+criadoEm:
+serverTimestamp()
+
+}
+
+);
+
+
+mostrarMensagem(
+"Aluno cadastrado com sucesso."
+);
+
+}
+
+
+limparFormulario();
+
+formBox.style.display =
+"none";
+
+
+await carregarAlunos();
+
+
+}catch(error){
+
+console.error(error);
+
+mostrarMensagem(
+
+"Erro ao salvar aluno: " +
+error.message,
+
+"error"
+
+);
+
+}
+
+});
 
 
 /* =====================================================
    PESQUISA
 ===================================================== */
 
+
 pesquisa.addEventListener(
-    "input",
-    renderizarAlunos
+"input",
+renderizarAlunos
 );
 
 
 /* =====================================================
-   AÇÕES
+   EDITAR / EXCLUIR
 ===================================================== */
+
 
 lista.addEventListener(
-    "click",
-    async event => {
+"click",
+async event => {
 
-        const botao =
-            event.target.closest(
-                "button"
-            );
+const botao =
+event.target.closest(
+"button"
+);
 
-        if(!botao)
-            return;
-
-
-        const id =
-            botao.dataset.id;
-
-        const action =
-            botao.dataset.action;
+if(!botao)
+return;
 
 
-        const aluno =
-            alunos.find(
-                item =>
-                    item.id === id
-            );
+const id =
+botao.dataset.id;
 
 
-        if(!aluno)
-            return;
+const action =
+botao.dataset.action;
 
 
-        /* EDITAR */
-
-        if(
-            action ===
-            "editar"
-        ){
-
-            /*
-             * Segurança adicional
-             * no lado do cliente.
-             */
-
-            if(
-                dadosUsuario.perfil ===
-                "administrador"
-                &&
-                aluno.escolaId !==
-                escolaAtualId
-            ){
-
-                mostrarMensagem(
-                    "Você não pode editar este aluno.",
-                    "error"
-                );
-
-                return;
-
-            }
-
-
-            alunoEditando =
-                id;
-
-
-            preencherFormulario(
-                aluno
-            );
-
-
-            document
-                .getElementById(
-                    "formTitle"
-                )
-                .textContent =
-                "Editar Aluno";
-
-
-            formBox.style.display =
-                "block";
-
-
-            window.scrollTo({
-                top:0,
-                behavior:"smooth"
-            });
-
-        }
-
-
-        /* EXCLUIR */
-
-        if(
-            action ===
-            "excluir"
-        ){
-
-            const confirmar =
-                confirm(
-                    "Deseja realmente excluir este aluno?"
-                );
-
-
-            if(!confirmar)
-                return;
-
-
-            try{
-
-                /*
-                 * Segurança adicional.
-                 */
-
-                if(
-                    dadosUsuario.perfil ===
-                    "administrador"
-                    &&
-                    aluno.escolaId !==
-                    escolaAtualId
-                ){
-
-                    mostrarMensagem(
-                        "Você não pode excluir este aluno.",
-                        "error"
-                    );
-
-                    return;
-
-                }
-
-
-                await deleteDoc(
-
-                    doc(
-                        db,
-                        "alunos",
-                        id
-                    )
-
-                );
-
-
-                mostrarMensagem(
-                    "Aluno excluído com sucesso."
-                );
-
-
-                await carregarAlunos();
-
-
-            }catch(error){
-
-                console.error(error);
-
-                mostrarMensagem(
-                    "Erro ao excluir aluno: " +
-                    error.message,
-                    "error"
-                );
-
-            }
-
-        }
-
-    }
+const aluno =
+alunos.find(
+item =>
+item.id === id
 );
 
 
-/* =====================================================
-   AUTENTICAÇÃO
-===================================================== */
-
-onAuthStateChanged(
-    auth,
-    async user => {
-
-        if(!user){
-
-            alert(
-                "Você precisa estar logado."
-            );
-
-            window.location.href =
-                "index.html";
-
-            return;
-
-        }
+if(!aluno)
+return;
 
 
-        usuarioAtual =
-            user;
+/*
+ * EDITAR
+ */
 
 
-        try{
+if(action === "editar"){
 
-            await carregarPerfil();
+alunoEditando =
+id;
 
-            await carregarAlunos();
 
-        }catch(error){
+document.getElementById(
+"escolaId"
+).value =
+aluno.escolaId || "";
 
-            console.error(error);
 
-            schoolInfo.textContent =
-                "⛔ " + error.message;
+document.getElementById(
+"matricula"
+).value =
+aluno.matricula || "";
 
-            mostrarMensagem(
-                error.message,
-                "error"
-            );
 
-            document
-                .getElementById(
-                    "btnNovo"
-                )
-                .style.display =
-                "none";
+document.getElementById(
+"nome"
+).value =
+aluno.nome || "";
 
-        }
 
-    }
+document.getElementById(
+"dataNascimento"
+).value =
+aluno.dataNascimento || "";
+
+
+document.getElementById(
+"sexo"
+).value =
+aluno.sexo || "";
+
+
+document.getElementById(
+"cpf"
+).value =
+aluno.cpf || "";
+
+
+document.getElementById(
+"rg"
+).value =
+aluno.rg || "";
+
+
+document.getElementById(
+"naturalidade"
+).value =
+aluno.naturalidade || "";
+
+
+document.getElementById(
+"nacionalidade"
+).value =
+aluno.nacionalidade ||
+"Brasileira";
+
+
+document.getElementById(
+"nomeMae"
+).value =
+aluno.nomeMae || "";
+
+
+document.getElementById(
+"nomePai"
+).value =
+aluno.nomePai || "";
+
+
+document.getElementById(
+"responsavel"
+).value =
+aluno.responsavel || "";
+
+
+document.getElementById(
+"telefoneResponsavel"
+).value =
+aluno.telefoneResponsavel || "";
+
+
+document.getElementById(
+"endereco"
+).value =
+aluno.endereco || "";
+
+
+document.getElementById(
+"numero"
+).value =
+aluno.numero || "";
+
+
+document.getElementById(
+"bairro"
+).value =
+aluno.bairro || "";
+
+
+document.getElementById(
+"cidade"
+).value =
+aluno.cidade || "";
+
+
+document.getElementById(
+"estado"
+).value =
+aluno.estado || "";
+
+
+document.getElementById(
+"cep"
+).value =
+aluno.cep || "";
+
+
+document.getElementById(
+"telefone"
+).value =
+aluno.telefone || "";
+
+
+document.getElementById(
+"email"
+).value =
+aluno.email || "";
+
+
+document.getElementById(
+"dataMatricula"
+).value =
+aluno.dataMatricula || "";
+
+
+document.getElementById(
+"anoLetivo"
+).value =
+aluno.anoLetivo || "";
+
+
+document.getElementById(
+"turma"
+).value =
+aluno.turma || "";
+
+
+document.getElementById(
+"situacao"
+).value =
+aluno.situacao ||
+"Ativo";
+
+
+document.getElementById(
+"observacoes"
+).value =
+aluno.observacoes || "";
+
+
+document.getElementById(
+"formTitle"
+).textContent =
+"Editar Aluno";
+
+
+formBox.style.display =
+"block";
+
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+}
+
+
+/*
+ * EXCLUIR
+ */
+
+
+if(action === "excluir"){
+
+const confirmar =
+confirm(
+
+"Tem certeza que deseja excluir o aluno?\n\n" +
+aluno.nome
+
 );
 
 
+if(!confirmar)
+return;
+
+
+try{
+
+await deleteDoc(
+
+doc(
+db,
+"alunos",
+id
+)
+
+);
+
+
+mostrarMensagem(
+"Aluno excluído com sucesso."
+);
+
+
+await carregarAlunos();
+
+
+}catch(error){
+
+console.error(error);
+
+mostrarMensagem(
+"Erro ao excluir aluno: " +
+error.message,
+"error"
+);
+
+}
+
+}
+
+});
+
+
 /* =====================================================
-   VOLTAR
+   PAINEL
 ===================================================== */
 
-window.voltarPainel =
-    function(){
 
-        window.location.href =
-            "index.html";
+document
+.getElementById("btnPainel")
+.addEventListener(
+"click",
+()=>{
 
-    };
+window.location.href =
+"index.html";
+
+});
+
 
 </script>
 
 </body>
-</html>
+
+    </html>
